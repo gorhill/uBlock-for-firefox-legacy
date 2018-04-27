@@ -599,6 +599,10 @@
     "message": "Tugi",
     "description": "A link for where to get support"
   },
+  "aboutIssues":{
+    "message":"Vigade loend",
+    "description":"Text for a link to official issue tracker"
+  },
   "aboutCode": {
     "message": "Lähtekood (GPLv3)",
     "description": "English: Source code (GPLv3)"

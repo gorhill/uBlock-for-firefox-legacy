@@ -599,6 +599,10 @@
     "message": "Palaikymas",
     "description": "A link for where to get support"
   },
+  "aboutIssues":{
+    "message":"Klaidų sekimo sistema",
+    "description":"Text for a link to official issue tracker"
+  },
   "aboutCode": {
     "message": "Pirminis tekstas (GPLv3)",
     "description": "English: Source code (GPLv3)"

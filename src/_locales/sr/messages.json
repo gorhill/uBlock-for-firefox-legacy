@@ -599,6 +599,10 @@
     "message": "Подршка",
     "description": "A link for where to get support"
   },
+  "aboutIssues":{
+    "message":"Пратилац проблема",
+    "description":"Text for a link to official issue tracker"
+  },
   "aboutCode": {
     "message": "Изворни код (GPLv3)",
     "description": "English: Source code (GPLv3)"

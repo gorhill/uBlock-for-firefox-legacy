@@ -599,6 +599,10 @@
     "message": "Ondersteuning",
     "description": "A link for where to get support"
   },
+  "aboutIssues":{
+    "message":"Probleemtracker",
+    "description":"Text for a link to official issue tracker"
+  },
   "aboutCode": {
     "message": "Broncode (GPLv3)",
     "description": "English: Source code (GPLv3)"
