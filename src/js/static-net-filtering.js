@@ -1223,6 +1223,10 @@ FilterPair.prototype.remove = function(fdata) {
     if ( arrayStrictEquals(this.f1.compile(), fdata) === true ) {
         this.f1 = this.f2;
     }
+    // https://github.com/uBlockOrigin/uBlock-issues/issues/84
+    if ( this.f1 === undefined ) {
+        console.log(JSON.stringify(fdata));
+    }
 };
 
 FilterPair.prototype.match = function(url, tokenBeg) {
@@ -1247,9 +1251,15 @@ FilterPair.prototype.compile = function() {
 
 FilterPair.prototype.upgrade = function(a) {
     var bucket = new FilterBucket(this.f1, this.f2, a);
-    this.f1 = this.f2 = this.f = null;
+    this.f1 = this.f2 = undefined;
+    this.f = null;
     FilterPair.available = this;
     return bucket;
+};
+
+FilterPair.prototype.downgrade = function() {
+    if ( this.f2 !== undefined ) { return this; }
+    if ( this.f1 !== undefined ) { return this.f1; }
 };
 
 FilterPair.load = function(args) {
@@ -1347,7 +1357,11 @@ FilterBucket.prototype.compile = function() {
 };
 
 FilterBucket.prototype.downgrade = function() {
-    return new FilterPair(this.filters[0], this.filters[1]);
+    if ( this.filters.length > 2 ) { return this; }
+    if ( this.filters.length === 2 ) {
+        return new FilterPair(this.filters[0], this.filters[1]);
+    }
+    if ( this.filters.length === 1 ) { return this.filters[0]; }
 };
 
 FilterBucket.load = function(args) {
@@ -2400,36 +2414,24 @@ FilterContainer.prototype.removeBadFilters = function() {
         entry = bucket.get(tokenHash);
         if ( entry === undefined ) { continue; }
         fdata = args[2];
-        if ( entry.fid === filterPairId ) {
+        if ( entry.fid === filterPairId || entry.fid === filterBucketId ) {
             entry.remove(fdata);
-            if ( entry.size === 1 ) {
-                bucket.set(tokenHash, entry.f1);
+            entry = entry.downgrade();
+            if ( entry !== undefined ) {
+                bucket.set(tokenHash, entry);
+            } else {
+                bucket.delete(tokenHash);
             }
-            continue;
-        }
-        if ( entry.fid === filterBucketId ) {
-            entry.remove(fdata);
-            if ( entry.size === 2 ) {
-                bucket.set(tokenHash, entry.downgrade());
-            }
-            continue;
-        }
-        if ( entry.fid === filterHostnameDictId ) {
+        } else if ( entry.fid === filterHostnameDictId ) {
             entry.remove(fdata);
             if ( entry.size === 0 ) {
                 bucket.delete(tokenHash);
-                if ( bucket.size === 0 ) {
-                    this.categories.delete(bits);
-                }
             }
-            continue;
-        }
-        if ( arrayStrictEquals(entry.compile(), fdata) === true ) {
+        } else if ( arrayStrictEquals(entry.compile(), fdata) ) {
             bucket.delete(tokenHash);
-            if ( bucket.size === 0 ) {
-                this.categories.delete(bits);
-            }
-            continue;
+        }
+        if ( bucket.size === 0 ) {
+            this.categories.delete(bits);
         }
     }
 };
