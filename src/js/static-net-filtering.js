@@ -1987,7 +1987,10 @@ FilterContainer.prototype.freeze = function() {
         unserialize = µb.CompiledLineIO.unserialize;
 
     for ( let line of this.goodFilters ) {
-        if ( this.badFilters.has(line) ) { continue; }
+        if ( this.badFilters.has(line) ) {
+            this.discardedCount += 1;
+            continue;
+        }
 
         let args = unserialize(line);
         let bits = args[0];
@@ -2296,12 +2299,12 @@ FilterContainer.prototype.fromCompiledContent = function(reader) {
     // 0 = network filters
     reader.select(0);
     while ( reader.next() ) {
+        this.acceptedCount += 1;
         if ( this.goodFilters.has(reader.line) ) {
             this.discardedCount += 1;
-            continue;
+        } else {
+            this.goodFilters.add(reader.line);
         }
-        this.goodFilters.add(reader.line);
-        this.acceptedCount += 1;
     }
 
     // 1 = network filters: bad filters
@@ -2311,12 +2314,12 @@ FilterContainer.prototype.fromCompiledContent = function(reader) {
     // incrementally add filters (through "Block element" for example).
     reader.select(1);
     while ( reader.next() ) {
+        this.acceptedCount += 1;
         if ( this.badFilters.has(reader.line) ) {
             this.discardedCount += 1;
-            continue;
+        } else {
+            this.badFilters.add(µb.orphanizeString(reader.line));
         }
-        this.badFilters.add(µb.orphanizeString(reader.line));
-        this.acceptedCount += 1;
     }
 };
 
@@ -2500,20 +2503,20 @@ FilterContainer.prototype.matchStringExactType = function(context, requestURL, r
     if ( requestType === 'generichide' ) {
         return this.matchStringGenericHide(context, requestURL);
     }
-    var type = typeNameToTypeValue[requestType];
-    if ( type === undefined ) {
-        return 0;
-    }
+    let type = typeNameToTypeValue[requestType];
+    if ( type === undefined ) { return 0; }
 
     // Prime tokenizer: we get a normalized URL in return.
-    var url = this.urlTokenizer.setURL(requestURL);
+    let url = this.urlTokenizer.setURL(requestURL);
 
     // These registers will be used by various filters
     pageHostnameRegister = context.pageHostname || '';
     requestHostnameRegister = µb.URI.hostnameFromURI(url);
 
-    var party = isFirstParty(context.pageDomain, requestHostnameRegister) ? FirstParty : ThirdParty,
-        categories = this.categories,
+    let party = isFirstParty(context.pageDomain, requestHostnameRegister)
+        ? FirstParty
+        : ThirdParty;
+    let categories = this.categories,
         catBits, bucket;
 
     this.fRegister = null;
