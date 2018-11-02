@@ -611,6 +611,10 @@
     "message": "المساهمين",
     "description": "English: Contributors"
   },
+  "aboutDependencies":{
+    "message":"الإعتماديات الخارجية (متوافقة مع GPLv3):",
+    "description":"Shown in the About pane"
+  },
   "aboutBackupDataButton": {
     "message": "النسخ الإحتياطي لملف",
     "description": "Text for button to create a backup of all settings"

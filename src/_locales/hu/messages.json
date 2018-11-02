@@ -611,6 +611,10 @@
     "message": "Közreműködők",
     "description": "English: Contributors"
   },
+  "aboutDependencies":{
+    "message":"Külső függőségek (GPLv3-kompatibilis):",
+    "description":"Shown in the About pane"
+  },
   "aboutBackupDataButton": {
     "message": "Biztonsági mentés fájlba...",
     "description": "Text for button to create a backup of all settings"

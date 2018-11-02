@@ -611,6 +611,10 @@
     "message": "Contribuitori",
     "description": "English: Contributors"
   },
+  "aboutDependencies":{
+    "message":"Dependențe externe (compatibile GPLv3):",
+    "description":"Shown in the About pane"
+  },
   "aboutBackupDataButton": {
     "message": "Copie de siguranță în fișier",
     "description": "Text for button to create a backup of all settings"

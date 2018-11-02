@@ -611,6 +611,10 @@
     "message": "Talkininkai",
     "description": "English: Contributors"
   },
+  "aboutDependencies":{
+    "message":"Išorinės priklausomybės (suderinamos su „GPLv3“):",
+    "description":"Shown in the About pane"
+  },
   "aboutBackupDataButton": {
     "message": "Padaryti atsarginę kopiją į failą",
     "description": "Text for button to create a backup of all settings"

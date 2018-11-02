@@ -611,6 +611,10 @@
     "message": "기여자",
     "description": "English: Contributors"
   },
+  "aboutDependencies":{
+    "message":"외부 종속성 (GPLv3 호환):",
+    "description":"Shown in the About pane"
+  },
   "aboutBackupDataButton": {
     "message": "파일로 백업하기",
     "description": "Text for button to create a backup of all settings"

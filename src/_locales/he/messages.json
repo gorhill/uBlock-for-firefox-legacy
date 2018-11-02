@@ -611,6 +611,10 @@
     "message": "תורמים",
     "description": "English: Contributors"
   },
+  "aboutDependencies":{
+    "message":"תלויות חיצוניות (תואם-GPLv3):",
+    "description":"Shown in the About pane"
+  },
   "aboutBackupDataButton": {
     "message": "גבה לקובץ",
     "description": "Text for button to create a backup of all settings"

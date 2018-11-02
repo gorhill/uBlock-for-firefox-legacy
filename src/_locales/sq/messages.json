@@ -611,6 +611,10 @@
     "message": "Kontributorët",
     "description": "English: Contributors"
   },
+  "aboutDependencies":{
+    "message":"Programe kushtëzuese (sipas GPLv3):",
+    "description":"Shown in the About pane"
+  },
   "aboutBackupDataButton": {
     "message": "Kopjoj në skedar",
     "description": "Text for button to create a backup of all settings"

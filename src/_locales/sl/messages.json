@@ -611,6 +611,10 @@
     "message": "Razvijalci",
     "description": "English: Contributors"
   },
+  "aboutDependencies":{
+    "message":"Zunanje odvisnosti (GPLv3-kompatibilne):",
+    "description":"Shown in the About pane"
+  },
   "aboutBackupDataButton": {
     "message": "Naredi varnostno kopijo v datoteko",
     "description": "Text for button to create a backup of all settings"

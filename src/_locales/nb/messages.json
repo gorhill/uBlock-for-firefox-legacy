@@ -611,6 +611,10 @@
     "message": "Bidragsytere",
     "description": "English: Contributors"
   },
+  "aboutDependencies":{
+    "message":"Eksterne avhengigheter (GPLv3-kompatible):",
+    "description":"Shown in the About pane"
+  },
   "aboutBackupDataButton": {
     "message": "Sikkerhetskopier til fil",
     "description": "Text for button to create a backup of all settings"

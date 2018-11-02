@@ -611,6 +611,10 @@
     "message": "Những người đóng góp",
     "description": "English: Contributors"
   },
+  "aboutDependencies":{
+    "message":"Các phụ thuộc bên ngoài (tương thích GPLv3):",
+    "description":"Shown in the About pane"
+  },
   "aboutBackupDataButton": {
     "message": "Sao lưu vào tập tin...",
     "description": "Text for button to create a backup of all settings"

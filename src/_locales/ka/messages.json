@@ -611,6 +611,10 @@
     "message": "დამხმარეები",
     "description": "English: Contributors"
   },
+  "aboutDependencies":{
+    "message":"ცალკეული დაქვემდებარებული პროექტები (GPLv3-თან თავსებადი):",
+    "description":"Shown in the About pane"
+  },
   "aboutBackupDataButton": {
     "message": "ფაილში დამარქაფება",
     "description": "Text for button to create a backup of all settings"

@@ -611,6 +611,10 @@
     "message": "Kontributor",
     "description": "English: Contributors"
   },
+  "aboutDependencies":{
+    "message":"Dependensi eksternal (kompatibel GPLv3):",
+    "description":"Shown in the About pane"
+  },
   "aboutBackupDataButton": {
     "message": "Cadangkan ke berkas",
     "description": "Text for button to create a backup of all settings"

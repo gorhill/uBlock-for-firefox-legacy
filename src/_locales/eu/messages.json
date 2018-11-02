@@ -611,6 +611,10 @@
     "message": "Parte-hartzaileak",
     "description": "English: Contributors"
   },
+  "aboutDependencies":{
+    "message":"Kanpo menpekotasunak (GPLv3 lizentziarekin bateragarriak):",
+    "description":"Shown in the About pane"
+  },
   "aboutBackupDataButton": {
     "message": "Egin babeskopia fitxategian",
     "description": "Text for button to create a backup of all settings"
