@@ -200,21 +200,6 @@
             entity = request.entity,
             entries, entry;
 
-        // https://github.com/gorhill/uBlock/issues/1954
-        // Implicit
-        var hn = hostname;
-        for (;;) {
-            lookupScriptlet(hn + '.js', reng, scriptletsRegister);
-            if ( hn === domain ) { break; }
-            var pos = hn.indexOf('.');
-            if ( pos === -1 ) { break; }
-            hn = hn.slice(pos + 1);
-        }
-        if ( entity !== '' ) {
-            lookupScriptlet(entity + '.js', reng, scriptletsRegister);
-        }
-
-        // Explicit
         entries = [];
         if ( domain !== '' ) {
             scriptletDB.retrieve(domain, hostname, entries);
@@ -228,7 +213,7 @@
         if ( scriptletsRegister.size === 0 ) { return; }
 
         // Collect exception filters.
-        entries = [];
+        entries.length = 0;
         if ( domain !== '' ) {
             scriptletDB.retrieve('!' + domain, hostname, entries);
             scriptletDB.retrieve('!' + entity, entity, entries);
