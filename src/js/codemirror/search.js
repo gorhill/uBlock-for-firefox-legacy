@@ -156,7 +156,7 @@
         return cm.getSearchCursor(
             query,
             pos,
-            {caseFold: queryCaseInsensitive(query), multiline: true}
+            { caseFold: queryCaseInsensitive(query), multiline: false }
         );
     }
 
@@ -203,7 +203,8 @@
             }
             state.annotate = cm.showMatchesOnScrollbar(
                 state.query,
-                queryCaseInsensitive(state.query)
+                queryCaseInsensitive(state.query),
+                { multiline: false }
             );
             let count = state.annotate.matches.length;
             state.widget
