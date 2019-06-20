@@ -448,6 +448,21 @@ vAPI.DOMFilterer = (function() {
         }
     };
 
+    const PSelectorMinTextLengthTask = class {
+        constructor(task) {
+            this.min = task[1];
+        }
+        exec(input) {
+            const output = [];
+            for ( const node of input ) {
+                if ( node.textContent.length >= this.min ) {
+                    output.push(node);
+                }
+            }
+            return output;
+        }
+    };
+
     const PSelectorNthAncestorTask = class {
         constructor(task) {
             this.nth = task[1];
@@ -566,6 +581,7 @@ vAPI.DOMFilterer = (function() {
                     [ ':matches-css', PSelectorMatchesCSSTask ],
                     [ ':matches-css-after', PSelectorMatchesCSSAfterTask ],
                     [ ':matches-css-before', PSelectorMatchesCSSBeforeTask ],
+                    [ ':min-text-length', PSelectorMinTextLengthTask ],
                     [ ':not', PSelectorIfNotTask ],
                     [ ':nth-ancestor', PSelectorNthAncestorTask ],
                     [ ':spath', PSelectorSpathTask ],
