@@ -169,6 +169,7 @@
                 'min-text-length',
                 'not',
                 'nth-ancestor',
+                'watch-attr',
                 'watch-attrs',
                 'xpath'
                 ].join('|'),
@@ -281,6 +282,7 @@
             [ ':-abp-contains', ':has-text' ],
             [ ':-abp-has', ':has' ],
             [ ':contains', ':has-text' ],
+            [ ':watch-attrs', ':watch-attr' ],
         ]);
 
         const compileArgument = new Map([
@@ -295,7 +297,7 @@
             [ ':not', compileNotSelector ],
             [ ':nth-ancestor', compileNthAncestorSelector ],
             [ ':spath', compileSpathExpression ],
-            [ ':watch-attrs', compileAttrList ],
+            [ ':watch-attr', compileAttrList ],
             [ ':xpath', compileXpathExpression ]
         ]);
 
@@ -352,7 +354,7 @@
                     break;
                 case ':min-text-length':
                 case ':nth-ancestor':
-                case ':watch-attrs':
+                case ':watch-attr':
                 case ':xpath':
                     raw.push(`${task[0]}(${task[1]})`);
                     break;
