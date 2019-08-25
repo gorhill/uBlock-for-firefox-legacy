@@ -891,8 +891,10 @@
             if ( target ) { expr = expr.slice(1); }
             var token = this.processDirectives.tokens.get(expr);
             var startDiscard =
+                token === 'false' &&
+                    target === false ||
                 token !== undefined &&
-                vAPI.webextFlavor.soup.has(token) === target;
+                    vAPI.webextFlavor.soup.has(token) === target;
             if ( discard === false && startDiscard ) {
                 parts.push(content.slice(beg, match.index));
                 discard = true;
@@ -930,7 +932,8 @@
     [ 'env_mobile', 'mobile' ],
     [ 'env_safari', 'safari' ],
     [ 'cap_html_filtering', 'html_filtering' ],
-    [ 'cap_user_stylesheet', 'user_stylesheet' ]
+    [ 'cap_user_stylesheet', 'user_stylesheet' ],
+    [ 'false', 'false' ]
 ]);
 
 /******************************************************************************/
