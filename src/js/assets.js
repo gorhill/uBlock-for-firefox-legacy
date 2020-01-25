@@ -265,6 +265,7 @@ api.fetchFilterList.toParsedURL = function(url) {
 api.fetchFilterList.legacy = {
     mapFilters: [
         // uBlock filters
+        '^assets/ublock/',
         'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/',
         // Fanboy’s Enhanced Tracking List
         'https://www.fanboy.co.nz/enhancedstats.txt',
