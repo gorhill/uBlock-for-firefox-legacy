@@ -875,36 +875,46 @@
 
 µBlock.processDirectives = function(content) {
     var reIf = /^!#(if|endif)\b([^\n]*)/gm,
+        stack = [],
+        shouldDiscard = ( ) => stack.some(v => v),
         parts = [],
-        beg = 0, depth = 0, discard = false;
+        beg = 0, discard = false;
+
     while ( beg < content.length ) {
         var match = reIf.exec(content);
         if ( match === null ) { break; }
-        if ( match[1] === 'if' ) {
+
+        switch ( match[1] ) {
+        case 'if':
             var expr = match[2].trim();
-            var target = expr.startsWith('!');
+            var target = expr.charCodeAt(0) === 0x21 /* '!' */;
             if ( target ) { expr = expr.slice(1); }
             var token = this.processDirectives.tokens.get(expr);
-            if (
-                depth === 0 &&
-                discard === false &&
+            var startDiscard =
                 token !== undefined &&
-                vAPI.webextFlavor.soup.has(token) === target
-            ) {
+                vAPI.webextFlavor.soup.has(token) === target;
+            if ( discard === false && startDiscard ) {
                 parts.push(content.slice(beg, match.index));
                 discard = true;
             }
-            depth += 1;
-            continue;
-        }
-        depth -= 1;
-        if ( depth < 0 ) { break; }
-        if ( depth === 0 && discard ) {
-            beg = match.index + match[0].length + 1;
-            discard = false;
+            stack.push(startDiscard);
+            break;
+
+        case 'endif':
+            stack.pop();
+            var stopDiscard = shouldDiscard() === false;
+            if ( discard && stopDiscard ) {
+                beg = match.index + match[0].length + 1;
+                discard = false;
+            }
+            break;
+
+        default:
+            break;
         }
     }
-    if ( depth === 0 && parts.length !== 0 ) {
+
+    if ( stack.length === 0 && parts.length !== 0 ) {
         parts.push(content.slice(beg));
         content = parts.join('\n');
     }
