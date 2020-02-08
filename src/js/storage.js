@@ -926,6 +926,7 @@
     [ 'env_chromium', 'chromium' ],
     [ 'env_edge', 'edge' ],
     [ 'env_firefox', 'firefox' ],
+    [ 'env_legacy', 'legacy' ],
     [ 'env_mobile', 'mobile' ],
     [ 'env_safari', 'safari' ],
     [ 'cap_html_filtering', 'html_filtering' ],
