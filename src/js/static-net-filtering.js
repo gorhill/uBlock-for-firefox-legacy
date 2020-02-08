@@ -1604,14 +1604,6 @@ FilterParser.prototype.translate = function() {
         this.types = dataTypeBit;
         this.dataType = 'csp';
         this.dataStr = "connect-src https: http:";
-        // https://bugs.chromium.org/p/chromium/issues/detail?id=669086
-        // TODO: remove when most users are beyond Chromium v56
-        if (
-            vAPI.webextFlavor.soup.has('chromium') &&
-            vAPI.webextFlavor.major < 57
-        ) {
-            this.dataStr += '; frame-src *';
-        }
         return;
     }
 
