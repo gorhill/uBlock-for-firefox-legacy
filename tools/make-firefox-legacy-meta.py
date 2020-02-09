@@ -85,8 +85,7 @@ with open(version_filepath) as f:
     version = f.read().strip()
     manifest['version'] = version
 
-manifest['homepage'] = 'https://github.com/gorhill/uBlock-for-firefox-legacy'
-manifest['update'] = 'https://raw.githubusercontent.com/gorhill/uBlock-for-firefox-legacy/master/dist/update/update.xml'
+manifest['homepage'] = 'https://github.com/gorhill/uBlock'
 manifest['description'] = descriptions['en']
 del descriptions['en']
 
@@ -113,11 +112,3 @@ with open(install_rdf, 'r+t', encoding='utf-8', newline='\n') as f:
     install_rdf = f.read()
     f.seek(0)
     f.write(install_rdf.format(**manifest))
-
-# update update.xml
-
-update_tpl = pj(proj_dir, 'dist', 'update', 'update.template.xml')
-update_xml = pj(proj_dir, 'dist', 'update', 'update.xml')
-with open(update_tpl, 'r', encoding='utf-8', newline='\n') as t:
-    with open(update_xml, 'w', encoding='utf-8', newline='\n') as u:
-        u.write(t.read().format(version))
