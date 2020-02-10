@@ -54,7 +54,7 @@ elif [ -n "$1" ]; then
     pushd $DES > /dev/null
     zip ../uBlock0.firefox-legacy.xpi -qr *
     popd > /dev/null
-    mv "$BLDIR"/uBlock0.firefox-legacy.xpi "$BLDIR"/uBlock0_"$1".firefox.xpi
+    mv "$BLDIR"/uBlock0.firefox-legacy.xpi "$BLDIR"/uBlock0_"$1".firefox-legacy.xpi
 fi
 
 echo "*** uBlock0.firefox-legacy: Package done."
