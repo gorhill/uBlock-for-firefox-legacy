@@ -4,7 +4,8 @@
 
 echo "*** uBlock0.firefox-legacy: Copying files"
 
-DES=dist/build/uBlock0.firefox-legacy
+BLDIR=dist/build
+DES="$BLDIR"/uBlock0.firefox-legacy
 rm -rf $DES
 mkdir -p $DES
 
@@ -44,11 +45,16 @@ echo "*** uBlock0.firefox-legacy: Generating meta..."
 python tools/make-firefox-legacy-meta.py $DES/
 
 if [ "$1" = all ]; then
-    set +v
     echo "*** uBlock0.firefox-legacy: Creating package..."
-    pushd $DES/ > /dev/null
+    pushd $DES > /dev/null
     zip ../uBlock0.firefox-legacy.xpi -qr *
     popd > /dev/null
+elif [ -n "$1" ]; then
+    echo "*** uBlock0.firefox-legacy: Creating versioned package..."
+    pushd $DES > /dev/null
+    zip ../uBlock0.firefox-legacy.xpi -qr *
+    popd > /dev/null
+    mv "$BLDIR"/uBlock0.firefox-legacy.xpi "$BLDIR"/uBlock0_"$1".firefox.xpi
 fi
 
 echo "*** uBlock0.firefox-legacy: Package done."
