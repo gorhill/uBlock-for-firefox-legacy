@@ -25,7 +25,11 @@ cp -R ../uAssets/thirdparties/www.malwaredomainlist.com          $DES/thirdparti
 
 mkdir $DES/ublock
 cp -R ../uAssets/filters/*                                       $DES/ublock/
-# Optional filter lists: do not include in package
+# Use the locally hosted resources.txt
+rm    $DES/ublock/resources.txt
+cp    ./assets/resources/resources.txt                           $DES/ublock/
+# Optional and obsolete filter lists: do not include in package
 rm    $DES/ublock/annoyances.txt
+rm    $DES/ublock/experimental.txt
 
 echo "done."
