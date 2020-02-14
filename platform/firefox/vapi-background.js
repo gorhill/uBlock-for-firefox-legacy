@@ -77,7 +77,11 @@ var deferUntil = function(testFn, mainFn, details) {
 
 vAPI.app = {
     name: 'uBlock Origin',
-    version: location.hash.slice(1)
+    version: location.hash.slice(1),
+
+    compareVersions: function(a, b) {
+        return Services.vc.compare(a, b)
+    }
 };
 
 /******************************************************************************/
