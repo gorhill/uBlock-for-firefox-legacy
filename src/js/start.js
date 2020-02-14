@@ -108,16 +108,6 @@ var onPSLReady = function() {
 var onVersionReady = function(lastVersion) {
     if ( lastVersion === vAPI.app.version ) { return; }
 
-    // Since AMO does not allow updating resources.txt, force a reload when a
-    // new version is detected, as resources.txt may have changed since last
-    // release. This will be done only for release versions of Firefox.
-    if (
-        vAPI.webextFlavor.soup.has('firefox') &&
-        /(b|rc)\d+$/.test(vAPI.app.version) === false
-    ) {
-        µb.redirectEngine.invalidateResourcesSelfie();
-    }
-
     // Update `assetSourceRegistry` if `assets.json` gets new `contentURL`.
     // https://github.com/gorhill/uBlock-for-firefox-legacy/issues/108
     µb.assets.fetchText(
@@ -135,14 +125,18 @@ var onVersionReady = function(lastVersion) {
                         bin.assetSourceRegistry[assetKey].contentURL.join()
                             !== assetDetails.contentURL.join()
                     ) {
-                        µb.assets.unregisterAssetSource(assetKey);
                         µb.assets.registerAssetSource(assetKey, assetDetails);
+                        µb.assets.purge('assets.json');
                     }
                 } catch (ex) {
                 }
             });
         }
     );
+
+    // Force updating `resources.txt` when installing a new version.
+    // https://github.com/gorhill/uBlock-for-firefox-legacy/issues/134
+    µb.assets.purge('ublock-resources');
 
     vAPI.storage.set({ version: vAPI.app.version });
 };

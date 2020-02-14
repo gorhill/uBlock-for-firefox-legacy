@@ -1049,22 +1049,9 @@ var updaterStatus,
     updaterAssetDelayDefault = 120000,
     updaterAssetDelay = updaterAssetDelayDefault,
     updaterUpdated = [],
-    updaterFetched = new Set(),
-    noRemoteResources;
+    updaterFetched = new Set();
 
 var updateFirst = function() {
-    // https://github.com/gorhill/uBlock/commit/126110c9a0a0630cd556f5cb215422296a961029
-    //   Firefox extension reviewers do not want uBO/webext to fetch its own
-    //   scriptlets/resources asset from the project's own repo (github.com).
-    // https://github.com/uBlockOrigin/uAssets/issues/1647#issuecomment-371456830
-    //   Allow self-hosted dev build to update: if update_url is present but
-    //   null, assume the extension is hosted on AMO.
-    if ( noRemoteResources === undefined ) {
-        noRemoteResources =
-            vAPI.webextFlavor.soup.has('firefox') &&
-            vAPI.webextFlavor.soup.has('webext') &&
-            vAPI.webextFlavor.soup.has('devbuild') === false;
-    }
     updaterStatus = 'updating';
     updaterFetched.clear();
     updaterUpdated = [];
@@ -1092,10 +1079,6 @@ var updateNext = function() {
             if ( updaterFetched.has(assetKey) ) { continue; }
             cacheEntry = cacheDict[assetKey];
             if ( cacheEntry && (cacheEntry.writeTime + assetEntry.updateAfter * 86400000) > now ) {
-                continue;
-            }
-            // Update of user scripts/resources forbidden?
-            if ( assetKey === 'ublock-resources' && noRemoteResources ) {
                 continue;
             }
             if (
