@@ -357,17 +357,20 @@ api.fetchFilterList.legacy = {
         '(ra,': '(remove-attr.js,',
         '(remove-attr,': '(remove-attr.js,',
         '(sid,': '(setInterval-defuser.js,',
-        '(nosiif,': '(setInterval-defuser.js,',
-        '(nosiif)': '(setInterval-defuser.js)',
+        '(nosiif,': '(no-setInterval-if.js,',
+        '(nosiif)': '(no-setInterval-if.js)',
         '(std,': '(setTimeout-defuser.js,',
         '(setTimeout-defuser,': '(setTimeout-defuser.js,',
-        '(nostif,': '(setTimeout-defuser.js,',
-        '(nostif)': '(setTimeout-defuser.js)',
+        '(nostif,': '(no-setTimeout-if.js,',
+        '(nostif)': '(no-setTimeout-if.js)',
         '(window.open-defuser,': '(window.open-defuser.js,',
         '(window.open-defuser)': '(window.open-defuser.js)',
+        '(json-prune,': '(json-prune.js,',
+        '(json-prune)': '(json-prune.js)',
         '(set,': '(set-constant.js,',
         '(set-constant,': '(set-constant.js,',
         '(cookie-remover,': '(cookie-remover.js,',
+        '(raf-if,': '(requestAnimationFrame-if.js,',
         '(noeval)': '(noeval.js)',
         '(nowebrtc)': '(nowebrtc.js)'
     },
@@ -378,8 +381,7 @@ api.fetchFilterList.legacy = {
     },
     convert: function(content) {
         var that = this;
-        return content.replace(/^(.*\(no(siif|stif).+!.*)$/mg, '! $1')
-            .replace(this.regexRules, function(matched) {
+        return content.replace(this.regexRules, function(matched) {
                 return that.mapRules[matched];
             });
     }
