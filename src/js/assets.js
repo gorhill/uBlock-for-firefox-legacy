@@ -282,8 +282,9 @@ api.fetchFilterList.legacy = {
         'https://repo.or.cz/FilterMirrorRepo.git/blob_plain/refs/heads/master:/NorwegianList.txt',
         // POL: Oficjalne polskie filtry przeciwko alertom o Adblocku
         'https://raw.githubusercontent.com/olegwukr/polish-privacy-filters/master/anti-adblock.txt',
-        // RUS: RU AdList
-        'https://easylist-downloads.adblockplus.org/advblock+cssfixes.txt'
+        // RUS: RU AdList + Counters
+        'https://easylist-downloads.adblockplus.org/advblock+cssfixes.txt',
+        'https://easylist-downloads.adblockplus.org/cntblock.txt'
     ],
     get regexFilters() {
         delete this.regexFilters;
