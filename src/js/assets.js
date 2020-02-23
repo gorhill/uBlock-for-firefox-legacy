@@ -373,7 +373,16 @@ api.fetchFilterList.legacy = {
         '(cookie-remover,': '(cookie-remover.js,',
         '(raf-if,': '(requestAnimationFrame-if.js,',
         '(noeval)': '(noeval.js)',
-        '(nowebrtc)': '(nowebrtc.js)'
+        '(nowebrtc)': '(nowebrtc.js)',
+        ':nth-ancestor(1)': ':xpath(..)',
+        ':nth-ancestor(2)': ':xpath(../..)',
+        ':nth-ancestor(3)': ':xpath(../../..)',
+        ':nth-ancestor(4)': ':xpath(../../../..)',
+        ':nth-ancestor(5)': ':xpath(../../../../..)',
+        ':nth-ancestor(6)': ':xpath(../../../../../..)',
+        ':nth-ancestor(7)': ':xpath(../../../../../../..)',
+        ':nth-ancestor(8)': ':xpath(../../../../../../../..)',
+        ':nth-ancestor(9)': ':xpath(../../../../../../../../..)'
     },
     get regexRules() {
         delete this.regexRules;
