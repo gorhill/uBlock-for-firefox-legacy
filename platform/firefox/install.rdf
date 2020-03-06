@@ -71,7 +71,7 @@
             </Description>
         </em:targetApplication>
         
-        <!-- Icedove-UXP (Not supported by Ambassador IRC, despite them using the same GUID) -->
+        <!-- Icedove-UXP, possibly Ambassador IRC -->
         <em:targetApplication>
             <Description>
                 <em:id>{{3aa07e56-beb0-47a0-b0cb-c735edd25419}}</em:id>
