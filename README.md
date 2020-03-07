@@ -117,7 +117,14 @@ Feel free to read [about the extension's required permissions](https://github.co
 
 #### Firefox Legacy
 
-Stable version for manual installations are available in [this repo's Releases tab](https://github.com/gorhill/uBlock-for-firefox-legacy/releases). Officially supports [Pale Moon](https://www.palemoon.org/), [SeaMonkey](https://www.seamonkey-project.org/), Firefox ≤56, Thunderbird ≤52, Fennec ≤56, and Iceape-UXP. Support for other UXP-extension-supporting browsers and E-mail clients is currently unofficial. Icedove-UXP and Ambassador IRC are currently not supported at all. Updates are automatic since 1.16.4.18.
+Stable version for manual installations are available in [this repo's Releases tab](https://github.com/gorhill/uBlock-for-firefox-legacy/releases).
+
+* Officially supports [Pale Moon](https://www.palemoon.org/), [SeaMonkey](https://www.seamonkey-project.org/), Firefox ≤56, Thunderbird ≤52, Fennec ≤56, and [Iceape-UXP](https://wiki.hyperbola.info/doku.php?id=en:project:icedove-uxp).
+* Support for other UXP-extension-supporting browsers and E-mail clients is currently unofficial.
+* For [Waterfox Classic](https://www.waterfox.net/download/), and any other browsers that support both UXP and WebExtensions, the regular Firefox version is normally recommended instead.
+* Icedove-UXP and Ambassador IRC are currently not supported at all.
+
+Updates are automatic since 1.16.4.18.
 
 #### Chromium
 
@@ -135,6 +142,10 @@ There is also a development version if you want to test uBlock Origin with the l
 
 Thanks to Debian contributor [Sean Whitton](https://wiki.debian.org/SeanWhitton), users of Debian 9 or later or Ubuntu 16.04 or later may simply
 `apt-get install xul-ext-ublock-origin`.
+
+#### Thunderbird
+
+Stable version for manual installations are available in [the regular repo's Releases tab](https://github.com/gorhill/uBlock/releases). Supports Thunderbird ≥68.0.
 
 #### Microsoft Edge (pre-Chromium versions)
 
