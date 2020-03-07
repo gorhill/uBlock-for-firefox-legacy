@@ -48,8 +48,9 @@ uBlock Origin is **NOT** an "ad blocker": [it is a wide-spectrum blocker](https:
   * [Firefox Legacy](#firefox-legacy)
   * [Chromium](#chromium)
   * [Firefox](#firefox--firefox-for-android)
-  * [Microsoft Edge](#microsoft-edge)
-  - [Safari (macOS)](#safari-macos)
+  * [Thunderbird](#thunderbird)
+  * [Microsoft Edge pre-Chromium](#microsoft-edge-pre-chromium-versions)
+  - [Safari ≤12 (macOS)](#safari-12-macos)
 * [Release History](#release-history)
 * [Privacy policy](https://github.com/gorhill/uBlock/wiki/Privacy-policy)
 * [Wiki](https://github.com/gorhill/uBlock/wiki)
@@ -126,6 +127,10 @@ Stable version for manual installations are available in [this repo's Releases t
 
 Updates are automatic since 1.16.4.18.
 
+uBO may also be installable as a Debian package: `apt-get install xul-ext-ublock-origin`
+
+There is no guarantee the package will be available on your specific platform — in which case, you will have to install from [the Releases tab](https://github.com/gorhill/uBlock-for-firefox-legacy/releases).
+
 #### Chromium
 
 You can install the latest version [manually](https://github.com/gorhill/uBlock/tree/master/dist#install), from the [Chrome Store](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm), or from the [Opera store](https://addons.opera.com/extensions/details/ublock/).
@@ -140,8 +145,9 @@ It is expected that uBlock Origin is compatible with any Chromium-based browsers
 
 There is also a development version if you want to test uBlock Origin with the latest changes: for installation, see [Install / Firefox webext / For beta version](https://github.com/gorhill/uBlock/blob/master/dist/README.md#for-beta-version)
 
-Thanks to Debian contributor [Sean Whitton](https://wiki.debian.org/SeanWhitton), users of Debian 9 or later or Ubuntu 16.04 or later may simply
-`apt-get install xul-ext-ublock-origin`.
+uBO may also be installable as a Debian package: `apt-get install webext-ublock-origin`
+
+There is no guarantee the package will be available on your specific platform — in which case, you will have to install from [Firefox Add-ons web site](https://addons.mozilla.org/addon/ublock-origin/).
 
 #### Thunderbird
 
