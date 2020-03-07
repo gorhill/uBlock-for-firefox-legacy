@@ -1,4 +1,4 @@
-[![Build](https://travis-ci.org/gorhill/uBlock.svg?branch=master)](https://travis-ci.org/gorhill/uBlock)
+[![Build](https://travis-ci.org/gorhill/uBlock-for-firefox-legacy.svg?branch=master)](https://travis-ci.org/gorhill/uBlock-for-firefox-legacy)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/ublock/localized.svg)](https://crowdin.com/project/ublock)
 [![License](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/gorhill/uBlock/blob/master/LICENSE.txt)
 
@@ -6,7 +6,7 @@
 
 <h1 align="center">
 <sub>
-<img  src="https://raw.githubusercontent.com/gorhill/uBlock/master/doc/img/icon38@2x.png"
+<img  src="https://raw.githubusercontent.com/gorhill/uBlock-for-firefox-legacy/master/doc/img/icon38@2x.png"
       height="38"
       width="38">
 </sub>
@@ -18,7 +18,7 @@ uBlock Origin
 </sup>
 <br>
 <sup> <!-- Languages -->
-      <img src="https://raw.githubusercontent.com/gorhill/uBlock/master/doc/img/languageicon-36.png" width="18" height="18">
+      <img src="https://raw.githubusercontent.com/gorhill/uBlock-for-firefox-legacy/master/doc/img/languageicon-36.png" width="18" height="18">
       <sup>
             English,
             <a href="https://github.com/fang5566/uBlock/blob/master/README.md#ublock-origin">Chinese (中文)</a>,
@@ -45,6 +45,7 @@ uBlock Origin is **NOT** an "ad blocker": [it is a wide-spectrum blocker](https:
   * [Blocking](#blocking)
   * [Quick tests](#quick-tests)
 * [Installation](#installation)
+  * [Firefox Legacy](#firefox-legacy)
   * [Chromium](#chromium)
   * [Firefox](#firefox--firefox-for-android)
   * [Microsoft Edge](#microsoft-edge)
@@ -72,7 +73,7 @@ That said, it's important to note that using a blocker is **NOT** [theft](https:
 
 Ads, "unintrusive" or not, are just the visible portions of privacy-invading apparatus entering your browser when you visit most sites nowadays. **uBlock₀'s main goal is to help users neutralize such privacy-invading apparatus** — in a way that welcomes those users who don't wish to use more technical, involved means (such as [µMatrix](https://github.com/gorhill/uMatrix)).
 
-_EasyList_, _Peter Lowe's Adservers_, _EasyPrivacy_ and _Malware domains_ are enabled by default when you install uBlock₀. Many more lists are readily available to block trackers, analytics, and more. Hosts files are also supported.
+Currently, 11 lists are enabled by default when you install uBlock₀ or reset it to default settings: 6 uBlock Origin-maintained lists, EasyList, EasyPrivacy, Peter Lowe's Adservers, Malware Domains, and Malware Domain List. For users who've set their browsers to non-English locales, 1 or 2 language-specific lists may also be enabled by default.
 
 Once you install uBlock₀, you may easily un-select any of the pre-selected filter lists if you think uBlock₀ blocks too much. For reference, Adblock Plus installs with only _EasyList_ enabled by default.
 
@@ -97,7 +98,7 @@ Firefox<br>
 
 <p align="center">
 uBlock Origin is also easy on the CPU<br>
-<img src="https://raw.githubusercontent.com/gorhill/uBlock/master/doc/benchmarks/cpu-usage-overall-chart-20141226.png" /><br>
+<img src="https://raw.githubusercontent.com/gorhill/uBlock-for-firefox-legacy/master/doc/benchmarks/cpu-usage-overall-chart-20141226.png" /><br>
 <sup>Details of the benchmark available in <a href="https://github.com/gorhill/uBlock/blob/master/doc/benchmarks/cpu-usage-overall-20141226.ods">this LibreOffice spreadsheet</a>.</sup>
 </p>
 
@@ -105,7 +106,7 @@ uBlock Origin is also easy on the CPU<br>
 
 <p align="center">
 Being lean and efficient doesn't mean blocking less<br>
-<img src="https://raw.githubusercontent.com/gorhill/uBlock/master/doc/benchmarks/privex-201502-16.png" /><br>
+<img src="https://raw.githubusercontent.com/gorhill/uBlock-for-firefox-legacy/master/doc/benchmarks/privex-201502-16.png" /><br>
 <sup>For details of benchmark, see 
 <a href="https://github.com/gorhill/uBlock/wiki/uBlock-and-others%3A-Blocking-ads%2C-trackers%2C-malwares">uBlock₀ and others: Blocking ads, trackers, malwares</a>.
 </p>
@@ -113,6 +114,10 @@ Being lean and efficient doesn't mean blocking less<br>
 ## Installation
 
 Feel free to read [about the extension's required permissions](https://github.com/gorhill/uBlock/wiki/Permissions).
+
+#### Firefox Legacy
+
+Stable version for manual installations are available in [this repo's Releases tab](https://github.com/gorhill/uBlock-for-firefox-legacy/releases). Officially supports [Pale Moon](https://www.palemoon.org/), [SeaMonkey](https://www.seamonkey-project.org/), Firefox ≤56, Thunderbird ≤52, Fennec ≤56, and Iceape-UXP. Support for other UXP-extension-supporting browsers and E-mail clients is currently unofficial. Icedove-UXP and Ambassador IRC are currently not supported at all. Updates are automatic since 1.16.4.18.
 
 #### Chromium
 
@@ -128,12 +133,10 @@ It is expected that uBlock Origin is compatible with any Chromium-based browsers
 
 There is also a development version if you want to test uBlock Origin with the latest changes: for installation, see [Install / Firefox webext / For beta version](https://github.com/gorhill/uBlock/blob/master/dist/README.md#for-beta-version)
 
-uBlock Origin is compatible with [SeaMonkey](http://www.seamonkey-project.org/), [Pale Moon](https://www.palemoon.org/), and possibly other browsers based on Firefox: for installation, see [Install / Firefox legacy](https://github.com/gorhill/uBlock/blob/master/dist/README.md#firefox-legacy).
-
 Thanks to Debian contributor [Sean Whitton](https://wiki.debian.org/SeanWhitton), users of Debian 9 or later or Ubuntu 16.04 or later may simply
 `apt-get install xul-ext-ublock-origin`.
 
-#### Microsoft Edge
+#### Microsoft Edge (pre-Chromium versions)
 
 Developer: [@nikrolls](https://github.com/nikrolls).
 
@@ -143,7 +146,7 @@ Development version available at <https://github.com/nikrolls/uBlock-Edge#edge>.
 
 Note that issues specific to the Edge fork are the responsibility of the current maintainer, I have no control over the code base of the fork.
 
-#### Safari (macOS)
+#### Safari ≤12 (macOS)
 
 Developer: [@el1t](https://github.com/el1t).
 
@@ -160,12 +163,11 @@ To benefit from uBlock Origin's higher efficiency, it's advised that you don't u
 Below is documentation to assist administrators in deploying uBlock Origin:
 
 - [Deploying uBlock Origin](https://github.com/gorhill/uBlock/wiki/Deploying-uBlock-Origin)
-    - Firefox: [Deploying uBlock Origin for Firefox with CCK2 and Group Policy](http://decentsecurity.com/ublock-for-firefox-deployment/) (external)
     - Google Chrome: [Managing Google Chrome with adblocking and security](https://decentsecurity.com/ublock-for-google-chrome-deployment/) (external)
 
 ## Release History
 
-See the [releases pages](https://github.com/gorhill/uBlock/releases) for a history of releases and highlights for each release.
+See the [releases pages](https://github.com/gorhill/uBlock-for-firefox-legacy/releases) for a history of releases and highlights for each release.
 
 ## About
 
