@@ -96,7 +96,7 @@
         }
         // Quick regex-based validation -- most cosmetic filters are of the
         // simple form and in such case a regex is much faster.
-        var reSimple = /^[#.][\w-]+$/;
+        var reSimple = /^[#.][A-Za-z_][\w-]*$/;
         return function(s) {
             if ( reSimple.test(s) ) { return true; }
             try {
