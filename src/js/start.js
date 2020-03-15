@@ -140,7 +140,7 @@ var onVersionReady = function(lastVersion) {
 
     // Force updating all filters due to filter syntax converter update.
     // https://github.com/gorhill/uBlock-for-firefox-legacy/issues/224
-    if ( vAPI.app.compareVersions(lastVersion, "1.16.4.18") <= 0 ) {
+    if ( vAPI.app.compareVersions(lastVersion, "1.16.4.19") <= 0 ) {
         µb.assets.purge(/./, 'public_suffix_list.dat');
     }
 

@@ -171,7 +171,7 @@ api.fetchText = function(url, onLoad, onError) {
 // https://github.com/gorhill/uBlock/issues/3331
 //   Support the seamless loading of sublists.
 
-api.fetchFilterList = function(mainlistURL, onLoad, onError) {
+api.fetchFilterList = function(mainlistURL, convert, onLoad, onError) {
     var content = [],
         errored = false,
         pendingSublistURLs = new Set([ mainlistURL ]),
@@ -232,7 +232,7 @@ api.fetchFilterList = function(mainlistURL, onLoad, onError) {
         details.url = mainlistURL;
         details.content = content.join('\n').trim();
 
-        if (api.fetchFilterList.legacy.regexFilters.test(mainlistURL)) {
+        if ( convert ) {
             details.content = api.fetchFilterList.legacy.convert(details.content);
         }
 
@@ -263,34 +263,6 @@ api.fetchFilterList.toParsedURL = function(url) {
 };
 
 api.fetchFilterList.legacy = {
-    mapFilters: [
-        // uBlock filters
-        '^assets/ublock/',
-        'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/',
-        // Fanboy’s Enhanced Tracking List
-        'https://www.fanboy.co.nz/enhancedstats.txt',
-        // EST: Eesti saitidele kohandatud filter
-        'https://adblock.ee/list.php',
-        // HUN: hufilter
-        'https://raw.githubusercontent.com/hufilter/hufilter/master/hufilter.txt',
-        // IDN, MYS: ABPindo
-        'https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt',
-        // IRN: Adblock-Iran
-        'https://gitcdn.xyz/repo/farrokhi/adblock-iran/master/filter.txt',
-        // NOR, DNK, ISL: Dandelion Sprouts nordiske filtre
-        'https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianList.txt',
-        'https://repo.or.cz/FilterMirrorRepo.git/blob_plain/refs/heads/master:/NorwegianList.txt',
-        // POL: Oficjalne polskie filtry przeciwko alertom o Adblocku
-        'https://raw.githubusercontent.com/olegwukr/polish-privacy-filters/master/anti-adblock.txt',
-        // RUS: RU AdList + Counters
-        'https://easylist-downloads.adblockplus.org/advblock+cssfixes.txt',
-        'https://easylist-downloads.adblockplus.org/cntblock.txt'
-    ],
-    get regexFilters() {
-        delete this.regexFilters;
-        return this.regexFilters = new RegExp(this.mapFilters
-            .join('|').replace(/[\\\/.+]/g, '\\$&'));
-    },
     mapRules: {
         '=1x1.gif': '=1x1-transparent.gif',
         '=2x2.png': '=2x2-transparent.png',
@@ -882,7 +854,8 @@ api.get = function(assetKey, options, callback) {
             return reportBack('', 'E_NOTFOUND');
         }
         if ( assetDetails.content === 'filters' ) {
-            api.fetchFilterList(contentURL, onContentLoaded, onContentNotLoaded);
+            api.fetchFilterList(contentURL, !assetDetails.noConvert,
+                                onContentLoaded, onContentNotLoaded);
         } else {
             api.fetchText(contentURL, onContentLoaded, onContentNotLoaded);
         }
@@ -970,7 +943,8 @@ var getRemote = function(assetKey, callback) {
             return reportBack('', 'E_NOTFOUND');
         }
         if ( assetDetails.content === 'filters' ) {
-            api.fetchFilterList(contentURL, onRemoteContentLoaded, onRemoteContentError);
+            api.fetchFilterList(contentURL, !assetDetails.noConvert,
+                                onRemoteContentLoaded, onRemoteContentError);
         } else {
             api.fetchText(contentURL, onRemoteContentLoaded, onRemoteContentError);
         }
@@ -992,6 +966,12 @@ var getRemote = function(assetKey, callback) {
 /******************************************************************************/
 
 api.put = function(assetKey, content, callback) {
+    if (
+        µBlock.hiddenSettings.assetConvertMyFilters &&
+        assetKey === µBlock.userFiltersPath
+    ) {
+        content = api.fetchFilterList.legacy.convert(content);
+    }
     if ( reIsUserAsset.test(assetKey) ) {
         return saveUserAsset(assetKey, content, callback);
     }
