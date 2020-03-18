@@ -1836,6 +1836,34 @@ remove-attr.js application/javascript
 })();
 
 
+remove-class.js application/javascript
+(function() {
+	var token = '{{1}}';
+	if ( token === '' || token === '{{1}}' ) { return; }
+	var tokens = token.split(/\s*\|\s*/);
+	var selector = '{{2}}';
+	if ( selector === '' || selector === '{{2}}' ) {
+		selector = '.' + tokens.map(a => CSS.escape(a)).join(',.');
+	}
+	var rmclass = function(ev) {
+		if ( ev ) { window.removeEventListener(ev.type, rmclass, true); }
+		try {
+			var nodes = document.querySelectorAll(selector), i = nodes.length;
+			while ( i-- ) {
+				var node = nodes[i];
+				node.classList.remove(...tokens);
+			}
+		} catch(ex) {
+		}
+	};
+	if ( document.readyState === 'loading' ) {
+		window.addEventListener('DOMContentLoaded', rmclass, true);
+	} else {
+		rmclass();
+	}
+})();
+
+
 # https://github.com/gorhill/uBlock/commit/6831967f5f9d64412a9c063f3b64104d9dce7b07
 requestAnimationFrame-if.js application/javascript
 (function() {
