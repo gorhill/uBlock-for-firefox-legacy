@@ -810,5 +810,21 @@
   "aboutFilterLists": {
     "message": "फिल्टर सूची",
     "description": "Link text to uBO's own filter lists repo"
+  },
+  "storageUsed": {
+    "message": "इस्तेमाल हुई स्टोरेज:{{value}} {{unit}}",
+    "description": " In Setting pane, renders as (example): Storage used: 13.2 MB"
+  },
+  "KB": {
+    "message": "केबी",
+    "description": "short for 'kilobytes'"
+  },
+  "MB": {
+    "message": "एमबी",
+    "description": "short for 'megabytes'"
+  },
+  "GB": {
+    "message": "जीबी",
+    "description": "short for 'gigabytes'"
   }
 }
