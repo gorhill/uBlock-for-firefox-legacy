@@ -1365,7 +1365,7 @@ addEventListener-logger.js application/javascript
 	var c = console, l = c.log;
 	var z = self.EventTarget.prototype.addEventListener;
 	self.EventTarget.prototype.addEventListener = function(a, b) {
-		l.call(c, 'addEventListener("%s", %s)', a, String(b));
+		l.call(c, 'uBO: addEventListener("%s", %s)', a, String(b));
 		return z.apply(this, arguments);
 	};
 })();
@@ -1428,7 +1428,7 @@ json-prune.js application/javascript
 			if ( log !== undefined ) {
 				const json = JSON.stringify(r, null, 2);
 				if ( reLogNeedle.test(json) ) {
-					log(location.hostname, json);
+					log('uBO:', location.hostname, json);
 				}
 				return r;
 			}
