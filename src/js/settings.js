@@ -121,10 +121,9 @@ const exportToFile = function() {
 /******************************************************************************/
 
 const onLocalDataReceived = function(details) {
-    let storageUsed;
+    let v, unit;
     if ( typeof details.storageUsed === 'number' ) {
-        let v = details.storageUsed;
-        let unit;
+        v = details.storageUsed;
         if ( v < 1e3 ) {
             unit = 'genericBytes';
         } else if ( v < 1e6 ) {
@@ -137,13 +136,14 @@ const onLocalDataReceived = function(details) {
             v /= 1e9;
             unit = 'GB';
         }
-        storageUsed = vAPI.i18n('storageUsed')
-            .replace('{{value}}', v.toLocaleString(undefined, { maximumSignificantDigits: 3 }))
-            .replace('{{unit}}', vAPI.i18n(unit));
     } else {
-        storageUsed = '?';
+        v = '?';
+        unit = '';
     }
-    uDom.nodeFromId('storageUsed').textContent = storageUsed;
+    uDom.nodeFromId('storageUsed').textContent =
+        vAPI.i18n('storageUsed')
+            .replace('{{value}}', v.toLocaleString(undefined, { maximumSignificantDigits: 3 }))
+            .replace('{{unit}}', unit && vAPI.i18n(unit) || '');
 
     const timeOptions = {
         weekday: 'long',
