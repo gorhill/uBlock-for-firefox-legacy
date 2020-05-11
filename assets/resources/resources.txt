@@ -2058,3 +2058,22 @@ ampproject.org/v0.js application/javascript
 	].join('\n');
 	head.appendChild(style);
 })();
+
+
+# https://github.com/gorhill/uBlock/commit/f842ab6d3c1cf0394f95d27092bf59627262da40
+amazon_apstag.js application/javascript
+(function() {
+	let w = window;
+	let noopfn = function() { ; }.bind();
+	let apstag = {
+		fetchBids: function(a, b) {
+			if ( b instanceof Function ) {
+				b([]);
+			}
+		},
+		init: noopfn,
+		setDisplayBids: noopfn,
+		targetingKeys: noopfn,
+	};
+	w.apstag = apstag;
+})();
