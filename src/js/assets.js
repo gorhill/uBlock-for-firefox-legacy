@@ -182,7 +182,11 @@ api.fetchFilterList = function(mainlistURL, convert, onLoad, onError) {
     //   Anything under URL's root directory is allowed to be fetched. The
     //   URL of a sublist will always be relative to the URL of the parent
     //   list (instead of the URL of the root list).
-    var rootDirectoryURL = toParsedURL(mainlistURL);
+    var rootDirectoryURL = toParsedURL(
+        reIsExternalPath.test(mainlistURL)
+            ? mainlistURL
+            : vAPI.getURL(mainlistURL)
+    );
     if ( rootDirectoryURL !== undefined ) {
         var pos = rootDirectoryURL.pathname.lastIndexOf('/');
         if ( pos !== -1 ) {
@@ -198,15 +202,11 @@ api.fetchFilterList = function(mainlistURL, convert, onLoad, onError) {
             if ( match === null ) { break; }
             if ( toParsedURL(match[1]) !== undefined ) { continue; }
             if ( match[1].indexOf('..') !== -1 ) { continue; }
-            var subURL = toParsedURL(details.url);
-            subURL.pathname = subURL.pathname.replace(/[^/]+$/, match[1]);
-            if ( subURL.href.startsWith(rootDirectoryURL.href) === false ) {
-                continue;
-            }
-            if ( pendingSublistURLs.has(subURL.href) ) { continue; }
-            if ( loadedSublistURLs.has(subURL.href) ) { continue; }
-            pendingSublistURLs.add(subURL.href);
-            api.fetchText(subURL.href, onLocalLoadSuccess, onLocalLoadError);
+            var subURL = rootDirectoryURL.href + match[1];
+            if ( pendingSublistURLs.has(subURL) ) { continue; }
+            if ( loadedSublistURLs.has(subURL) ) { continue; }
+            pendingSublistURLs.add(subURL);
+            api.fetchText(subURL, onLocalLoadSuccess, onLocalLoadError);
         }
     };
 
