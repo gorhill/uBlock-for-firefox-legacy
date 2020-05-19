@@ -94,16 +94,9 @@ DOMListFactory.nodeFromSelector = function(selector) {
 
 {
     const root = DOMListFactory.root = document.querySelector(':root');
-    if (
-        window.matchMedia('(pointer: coarse)').matches ||
-        window.matchMedia('(hover: none)').matches
-    ) {
+    if ( navigator.userAgent.indexOf("Android") !=-1 ) {
         root.classList.add('mobile');
-    }
-    if (
-        window.matchMedia('(pointer: fine)').matches &&
-        window.matchMedia('(hover: hover)').matches
-    ) {
+    } else {
         root.classList.add('desktop');
     }
     if ( window.matchMedia('(min-resolution: 150dpi)').matches ) {
