@@ -202,7 +202,9 @@ api.fetchFilterList = function(mainlistURL, convert, onLoad, onError) {
             if ( match === null ) { break; }
             if ( toParsedURL(match[1]) !== undefined ) { continue; }
             if ( match[1].indexOf('..') !== -1 ) { continue; }
-            var subURL = rootDirectoryURL.href + match[1];
+            var pos = details.url.lastIndexOf('/');
+            if ( pos === -1 ) { continue; }
+            var subURL = details.url.slice(0, pos + 1) + match[1];
             if ( pendingSublistURLs.has(subURL) ) { continue; }
             if ( loadedSublistURLs.has(subURL) ) { continue; }
             pendingSublistURLs.add(subURL);
