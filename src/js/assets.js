@@ -356,7 +356,16 @@ api.fetchFilterList.legacy = {
         ':nth-ancestor(6)': ':xpath(../../../../../..)',
         ':nth-ancestor(7)': ':xpath(../../../../../../..)',
         ':nth-ancestor(8)': ':xpath(../../../../../../../..)',
-        ':nth-ancestor(9)': ':xpath(../../../../../../../../..)'
+        ':nth-ancestor(9)': ':xpath(../../../../../../../../..)',
+        ':upward(1)': ':xpath(..)',
+        ':upward(2)': ':xpath(../..)',
+        ':upward(3)': ':xpath(../../..)',
+        ':upward(4)': ':xpath(../../../..)',
+        ':upward(5)': ':xpath(../../../../..)',
+        ':upward(6)': ':xpath(../../../../../..)',
+        ':upward(7)': ':xpath(../../../../../../..)',
+        ':upward(8)': ':xpath(../../../../../../../..)',
+        ':upward(9)': ':xpath(../../../../../../../../..)'
     },
     get regexRules() {
         delete this.regexRules;
