@@ -138,7 +138,7 @@ var µBlock = (function() { // jshint ignore:line
 
         // read-only
         systemSettings: {
-            compiledMagic: 1,
+            compiledMagic: 2,
             selfieMagic: 1
         },
 
