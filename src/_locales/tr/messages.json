@@ -28,7 +28,7 @@
     "description": "appears as tab name in dashboard"
   },
   "whitelistPageName": {
-    "message": "Beyaz liste",
+    "message": "Güvenilen siteler",
     "description": "appears as tab name in dashboard"
   },
   "statsPageName": {
@@ -476,8 +476,8 @@
     "description": "English: dynamic rule syntax and full documentation."
   },
   "whitelistPrompt": {
-    "message": "Beyaz liste yönergeleri, uBlock₀'in devre dışı bırakılması gerektiği web sayfalarını belirler. Satır başına bir girdi. Geçersiz yönergeler sessizce yok sayılır ve yoruma dönüştürülür.",
-    "description": "English: An overview of the content of the dashboard's Whitelist pane."
+    "message": "Güvenilen site yönergeleri, uBlock Origin'in devre dışı bırakılması gerektiği web sayfalarını belirler. Her satırda bir girdi. Geçersiz yönergeler sessizce yok sayılacak ve yoruma dönüştürülecektir.",
+    "description": "The name of the trusted sites pane."
   },
   "whitelistImport": {
     "message": "İçe aktar ve sonuna ekle",

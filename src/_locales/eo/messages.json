@@ -28,7 +28,7 @@
     "description": "appears as tab name in dashboard"
   },
   "whitelistPageName": {
-    "message": "Blanklisto",
+    "message": "Permeslisto",
     "description": "appears as tab name in dashboard"
   },
   "statsPageName": {
@@ -477,7 +477,7 @@
   },
   "whitelistPrompt": {
     "message": "Via listo de gastignomoj por kiuj uBlock₀ estos malŝaltata. Unu gastignomo por ĉiu linio. Nevalidaj gastignomoj estos ignorataj silente.",
-    "description": "English: An overview of the content of the dashboard's Whitelist pane."
+    "description": "The name of the trusted sites pane."
   },
   "whitelistImport": {
     "message": "Importi kaj postaldoni",

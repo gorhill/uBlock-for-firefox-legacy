@@ -476,8 +476,8 @@
     "description": "English: dynamic rule syntax and full documentation."
   },
   "whitelistPrompt": {
-    "message": "uBlock₀ முடக்கப்பட வேண்டிய இடங்களாக நீங்கள் குறிக்கும் வழங்கிப்பெயர்கள். ஒரு வரிக்கு ஒரு பெயர் மட்டுமே. தவறான வழங்கிப்பெயர்கள் அமைதியாகப் புறக்கணிக்கப்படும்.",
-    "description": "English: An overview of the content of the dashboard's Whitelist pane."
+    "message": "எந்தெந்தப் பக்கங்களில் uBlock₀ முடக்கப்பட வேண்டுமென்பதை அனுமதிப்பட்ட கட்டளைகள் ஆணையிடுகின்றன. வரிக்கு ஒரு இடுகை மட்டுமே. தவறான கட்டளைகள் அமைதியாகப் புறக்கணிக்கப்படும்.",
+    "description": "The name of the trusted sites pane."
   },
   "whitelistImport": {
     "message": "Import and append",

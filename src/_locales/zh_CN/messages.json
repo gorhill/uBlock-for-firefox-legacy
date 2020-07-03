@@ -477,7 +477,7 @@
   },
   "whitelistPrompt": {
     "message": "您的列表中针对 µBlock 的主机名将被禁用。每行一条规则。无效的主机名将直接被忽略。",
-    "description": "English: An overview of the content of the dashboard's Whitelist pane."
+    "description": "The name of the trusted sites pane."
   },
   "whitelistImport": {
     "message": "导入并添加",
