@@ -341,6 +341,8 @@ api.fetchFilterList.legacy = {
         '(nostif)': '(no-setTimeout-if.js)',
         '(window.open-defuser,': '(window.open-defuser.js,',
         '(window.open-defuser)': '(window.open-defuser.js)',
+        '(nowoif,': '(window.open-defuser.js,',
+        '(nowoif)': '(window.open-defuser.js)',
         '(json-prune,': '(json-prune.js,',
         '(json-prune)': '(json-prune.js)',
         '(set,': '(set-constant.js,',
