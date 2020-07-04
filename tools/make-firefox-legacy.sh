@@ -4,6 +4,10 @@
 
 echo "*** uBlock0.firefox-legacy: Copying files"
 
+# Script should aways start at root/repo path
+ROOT_PATH=$(dirname "$(realpath -s "$0")")/..
+cd "$ROOT_PATH" || exit
+
 BLDIR=dist/build
 DES="$BLDIR"/uBlock0.firefox-legacy
 rm -rf $DES
@@ -33,10 +37,12 @@ cp    LICENSE.txt                       $DES/
 
 echo "*** uBlock0.firefox-legacy: concatenating content scripts"
 cat $DES/js/vapi-usercss.js > /tmp/contentscript.js
-echo >> /tmp/contentscript.js
-grep -v "^'use strict';$" $DES/js/vapi-usercss.real.js >> /tmp/contentscript.js
-echo >> /tmp/contentscript.js
-grep -v "^'use strict';$" $DES/js/contentscript.js >> /tmp/contentscript.js
+{
+    echo
+    grep -v "^'use strict';$" $DES/js/vapi-usercss.real.js
+    echo
+    grep -v "^'use strict';$" $DES/js/contentscript.js
+} >> /tmp/contentscript.js
 mv /tmp/contentscript.js $DES/js/contentscript.js
 rm $DES/js/vapi-usercss.js
 rm $DES/js/vapi-usercss.real.js
@@ -46,14 +52,14 @@ python tools/make-firefox-legacy-meta.py $DES/
 
 if [ "$1" = all ]; then
     echo "*** uBlock0.firefox-legacy: Creating package..."
-    pushd $DES > /dev/null
-    zip ../uBlock0.firefox-legacy.xpi -qr *
-    popd > /dev/null
+    pushd $DES > /dev/null || exit
+    zip ../uBlock0.firefox-legacy.xpi -qr -- *
+    popd > /dev/null || exit
 elif [ -n "$1" ]; then
     echo "*** uBlock0.firefox-legacy: Creating versioned package..."
-    pushd $DES > /dev/null
-    zip ../uBlock0.firefox-legacy.xpi -qr *
-    popd > /dev/null
+    pushd $DES > /dev/null || exit
+    zip ../uBlock0.firefox-legacy.xpi -qr -- *
+    popd > /dev/null || exit
     mv "$BLDIR"/uBlock0.firefox-legacy.xpi "$BLDIR"/uBlock0_"$1".firefox-legacy.xpi
 fi
 
