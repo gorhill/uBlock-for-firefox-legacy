@@ -1,7 +1,7 @@
 /*******************************************************************************
 
     uBlock Origin - a browser extension to block requests.
-    Copyright (C) 2017-2018 Raymond Hill
+    Copyright (C) 2017-present Raymond Hill
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -51,25 +51,24 @@
 **/
 
 µBlock.staticExtFilteringEngine = (function() {
-    var µb = µBlock,
-        reHostnameSeparator = /\s*,\s*/,
-        reHasUnicode = /[^\x00-\x7F]/,
-        reParseRegexLiteral = /^\/(.+)\/([im]+)?$/,
-        emptyArray = [],
-        parsed = {
-            hostnames: [],
-            exception: false,
-            suffix: ''
-        };
+    const µb = µBlock;
+    const reHasUnicode = /[^\x00-\x7F]/;
+    const reParseRegexLiteral = /^\/(.+)\/([imu]+)?$/;
+    const emptyArray = [];
+    const parsed = {
+        hostnames: [],
+        exception: false,
+        suffix: ''
+    };
 
     // To be called to ensure no big parent string of a string slice is
     // left into memory after parsing filter lists is over.
-    var resetParsed = function() {
+    const resetParsed = function() {
         parsed.hostnames = [];
         parsed.suffix = '';
     };
 
-    var isValidCSSSelector = (function() {
+    const isValidCSSSelector = (function() {
         var div = document.createElement('div'),
             matchesFn;
         // Keep in mind:
@@ -109,7 +108,7 @@
     })();
 
 
-    var isBadRegex = function(s) {
+    const isBadRegex = function(s) {
         try {
             void new RegExp(s);
         } catch (ex) {
@@ -119,24 +118,35 @@
         return false;
     };
 
-    var translateAdguardCSSInjectionFilter = function(suffix) {
+    const translateAdguardCSSInjectionFilter = function(suffix) {
         var matches = /^([^{]+)\{([^}]+)\}$/.exec(suffix);
         if ( matches === null ) { return ''; }
         return matches[1].trim() + ':style(' +  matches[2].trim() + ')';
     };
 
-    var toASCIIHostnames = function(hostnames) {
-        var i = hostnames.length;
-        while ( i-- ) {
-            var hostname = hostnames[i];
-            hostnames[i] = hostname.charCodeAt(0) === 0x7E /* '~' */ ?
-                '~' + punycode.toASCII(hostname.slice(1)) :
-                punycode.toASCII(hostname);
+    const hostnamesFromPrefix = function(s) {
+        const hostnames = [];
+        const hasUnicode = reHasUnicode.test(s);
+        let beg = 0;
+        while ( beg < s.length ) {
+            let end = s.indexOf(',', beg);
+            if ( end === -1 ) { end = s.length; }
+            let hostname = s.slice(beg, end).trim();
+            if ( hostname.length !== 0 ) {
+                if ( hasUnicode ) {
+                    hostname = hostname.charCodeAt(0) === 0x7E /* '~' */
+                        ? '~' + punycode.toASCII(hostname.slice(1))
+                        : punycode.toASCII(hostname);
+                }
+                hostnames.push(hostname);
+            }
+            beg = end + 1;
         }
+        return hostnames;
     };
 
-    var compileProceduralSelector = (function() {
-        var reProceduralOperator = new RegExp([
+    const compileProceduralSelector = (function() {
+        const reProceduralOperator = new RegExp([
             '^(?:',
                 [
                 '-abp-contains',
@@ -149,22 +159,23 @@
                 'matches-css',
                 'matches-css-after',
                 'matches-css-before',
+                'not',
                 'xpath'
                 ].join('|'),
             ')\\('
         ].join(''));
 
-        var reEscapeRegex = /[.*+?^${}()|[\]\\]/g,
+        const reEscapeRegex = /[.*+?^${}()|[\]\\]/g,
             reNeedScope = /^\s*[+>~]/,
             reIsDanglingSelector = /(?:[+>~]\s*|\s+)$/;
 
-        var lastProceduralSelector = '',
-            lastProceduralSelectorCompiled,
-            regexToRawValue = new Map();
+        const regexToRawValue = new Map();
+        let lastProceduralSelector = '',
+            lastProceduralSelectorCompiled;
 
-        var compileText = function(s) {
-            var regexDetails,
-                match = reParseRegexLiteral.exec(s);
+        const compileText = function(s) {
+            const match = reParseRegexLiteral.exec(s);
+            let regexDetails;
             if ( match !== null ) {
                 regexDetails = match[1];
                 if ( isBadRegex(regexDetails) ) { return; }
@@ -178,13 +189,13 @@
             return regexDetails;
         };
 
-        var compileCSSDeclaration = function(s) {
-            var name, value, regexDetails,
-                pos = s.indexOf(':');
+        const compileCSSDeclaration = function(s) {
+            const pos = s.indexOf(':');
             if ( pos === -1 ) { return; }
-            name = s.slice(0, pos).trim();
-            value = s.slice(pos + 1).trim();
-            var match = reParseRegexLiteral.exec(value);
+            const name = s.slice(0, pos).trim();
+            const value = s.slice(pos + 1).trim();
+            const match = reParseRegexLiteral.exec(value);
+            let regexDetails;
             if ( match !== null ) {
                 regexDetails = match[1];
                 if ( isBadRegex(regexDetails) ) { return; }
@@ -198,7 +209,7 @@
             return { name: name, value: regexDetails };
         };
 
-        var compileConditionalSelector = function(s) {
+        const compileConditionalSelector = function(s) {
             // https://github.com/AdguardTeam/ExtendedCss/issues/31#issuecomment-302391277
             // Prepend `:scope ` if needed.
             if ( reNeedScope.test(s) ) {
@@ -207,7 +218,17 @@
             return compile(s);
         };
 
-        var compileXpathExpression = function(s) {
+        const compileNotSelector = function(s) {
+            // https://github.com/uBlockOrigin/uBlock-issues/issues/341#issuecomment-447603588
+            //   Reject instances of :not() filters for which the argument is
+            //   a valid CSS selector, otherwise we would be adversely
+            //   changing the behavior of CSS4's :not().
+            if ( isValidCSSSelector(s) === false ) {
+                return compileConditionalSelector(s);
+            }
+        };
+
+        const compileXpathExpression = function(s) {
             try {
                 document.createExpression(s, null);
             } catch (e) {
@@ -217,13 +238,13 @@
         };
 
         // https://github.com/gorhill/uBlock/issues/2793
-        var normalizedOperators = new Map([
+        const normalizedOperators = new Map([
             [ ':-abp-contains', ':has-text' ],
-            [ ':-abp-has', ':if' ],
-            [ ':contains', ':has-text' ]
+            [ ':-abp-has', ':has' ],
+            [ ':contains', ':has-text' ],
         ]);
 
-        var compileArgument = new Map([
+        const compileArgument = new Map([
             [ ':has', compileConditionalSelector ],
             [ ':has-text', compileText ],
             [ ':if', compileConditionalSelector ],
@@ -231,6 +252,7 @@
             [ ':matches-css', compileCSSDeclaration ],
             [ ':matches-css-after', compileCSSDeclaration ],
             [ ':matches-css-before', compileCSSDeclaration ],
+            [ ':not', compileNotSelector ],
             [ ':xpath', compileXpathExpression ]
         ]);
 
@@ -241,15 +263,14 @@
         //   to other blockers.
         //   The normalized string version is what is reported in the logger,
         //   by design.
-        var decompile = function(compiled) {
-            var tasks = compiled.tasks;
+        const decompile = function(compiled) {
+            const tasks = compiled.tasks;
             if ( Array.isArray(tasks) === false ) {
                 return compiled.selector;
             }
-            var raw = [ compiled.selector ],
-                value;                
-            for ( var i = 0, n = tasks.length, task; i < n; i++ ) {
-                task = tasks[i];
+            const raw = [ compiled.selector ];
+            let value;
+            for ( let task of tasks ) {
                 switch ( task[0] ) {
                 case ':xpath':
                     raw.push(task[0], '(', task[1], ')');
@@ -280,22 +301,26 @@
                     break;
                 case ':has':
                 case ':if':
+                    raw.push(':has', '(', decompile(task[1]), ')');
+                    break;
                 case ':if-not':
-                    raw.push(task[0], '(', decompile(task[1]), ')');
+                case ':not':
+                    raw.push(':not', '(', decompile(task[1]), ')');
                     break;
                 }
             }
             return raw.join('');
         };
 
-        var compile = function(raw) {
+        const compile = function(raw) {
             if ( raw === '' ) { return; }
-            var prefix = '',
+            let prefix = '',
                 tasks = [];
+            let i = 0,
+                n = raw.length,
+                opPrefixBeg = 0;
             for (;;) {
-                var i = 0,
-                    n = raw.length,
-                    c, match;
+                let c, match;
                 // Advance to next operator.
                 while ( i < n ) {
                     c = raw.charCodeAt(i++);
@@ -305,13 +330,14 @@
                     }
                 }
                 if ( i === n ) { break; }
-                var opNameBeg = i - 1;
-                var opNameEnd = i + match[0].length - 1;
+                const opNameBeg = i - 1;
+                const opNameEnd = i + match[0].length - 1;
                 i += match[0].length;
                 // Find end of argument: first balanced closing parenthesis.
                 // Note: unbalanced parenthesis can be used in a regex literal
                 // when they are escaped using `\`.
-                var pcnt = 1;
+                // TODO: need to handle quoted parentheses.
+                let pcnt = 1;
                 while ( i < n ) {
                     c = raw.charCodeAt(i++);
                     if ( c === 0x5C /* '\\' */ ) {
@@ -323,21 +349,34 @@
                         if ( pcnt === 0 ) { break; }
                     }
                 }
-                // Unbalanced parenthesis?
-                if ( pcnt !== 0 ) { return; }
+                // Unbalanced parenthesis? An unbalanced parenthesis is fine
+                // as long as the last character is a closing parenthesis.
+                if ( pcnt !== 0 && c !== 0x29 ) { return; }
+                // https://github.com/uBlockOrigin/uBlock-issues/issues/341#issuecomment-447603588
+                //   Maybe that one operator is a valid CSS selector and if so,
+                //   then consider it to be part of the prefix. If there is
+                //   at least one task present, then we fail, as we do not
+                //   support suffix CSS selectors.
+                // TODO: AdGuard does support suffix CSS selectors, so
+                //       supporting this would increase compatibility with
+                //       AdGuard filter lists.
+                if ( isValidCSSSelector(raw.slice(opNameBeg, i)) ) {
+                    if ( opPrefixBeg !== 0 ) { return; }
+                    continue;
+                }
                 // Extract and remember operator details.
-                var operator = raw.slice(opNameBeg, opNameEnd);
+                let operator = raw.slice(opNameBeg, opNameEnd);
                 operator = normalizedOperators.get(operator) || operator;
-                var args = raw.slice(opNameEnd + 1, i - 1);
+                let args = raw.slice(opNameEnd + 1, i - 1);
                 args = compileArgument.get(operator)(args);
                 if ( args === undefined ) { return; }
-                if ( tasks.length === 0 ) {
+                if ( opPrefixBeg === 0 ) {
                     prefix = raw.slice(0, opNameBeg);
-                } else if ( opNameBeg !== 0 ) {
+                } else if ( opNameBeg !== opPrefixBeg ) {
                     return;
                 }
                 tasks.push([ operator, args ]);
-                raw = raw.slice(i);
+                opPrefixBeg = i;
                 if ( i === n ) { break; }
             }
             // No task found: then we have a CSS selector.
@@ -345,7 +384,7 @@
             if ( tasks.length === 0 ) {
                 prefix = raw;
                 tasks = undefined;
-            } else if ( raw.length !== 0 ) {
+            } else if ( opPrefixBeg < n ) {
                 return;
             }
             // https://github.com/NanoAdblocker/NanoCore/issues/1#issuecomment-354394894
@@ -356,7 +395,7 @@
             return { selector: prefix, tasks: tasks };
         };
 
-        var entryPoint = function(raw) {
+        const entryPoint = function(raw) {
             if ( raw === lastProceduralSelector ) {
                 return lastProceduralSelectorCompiled;
             }
@@ -371,7 +410,7 @@
         };
 
         entryPoint.reset = function() {
-            regexToRawValue = new Map();
+            regexToRawValue.clear();
             lastProceduralSelector = '';
             lastProceduralSelectorCompiled = undefined;
         };
@@ -383,7 +422,18 @@
     // Public API
     //--------------------------------------------------------------------------
 
-    var api = {};
+    const api = {
+        get acceptedCount() {
+            return µb.cosmeticFilteringEngine.acceptedCount +
+                   µb.scriptletFilteringEngine.acceptedCount +
+                   µb.htmlFilteringEngine.acceptedCount;
+        },
+        get discardedCount() {
+            return µb.cosmeticFilteringEngine.discardedCount +
+                   µb.scriptletFilteringEngine.discardedCount +
+                   µb.htmlFilteringEngine.discardedCount;
+        }
+    };
 
     //--------------------------------------------------------------------------
     // Public classes
@@ -437,12 +487,12 @@
     };
 
     api.HostnameBasedDB.prototype[Symbol.iterator] = (function() {
-        var Iter = function(db) {
+        const Iter = function(db) {
             this.mapIter = db.values();
             this.arrayIter = undefined;
         };
         Iter.prototype.next = function() {
-            var result;
+            let result;
             if ( this.arrayIter !== undefined ) {
                 result = this.arrayIter.next();
                 if ( result.done === false ) { return result; }
@@ -491,22 +541,22 @@
     // Convert Adguard's `-ext-has='...'` into uBO's `:has(...)`.
 
     api.compileSelector = (function() {
-        var reAfterBeforeSelector = /^(.+?)(::?after|::?before)$/,
-            reStyleSelector = /^(.+?):style\((.+?)\)$/,
-            reStyleBad = /url\(/,
-            reExtendedSyntax = /\[-(?:abp|ext)-[a-z-]+=(['"])(?:.+?)(?:\1)\]/,
-            reExtendedSyntaxParser = /\[-(?:abp|ext)-([a-z-]+)=(['"])(.+?)\2\]/,
-            div = document.createElement('div');
+        const reAfterBeforeSelector = /^(.+?)(::?after|::?before)$/;
+        const reStyleSelector = /^(.+?):style\((.+?)\)$/;
+        const reStyleBad = /url\(/;
+        const reExtendedSyntax = /\[-(?:abp|ext)-[a-z-]+=(['"])(?:.+?)(?:\1)\]/;
+        const reExtendedSyntaxParser = /\[-(?:abp|ext)-([a-z-]+)=(['"])(.+?)\2\]/;
+        const div = document.createElement('div');
 
-        var normalizedExtendedSyntaxOperators = new Map([
+        const normalizedExtendedSyntaxOperators = new Map([
             [ 'contains', ':has-text' ],
-            [ 'has', ':if' ],
+            [ 'has', ':has' ],
             [ 'matches-css', ':matches-css' ],
             [ 'matches-css-after', ':matches-css-after' ],
             [ 'matches-css-before', ':matches-css-before' ],
         ]);
 
-        var isValidStyleProperty = function(cssText) {
+        const isValidStyleProperty = function(cssText) {
             if ( reStyleBad.test(cssText) ) { return false; }
             div.style.cssText = cssText;
             if ( div.style.cssText === '' ) { return false; }
@@ -514,8 +564,8 @@
             return true;
         };
 
-        var entryPoint = function(raw) {
-            var extendedSyntax = reExtendedSyntax.test(raw);
+        const entryPoint = function(raw) {
+            const extendedSyntax = reExtendedSyntax.test(raw);
             if ( isValidCSSSelector(raw) && extendedSyntax === false ) {
                 return raw;
             }
@@ -523,7 +573,7 @@
             // We  rarely reach this point -- majority of selectors are plain
             // CSS selectors.
 
-            var matches, operator;
+            let matches, operator;
 
             // Supported Adguard/ABP advanced selector syntax: will translate into
             // uBO's syntax before further processing.
@@ -543,7 +593,7 @@
                 return entryPoint(raw);
             }
 
-            var selector = raw,
+            let selector = raw,
                 pseudoclass, style;
 
             // `:style` selector?
@@ -580,7 +630,7 @@
             }
 
             // Procedural selector?
-            var compiled;
+            let compiled;
             if ( (compiled = compileProceduralSelector(raw)) ) {
                 return compiled;
             }
@@ -596,9 +646,9 @@
     })();
 
     api.compile = function(raw, writer) {
-        var lpos = raw.indexOf('#');
+        let lpos = raw.indexOf('#');
         if ( lpos === -1 ) { return false; }
-        var rpos = lpos + 1;
+        let rpos = lpos + 1;
         if ( raw.charCodeAt(rpos) !== 0x23 /* '#' */ ) {
             rpos = raw.indexOf('#', rpos + 1);
             if ( rpos === -1 ) { return false; }
@@ -611,7 +661,7 @@
         if ( (rpos - lpos) > 3 ) { return false; }
 
         // Extract the selector.
-        var suffix = raw.slice(rpos + 1).trim();
+        let suffix = raw.slice(rpos + 1).trim();
         if ( suffix.length === 0 ) { return false; }
         parsed.suffix = suffix;
 
@@ -622,7 +672,7 @@
         //   We have an Adguard/ABP cosmetic filter if and only if the
         //   character is `$`, `%` or `?`, otherwise it's not a cosmetic
         //   filter.
-        var cCode = raw.charCodeAt(rpos - 1);
+        let cCode = raw.charCodeAt(rpos - 1);
         if ( cCode !== 0x23 /* '#' */ && cCode !== 0x40 /* '@' */ ) {
             // Adguard's scriptlet injection: not supported.
             if ( cCode === 0x25 /* '%' */ ) { return true; }
@@ -645,37 +695,22 @@
         if ( lpos === 0 ) {
             parsed.hostnames = emptyArray;
         } else {
-            var prefix = raw.slice(0, lpos);
-            parsed.hostnames = prefix.split(reHostnameSeparator);
-            if ( reHasUnicode.test(prefix) ) {
-                toASCIIHostnames(parsed.hostnames);
-            }
+            parsed.hostnames = hostnamesFromPrefix(raw.slice(0, lpos));
         }
 
+        // Backward compatibility with deprecated syntax.
         if ( suffix.startsWith('script:') ) {
-            // Scriptlet injection engine.
             if ( suffix.startsWith('script:inject') ) {
-                µb.scriptletFilteringEngine.compile(parsed, writer);
-                return true;
-            }
-            // Script tag filtering: courtesy-conversion to HTML filtering.
-            if ( suffix.startsWith('script:contains') ) {
-                console.info(
-                    'uBO: ##script:contains(...) is deprecated, ' +
-                    'converting to ##^script:has-text(...)'
-                );
-                suffix = suffix.replace(/^script:contains/, '^script:has-text');
-                parsed.suffix = suffix;
+                suffix = parsed.suffix = '+js' + suffix.slice(13);
+            } else if ( suffix.startsWith('script:contains') ) {
+                suffix = parsed.suffix = '^script:has-text' + suffix.slice(15);
             }
         }
 
-        var c0 = suffix.charCodeAt(0);
+        let c0 = suffix.charCodeAt(0);
 
         // New shorter syntax for scriptlet injection engine.
         if ( c0 === 0x2B /* '+' */ && suffix.startsWith('+js') ) {
-            // Convert to deprecated syntax for now. Once 1.15.12 is
-            // widespread, `+js` form will be the official syntax.
-            parsed.suffix = 'script:inject' + parsed.suffix.slice(3);
             µb.scriptletFilteringEngine.compile(parsed, writer);
             return true;
         }
@@ -706,23 +741,6 @@
             html: µb.htmlFilteringEngine.toSelfie()
         };
     };
-
-    Object.defineProperties(api, {
-        acceptedCount: {
-            get: function() {
-                return µb.cosmeticFilteringEngine.acceptedCount +
-                       µb.scriptletFilteringEngine.acceptedCount +
-                       µb.htmlFilteringEngine.acceptedCount;
-            }
-        },
-        discardedCount: {
-            get: function() {
-                return µb.cosmeticFilteringEngine.discardedCount +
-                       µb.scriptletFilteringEngine.discardedCount +
-                       µb.htmlFilteringEngine.discardedCount;
-            }
-        }
-    });
 
     api.fromSelfie = function(selfie) {
         µb.cosmeticFilteringEngine.fromSelfie(selfie.cosmetic);
