@@ -352,15 +352,15 @@ api.fetchFilterList.legacy = {
         '(norafif,': '(no-requestAnimationFrame-if.js,',
         '(noeval)': '(noeval.js)',
         '(nowebrtc)': '(nowebrtc.js)',
-        ':upward(1)': ':xpath(..)',
-        ':upward(2)': ':xpath(../..)',
-        ':upward(3)': ':xpath(../../..)',
-        ':upward(4)': ':xpath(../../../..)',
-        ':upward(5)': ':xpath(../../../../..)',
-        ':upward(6)': ':xpath(../../../../../..)',
-        ':upward(7)': ':xpath(../../../../../../..)',
-        ':upward(8)': ':xpath(../../../../../../../..)',
-        ':upward(9)': ':xpath(../../../../../../../../..)'
+        ':upward(1)': ':nth-ancestor(1)',
+        ':upward(2)': ':nth-ancestor(2)',
+        ':upward(3)': ':nth-ancestor(3)',
+        ':upward(4)': ':nth-ancestor(4)',
+        ':upward(5)': ':nth-ancestor(5)',
+        ':upward(6)': ':nth-ancestor(6)',
+        ':upward(7)': ':nth-ancestor(7)',
+        ':upward(8)': ':nth-ancestor(8)',
+        ':upward(9)': ':nth-ancestor(9)'
     },
     get regexRules() {
         delete this.regexRules;
