@@ -119,9 +119,16 @@
     };
 
     const translateAdguardCSSInjectionFilter = function(suffix) {
-        var matches = /^([^{]+)\{([^}]+)\}$/.exec(suffix);
+        const matches = /^([^{]+)\{([^}]+)\}$/.exec(suffix);
         if ( matches === null ) { return ''; }
-        return matches[1].trim() + ':style(' +  matches[2].trim() + ')';
+        const selector = matches[1].trim();
+        const style = matches[2].trim();
+        // For some reasons, many of Adguard's plain cosmetic filters are
+        // "disguised" as style-based cosmetic filters: convert such filters
+        // to plain cosmetic filters.
+        return /display\s*:\s*none\s*!important;?$/.test(style)
+            ? selector
+            : selector + ':style(' +  style + ')';
     };
 
     const hostnamesFromPrefix = function(s) {
@@ -159,7 +166,11 @@
                 'matches-css',
                 'matches-css-after',
                 'matches-css-before',
+                'min-text-length',
                 'not',
+                'nth-ancestor',
+                'watch-attr',
+                'watch-attrs',
                 'xpath'
                 ].join('|'),
             ')\\('
@@ -218,6 +229,14 @@
             return compile(s);
         };
 
+        const compileInteger = function(s, min = 0, max = 0x7FFFFFFF) {
+            if ( /^\d+$/.test(s) === false ) { return; }
+            const n = parseInt(s, 10);
+            if ( n >= min && n < max ) {
+                return n;
+            }
+        };
+
         const compileNotSelector = function(s) {
             // https://github.com/uBlockOrigin/uBlock-issues/issues/341#issuecomment-447603588
             //   Reject instances of :not() filters for which the argument is
@@ -226,6 +245,27 @@
             if ( isValidCSSSelector(s) === false ) {
                 return compileConditionalSelector(s);
             }
+        };
+
+        const compileNthAncestorSelector = function(s) {
+            return compileInteger(s, 1, 256);
+        };
+
+        const compileSpathExpression = function(s) {
+            if ( isValidCSSSelector('*' + s) ) {
+                return s;
+            }
+        };
+
+        const compileAttrList = function(s) {
+            const attrs = s.split('\s*,\s*');
+            const out = [];
+            for ( const attr of attrs ) {
+                if ( attr !== '' ) {
+                    out.push(attr);
+                }
+            }
+            return out;
         };
 
         const compileXpathExpression = function(s) {
@@ -242,6 +282,7 @@
             [ ':-abp-contains', ':has-text' ],
             [ ':-abp-has', ':has' ],
             [ ':contains', ':has-text' ],
+            [ ':watch-attrs', ':watch-attr' ],
         ]);
 
         const compileArgument = new Map([
@@ -252,7 +293,11 @@
             [ ':matches-css', compileCSSDeclaration ],
             [ ':matches-css-after', compileCSSDeclaration ],
             [ ':matches-css-before', compileCSSDeclaration ],
+            [ ':min-text-length', compileInteger ],
             [ ':not', compileNotSelector ],
+            [ ':nth-ancestor', compileNthAncestorSelector ],
+            [ ':spath', compileSpathExpression ],
+            [ ':watch-attr', compileAttrList ],
             [ ':xpath', compileXpathExpression ]
         ]);
 
@@ -270,42 +315,48 @@
             }
             const raw = [ compiled.selector ];
             let value;
-            for ( let task of tasks ) {
+            for ( const task of tasks ) {
                 switch ( task[0] ) {
-                case ':xpath':
-                    raw.push(task[0], '(', task[1], ')');
+                case ':has':
+                case ':if':
+                    raw.push(`:has(${decompile(task[1])})`);
                     break;
                 case ':has-text':
                     if ( Array.isArray(task[1]) ) {
-                        value = '/' + task[1][0] + '/' + task[1][1];
+                        value = `/${task[1][0]}/${task[1][1]}`;
                     } else {
                         value = regexToRawValue.get(task[1]);
                         if ( value === undefined ) {
-                            value = '/' + task[1] + '/';
+                            value = `/${task[1]}/`;
                         }
                     }
-                    raw.push(task[0], '(', value, ')');
+                    raw.push(`:has-text(${value})`);
                     break;
                 case ':matches-css':
                 case ':matches-css-after':
                 case ':matches-css-before':
                     if ( Array.isArray(task[1].value) ) {
-                        value = '/' + task[1].value[0] + '/' + task[1].value[1];
+                        value = `/${task[1].value[0]}/${task[1].value[1]}`;
                     } else {
                         value = regexToRawValue.get(task[1].value);
                         if ( value === undefined ) {
-                            value = '/' + task[1].value + '/';
+                            value = `/${task[1].value}/`;
                         }
                     }
-                    raw.push(task[0], '(', task[1].name, ': ', value, ')');
+                    raw.push(`${task[0]}(${task[1].name}: ${value})`);
                     break;
-                case ':has':
-                case ':if':
-                    raw.push(':has', '(', decompile(task[1]), ')');
-                    break;
-                case ':if-not':
                 case ':not':
-                    raw.push(':not', '(', decompile(task[1]), ')');
+                case ':if-not':
+                    raw.push(`:not(${decompile(task[1])})`);
+                    break;
+                case ':spath':
+                    raw.push(task[1]);
+                    break;
+                case ':min-text-length':
+                case ':nth-ancestor':
+                case ':watch-attr':
+                case ':xpath':
+                    raw.push(`${task[0]}(${task[1]})`);
                     break;
                 }
             }
@@ -357,13 +408,7 @@
                 //   then consider it to be part of the prefix. If there is
                 //   at least one task present, then we fail, as we do not
                 //   support suffix CSS selectors.
-                // TODO: AdGuard does support suffix CSS selectors, so
-                //       supporting this would increase compatibility with
-                //       AdGuard filter lists.
-                if ( isValidCSSSelector(raw.slice(opNameBeg, i)) ) {
-                    if ( opPrefixBeg !== 0 ) { return; }
-                    continue;
-                }
+                if ( isValidCSSSelector(raw.slice(opNameBeg, i)) ) { continue; }
                 // Extract and remember operator details.
                 let operator = raw.slice(opNameBeg, opNameEnd);
                 operator = normalizedOperators.get(operator) || operator;
@@ -373,7 +418,11 @@
                 if ( opPrefixBeg === 0 ) {
                     prefix = raw.slice(0, opNameBeg);
                 } else if ( opNameBeg !== opPrefixBeg ) {
-                    return;
+                    const spath = compileSpathExpression(
+                        raw.slice(opPrefixBeg, opNameBeg)
+                    );
+                    if ( spath === undefined ) { return; }
+                    tasks.push([ ':spath', spath ]);
                 }
                 tasks.push([ operator, args ]);
                 opPrefixBeg = i;
@@ -385,7 +434,9 @@
                 prefix = raw;
                 tasks = undefined;
             } else if ( opPrefixBeg < n ) {
-                return;
+                const spath = compileSpathExpression(raw.slice(opPrefixBeg));
+                if ( spath === undefined ) { return; }
+                tasks.push([ ':spath', spath ]);
             }
             // https://github.com/NanoAdblocker/NanoCore/issues/1#issuecomment-354394894
             if ( prefix !== '' ) {
@@ -400,7 +451,7 @@
                 return lastProceduralSelectorCompiled;
             }
             lastProceduralSelector = raw;
-            var compiled = compile(raw);
+            let compiled = compile(raw);
             if ( compiled !== undefined ) {
                 compiled.raw = decompile(compiled);
                 compiled = JSON.stringify(compiled);
@@ -654,11 +705,22 @@
             if ( rpos === -1 ) { return false; }
         }
 
+        // https://github.com/AdguardTeam/AdguardFilters/commit/4fe02d73cee6
+        //   AdGuard also uses `$?` to force inline-based style rather than
+        //   stylesheet-based style.
         // Coarse-check that the anchor is valid.
-        // `##`: l = 1
-        // `#@#`, `#$#`, `#%#`, `#?#`: l = 2
-        // `#@$#`, `#@%#`, `#@?#`: l = 3
-        if ( (rpos - lpos) > 3 ) { return false; }
+        // `##`: l === 1
+        // `#@#`, `#$#`, `#%#`, `#?#`: l === 2
+        // `#@$#`, `#@%#`, `#@?#`, `#$?#`: l === 3
+        // `#@$?#`: l === 4
+        const anchorLen = rpos - lpos;
+        if ( anchorLen > 4 ) { return false; }
+        if (
+            anchorLen > 1 &&
+            /^@?(?:\$\??|%|\?)?$/.test(raw.slice(lpos + 1, rpos)) === false
+        ) {
+            return false;
+        }
 
         // Extract the selector.
         let suffix = raw.slice(rpos + 1).trim();
@@ -676,9 +738,8 @@
         if ( cCode !== 0x23 /* '#' */ && cCode !== 0x40 /* '@' */ ) {
             // Adguard's scriptlet injection: not supported.
             if ( cCode === 0x25 /* '%' */ ) { return true; }
-            // Not a known extended filter.
-            if ( cCode !== 0x24 /* '$' */ && cCode !== 0x3F /* '?' */ ) {
-                return false;
+            if ( cCode === 0x3F /* '?' */ && anchorLen > 2 ) {
+                cCode = raw.charCodeAt(rpos - 2);
             }
             // Adguard's style injection: translate to uBO's format.
             if ( cCode === 0x24 /* '$' */ ) {
