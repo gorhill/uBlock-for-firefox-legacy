@@ -221,7 +221,7 @@ vAPI.domWatcher = (function() {
         removedNodeLists.length = 0;
         //console.timeEnd('dom watcher/safe observer handler');
         if ( addedNodes.length === 0 && removedNodes === false ) { return; }
-        for ( const listener of getListenerIterator() ) {
+        for ( let listener of getListenerIterator() ) {
             listener.onDOMChanged(addedNodes, removedNodes);
         }
         addedNodes.length = 0;
@@ -311,7 +311,7 @@ vAPI.domWatcher = (function() {
 
     const start = function() {
         domIsReady = true;
-        for ( const listener of getListenerIterator() ) {
+        for ( let listener of getListenerIterator() ) {
             listener.onDOMCreated();
         }
         startMutationObserver();
@@ -469,7 +469,7 @@ vAPI.DOMFilterer = (function() {
             const nodes = parent.querySelectorAll(
                 `:scope > :nth-child(${pos})${this.spath}`
             );
-            for ( const node of nodes ) {
+            for ( let node of nodes ) {
                 output.push(node);
             }
         }
@@ -555,7 +555,7 @@ vAPI.DOMFilterer = (function() {
             this.tasks = [];
             const tasks = o.tasks;
             if ( !tasks ) { return; }
-            for ( const task of tasks ) {
+            for ( let task of tasks ) {
                 this.tasks.push(new (this.operatorToTaskMap.get(task[0]))(task));
             }
         }
@@ -568,10 +568,10 @@ vAPI.DOMFilterer = (function() {
         }
         exec(input) {
             let nodes = this.prime(input);
-            for ( const task of this.tasks ) {
+            for ( let task of this.tasks ) {
                 if ( nodes.length === 0 ) { break; }
                 const transposed = [];
-                for ( const node of nodes ) {
+                for ( let node of nodes ) {
                     task.transpose(node, transposed);
                 }
                 nodes = transposed;
@@ -580,11 +580,11 @@ vAPI.DOMFilterer = (function() {
         }
         test(input) {
             const nodes = this.prime(input);
-            for ( const node of nodes ) {
+            for ( let node of nodes ) {
                 let output = [ node ];
-                for ( const task of this.tasks ) {
+                for ( let task of this.tasks ) {
                     const transposed = [];
-                    for ( const node of output ) {
+                    for ( let node of output ) {
                         task.transpose(node, transposed);
                     }
                     output = transposed;
@@ -664,7 +664,7 @@ vAPI.DOMFilterer = (function() {
 
             let t0 = Date.now();
 
-            for ( const entry of this.selectors ) {
+            for ( let entry of this.selectors ) {
                 const pselector = entry[1];
                 const allowance = Math.floor((t0 - pselector.lastAllowanceTime) / 2000);
                 if ( allowance >= 1 ) {
@@ -681,13 +681,13 @@ vAPI.DOMFilterer = (function() {
                     pselector.budget = -0x7FFFFFFF;
                 }
                 t0 = t1;
-                for ( const node of nodes ) {
+                for ( let node of nodes ) {
                     this.domFilterer.hideNode(node);
                     this.hiddenNodes.add(node);
                 }
             }
 
-            for ( const node of toRemove ) {
+            for ( let node of toRemove ) {
                 if ( this.hiddenNodes.has(node) ) { continue; }
                 this.domFilterer.unhideNode(node);
             }
@@ -841,7 +841,7 @@ vAPI.domCollapser = (function() {
         const iframeLoadEventPatch = vAPI.iframeLoadEventPatch;
         let netSelectorCacheCountMax = response.netSelectorCacheCountMax;
 
-        for ( const target of targets ) {
+        for ( let target of targets ) {
             const tag = target.localName;
             let prop = src1stProps[tag];
             if ( prop === undefined ) { continue; }
@@ -919,13 +919,13 @@ vAPI.domCollapser = (function() {
     };
 
     const addMany = function(targets) {
-        for ( const target of targets ) {
+        for ( let target of targets ) {
             add(target);
         }
     };
 
     const iframeSourceModified = function(mutations) {
-        for ( const mutation of mutations ) {
+        for ( let mutation of mutations ) {
             addIFrame(mutation.target, true);
         }
         process();
@@ -965,7 +965,7 @@ vAPI.domCollapser = (function() {
     };
 
     const addIFrames = function(iframes) {
-        for ( const iframe of iframes ) {
+        for ( let iframe of iframes ) {
             addIFrame(iframe);
         }
     };
@@ -995,7 +995,7 @@ vAPI.domCollapser = (function() {
             //   http://jsperf.com/queryselectorall-vs-getelementsbytagname/145
             const elems = document.images ||
                           document.getElementsByTagName('img');
-            for ( const elem of elems ) {
+            for ( let elem of elems ) {
                 if ( elem.complete ) {
                     add(elem);
                 }
@@ -1016,7 +1016,7 @@ vAPI.domCollapser = (function() {
         },
         onDOMChanged: function(addedNodes) {
             if ( addedNodes.length === 0 ) { return; }
-            for ( const node of addedNodes ) {
+            for ( let node of addedNodes ) {
                 if ( node.localName === 'iframe' ) {
                     addIFrame(node);
                 }

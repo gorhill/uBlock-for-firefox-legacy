@@ -260,7 +260,7 @@
         const compileAttrList = function(s) {
             const attrs = s.split('\s*,\s*');
             const out = [];
-            for ( const attr of attrs ) {
+            for ( let attr of attrs ) {
                 if ( attr !== '' ) {
                     out.push(attr);
                 }
@@ -315,7 +315,7 @@
             }
             const raw = [ compiled.selector ];
             let value;
-            for ( const task of tasks ) {
+            for ( let task of tasks ) {
                 switch ( task[0] ) {
                 case ':has':
                 case ':if':
