@@ -718,6 +718,7 @@ vAPI.DOMFilterer = (function() {
 
         removeNodes(nodes) {
             for ( let node of nodes ) {
+                node.textContent = '';
                 node.remove();
             }
         },
