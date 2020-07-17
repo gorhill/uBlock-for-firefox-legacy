@@ -108,7 +108,7 @@ let processProcedural = function(out) {
     if ( proceduralDict.size === 0 ) { return; }
     for ( let [ raw, pselector ] of proceduralDict ) {
         if ( pselector.hit === false ) { continue; }
-        out.push(`##${raw}`);
+        out.push(raw);
         proceduralDict.delete(raw);
         if ( proceduralDict.size === 0 ) { break; }
     }
