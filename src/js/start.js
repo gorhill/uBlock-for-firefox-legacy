@@ -139,7 +139,7 @@ var onVersionReady = function(lastVersion) {
     µb.assets.purge('ublock-resources');
 
     // Force updating all filters due to filter syntax converter update.
-    if ( vAPI.app.compareVersions(lastVersion, "1.16.4.22") <= 0 ) {
+    if ( vAPI.app.compareVersions(lastVersion, "1.16.4.23") <= 0 ) {
         µb.assets.purge(/./, 'public_suffix_list.dat');
     }
 
