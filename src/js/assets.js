@@ -172,11 +172,12 @@ api.fetchText = function(url, onLoad, onError) {
 //   Support the seamless loading of sublists.
 
 api.fetchFilterList = function(mainlistURL, convert, onLoad, onError) {
-    var content = [],
-        errored = false,
-        pendingSublistURLs = new Set([ mainlistURL ]),
-        loadedSublistURLs = new Set(),
-        toParsedURL = api.fetchFilterList.toParsedURL;
+    const content = [];
+    const pendingSublistURLs = new Set([ mainlistURL ]);
+    const loadedSublistURLs = new Set();
+    const toParsedURL = api.fetchFilterList.toParsedURL;
+
+    let errored = false;
 
     // https://github.com/NanoAdblocker/NanoCore/issues/239
     //   Anything under URL's root directory is allowed to be fetched. The
@@ -195,38 +196,62 @@ api.fetchFilterList = function(mainlistURL, convert, onLoad, onError) {
         }
     }
 
-    var processIncludeDirectives = function(details) {
-        var reInclude = /^!#include +(\S+)/gm;
+    const processIncludeDirectives = function(details) {
+        const reInclude = /^!#include +(\S+)/gm;
+        const out = [];
+        const content = details.content;
+        let lastIndex = 0;
         for (;;) {
-            var match = reInclude.exec(details.content);
+            const match = reInclude.exec(content);
             if ( match === null ) { break; }
             if ( toParsedURL(match[1]) !== undefined ) { continue; }
             if ( match[1].indexOf('..') !== -1 ) { continue; }
-            var pos = details.url.lastIndexOf('/');
+            const pos = details.url.lastIndexOf('/');
             if ( pos === -1 ) { continue; }
-            var subURL = details.url.slice(0, pos + 1) + match[1];
+            const subURL = details.url.slice(0, pos + 1) + match[1];
             if ( pendingSublistURLs.has(subURL) ) { continue; }
             if ( loadedSublistURLs.has(subURL) ) { continue; }
             pendingSublistURLs.add(subURL);
             api.fetchText(subURL, onLocalLoadSuccess, onLocalLoadError);
+            out.push(content.slice(lastIndex, match.index).trim(), subURL);
+            lastIndex = reInclude.lastIndex;
         }
+        out.push(lastIndex === 0 ? content : content.slice(lastIndex).trim());
+        return out;
     };
 
-    var onLocalLoadSuccess = function(details) {
+    const onLocalLoadSuccess = function(details) {
         if ( errored ) { return; }
 
-        var isSublist = details.url !== mainlistURL;
+        const isSublist = details.url !== mainlistURL;
 
         pendingSublistURLs.delete(details.url);
         loadedSublistURLs.add(details.url);
-        if ( isSublist ) { content.push('\n! ' + '>>>>>>>> ' + details.url); }
-        content.push(details.content.trim());
-        if ( isSublist ) { content.push('! <<<<<<<< ' + details.url); }
+        // https://github.com/uBlockOrigin/uBlock-issues/issues/329
+        //   Insert fetched content at position of related #!include directive
+        let slot = isSublist ? content.indexOf(details.url) : 0;
+        if ( isSublist ) {
+            content.splice(
+                slot,
+                1,
+                '! >>>>>>>> ' + details.url,
+                details.content.trim(),
+                '! <<<<<<<< ' + details.url
+            );
+            slot += 1;
+        } else {
+            content[0] = details.content.trim();
+        }
+
+        // Find and process #!include directives
         if (
             rootDirectoryURL !== undefined &&
             rootDirectoryURL.pathname.length > 0
         ) {
-            processIncludeDirectives(details);
+            const processed = processIncludeDirectives(details);
+            if ( processed.length > 1 ) {
+                content.splice(slot, 1, ...processed);
+            }
         }
 
         if ( pendingSublistURLs.size !== 0 ) { return; }
@@ -245,7 +270,7 @@ api.fetchFilterList = function(mainlistURL, convert, onLoad, onError) {
     //   Not checking for `errored` status was causing repeated notifications
     //   to the caller. This can happens when more than one out of multiple
     //   sublists can't be fetched.
-    var onLocalLoadError = function(details) {
+    const onLocalLoadError = function(details) {
         if ( errored ) { return; }
 
         errored = true;
