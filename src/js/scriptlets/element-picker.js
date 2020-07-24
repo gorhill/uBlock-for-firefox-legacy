@@ -766,9 +766,9 @@ var filterToDOMInterface = (function() {
             return;
         }
         var elems;
-        if ( o.style ) {
-            elems = document.querySelectorAll(o.style[0]);
-            lastAction = o.style[0] + ' {' + o.style[1] + '}';
+        if ( o.action === 'style' ) {
+            elems = document.querySelectorAll(o.selector);
+            lastAction = o.selector + ' {' + o.tasks[0][1] + '}';
         } else if ( o.tasks ) {
             elems = vAPI.domFilterer.createProceduralFilter(o).exec();
         }

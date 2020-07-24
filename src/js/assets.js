@@ -144,7 +144,7 @@ api.fetchText = function(url, onLoad, onError) {
         if ( ev.loaded === contentLoaded ) { return; }
         contentLoaded = ev.loaded;
         if ( timeoutTimer !== undefined ) {
-            clearTimeout(timeoutTimer); 
+            clearTimeout(timeoutTimer);
         }
         timeoutTimer = vAPI.setTimeout(onTimeout, timeoutAfter);
     };
@@ -351,16 +351,7 @@ api.fetchFilterList.legacy = {
         '(raf-if,': '(requestAnimationFrame-if.js,',
         '(norafif,': '(no-requestAnimationFrame-if.js,',
         '(noeval)': '(noeval.js)',
-        '(nowebrtc)': '(nowebrtc.js)',
-        ':upward(1)': ':nth-ancestor(1)',
-        ':upward(2)': ':nth-ancestor(2)',
-        ':upward(3)': ':nth-ancestor(3)',
-        ':upward(4)': ':nth-ancestor(4)',
-        ':upward(5)': ':nth-ancestor(5)',
-        ':upward(6)': ':nth-ancestor(6)',
-        ':upward(7)': ':nth-ancestor(7)',
-        ':upward(8)': ':nth-ancestor(8)',
-        ':upward(9)': ':nth-ancestor(9)'
+        '(nowebrtc)': '(nowebrtc.js)'
     },
     get regexRules() {
         delete this.regexRules;

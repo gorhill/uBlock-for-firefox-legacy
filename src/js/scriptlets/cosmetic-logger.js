@@ -106,10 +106,10 @@ let processDeclarativeComplex = function(out) {
 
 let processProcedural = function(out) {
     if ( proceduralDict.size === 0 ) { return; }
-    for ( let entry of proceduralDict ) {
-        if ( entry[1].test() === false ) { continue; }
-        out.push(entry[1].raw);
-        proceduralDict.delete(entry[0]);
+    for ( let [ raw, pselector ] of proceduralDict ) {
+        if ( pselector.hit === false ) { continue; }
+        out.push(raw);
+        proceduralDict.delete(raw);
         if ( proceduralDict.size === 0 ) { break; }
     }
 };
