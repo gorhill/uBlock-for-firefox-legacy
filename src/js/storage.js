@@ -420,10 +420,13 @@
         this.hiddenSettings.autoCommentFilterTemplate.indexOf('{{') !== -1
     ) {
         const d = new Date();
+        // Date in YYYY-MM-DD format - https://stackoverflow.com/a/50130338
+        const ISO8061Date = new Date(d.getTime() +
+            (d.getTimezoneOffset()*60000)).toISOString().split('T')[0];
         comment =
             '! ' +
             this.hiddenSettings.autoCommentFilterTemplate
-                .replace('{{date}}', d.toLocaleDateString())
+                .replace('{{date}}', ISO8061Date)
                 .replace('{{time}}', d.toLocaleTimeString())
                 .replace('{{origin}}', options.origin);
     }
