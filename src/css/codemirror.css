@@ -77,6 +77,9 @@
 .cm-search-widget .sourceURL[href=""] {
     display: none;
     }
+.cm-searching {
+    border: 1px dotted black;
+    }
 
 .CodeMirror-merge-l-deleted {
     background-image: none;
