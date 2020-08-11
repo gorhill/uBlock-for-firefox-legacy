@@ -1,4 +1,6 @@
 *.bak
 *.pem
+*.orig
+*.rej
 /dist/build/
 /tmp/
