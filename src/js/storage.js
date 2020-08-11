@@ -407,8 +407,26 @@
 
 /******************************************************************************/
 
-µBlock.appendUserFilters = function(filters) {
+µBlock.appendUserFilters = function(filters, options) {
+    filters = filters.trim();
     if ( filters.length === 0 ) { return; }
+
+    // https://github.com/uBlockOrigin/uBlock-issues/issues/372
+    //   Auto comment using user-defined template.
+    let comment = '';
+    if (
+        options instanceof Object &&
+        options.autoComment === true &&
+        this.hiddenSettings.autoCommentFilterTemplate.indexOf('{{') !== -1
+    ) {
+        const d = new Date();
+        comment =
+            '! ' +
+            this.hiddenSettings.autoCommentFilterTemplate
+                .replace('{{date}}', d.toLocaleDateString())
+                .replace('{{time}}', d.toLocaleTimeString())
+                .replace('{{origin}}', options.origin);
+    }
 
     var µb = this;
 
@@ -433,11 +451,22 @@
 
     var onLoaded = function(details) {
         if ( details.error ) { return; }
+        // The comment, if any, will be applied if and only if it is different
+        // from the last comment found in the user filter list.
+        if ( comment !== '' ) {
+            const pos = details.content.lastIndexOf(comment);
+            if (
+                pos === -1 ||
+                details.content.indexOf('\n!', pos + 1) !== -1
+            ) {
+                filters = '\n' + comment + '\n' + filters;
+            }
+        }
         // https://github.com/chrisaljoudi/uBlock/issues/976
         // If we reached this point, the filter quite probably needs to be
         // added for sure: do not try to be too smart, trying to avoid
         // duplicates at this point may lead to more issues.
-        µb.saveUserFilters(details.content.trim() + '\n\n' + filters.trim(), onSaved);
+        µb.saveUserFilters(details.content.trim() + '\n' + filters, onSaved);
     };
 
     this.loadUserFilters(onLoaded);

@@ -43,6 +43,7 @@ var µBlock = (function() { // jshint ignore:line
     var hiddenSettingsDefault = {
         assetConvertMyFilters: false,
         assetFetchTimeout: 30,
+        autoCommentFilterTemplate: '{{date}} {{origin}}',
         autoUpdateAssetFetchPeriod: 120,
         autoUpdatePeriod: 7,
         ignoreRedirectFilters: false,
