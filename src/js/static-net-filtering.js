@@ -2156,9 +2156,10 @@ FilterContainer.prototype.compile = function(raw, writer) {
     if (
         parsed.hostnamePure &&
         parsed.domainOpt === '' &&
-        parsed.dataType === undefined &&
-        this.compileHostnameOnlyFilter(parsed, writer)
+        parsed.dataType === undefined
     ) {
+        parsed.tokenHash = this.dotTokenHash;
+        this.compileToAtomicFilter(parsed, parsed.f, writer);
         return true;
     }
 
@@ -2216,7 +2217,7 @@ FilterContainer.prototype.compile = function(raw, writer) {
         fdata.push(fwrapped);
     }
 
-    this.compileToAtomicFilter(fdata, parsed, writer);
+    this.compileToAtomicFilter(parsed, fdata, writer);
 
     return true;
 };
@@ -2225,38 +2226,19 @@ FilterContainer.prototype.compile = function(raw, writer) {
 
 // Using fast/compact dictionary when filter is a pure hostname.
 
-FilterContainer.prototype.compileHostnameOnlyFilter = function(parsed, writer) {
-    // Can't fit the filter in a pure hostname dictionary.
-    // https://github.com/gorhill/uBlock/issues/1757
-    // This should no longer happen with fix to above issue.
-    //if ( parsed.domainOpt.length !== 0 ) {
-    //    return;
-    //}
 
-    var descBits = parsed.action | parsed.important | parsed.party | parsed.badFilter;
+FilterContainer.prototype.compileToAtomicFilter = function(
+    parsed,
+    fdata,
+    writer
+) {
+    let descBits = parsed.action |
+                   parsed.important |
+                   parsed.party |
+                   parsed.badFilter;
+    let type = parsed.types;
 
-    var type = parsed.types;
-    if ( type === 0 ) {
-        writer.push([ descBits, this.dotTokenHash, parsed.f ]);
-        return true;
-    }
-
-    var bitOffset = 1;
-    do {
-        if ( type & 1 ) {
-            writer.push([ descBits | (bitOffset << 4), this.dotTokenHash, parsed.f ]);
-        }
-        bitOffset += 1;
-        type >>>= 1;
-    } while ( type !== 0 );
-    return true;
-};
-
-/******************************************************************************/
-
-FilterContainer.prototype.compileToAtomicFilter = function(fdata, parsed, writer) {
-    var descBits = parsed.action | parsed.important | parsed.party | parsed.badFilter,
-        type = parsed.types;
+    // Typeless
     if ( type === 0 ) {
         writer.push([ descBits, parsed.tokenHash, fdata ]);
         return;
@@ -2268,7 +2250,8 @@ FilterContainer.prototype.compileToAtomicFilter = function(fdata, parsed, writer
         type &= ~allNetworkTypesBits;
     }
 
-    var bitOffset = 1;
+    // Specific type(s)
+    let bitOffset = 1;
     do {
         if ( type & 1 ) {
             writer.push([ descBits | (bitOffset << 4), parsed.tokenHash, fdata ]);
@@ -2279,22 +2262,13 @@ FilterContainer.prototype.compileToAtomicFilter = function(fdata, parsed, writer
 
     // Only static filter with an explicit type can be redirected. If we reach
     // this point, it's because there is one or more explicit type.
-    if ( !parsed.redirect ) {
-        return;
-    }
-
-    if ( parsed.badFilter ) {
-        return;
-    }
-
-    var redirects = µb.redirectEngine.compileRuleFromStaticFilter(parsed.raw);
-    if ( Array.isArray(redirects) === false ) {
-        return;
-    }
-    descBits = typeNameToTypeValue.redirect;
-    var i = redirects.length;
-    while ( i-- ) {
-        writer.push([ descBits, redirects[i] ]);
+    if ( parsed.badFilter === 0 && parsed.redirect ) {
+        let redirects = µb.redirectEngine.compileRuleFromStaticFilter(parsed.raw);
+        if ( Array.isArray(redirects) ) {
+            for ( let redirect of redirects ) {
+                writer.push([ typeNameToTypeValue.redirect, redirect ]);
+            }
+        }
     }
 };
 
