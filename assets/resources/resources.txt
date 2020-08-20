@@ -1830,7 +1830,7 @@ set-constant.js application/javascript
 				if ( prevGetter !== undefined ) {
 					prevGetter();
 				}
-				return handler.getter();
+				return handler.getter(); // cValue
 			},
 			set(a) {
 				if ( prevSetter !== undefined ) {
