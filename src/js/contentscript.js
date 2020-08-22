@@ -430,8 +430,16 @@ vAPI.DOMFilterer = (function() {
     const PSelectorSpathTask = class {
         constructor(task) {
             this.spath = task[1];
+            this.nth = /^(?:\s*[+~]|:)/.test(this.spath);
+            if ( this.nth ) { return; }
+            if ( /^\s*>/.test(this.spath) ) {
+                this.spath = `:scope ${this.spath.trim()}`;
+            }
         }
-        transpose(node, output) {
+        qsa(node) {
+            if ( this.nth === false ) {
+                return node.querySelectorAll(this.spath);
+            }
             const parent = node.parentElement;
             if ( parent === null ) { return; }
             let pos = 1;
@@ -440,9 +448,13 @@ vAPI.DOMFilterer = (function() {
                 if ( node === null ) { break; }
                 pos += 1;
             }
-            const nodes = parent.querySelectorAll(
+            return parent.querySelectorAll(
                 `:scope > :nth-child(${pos})${this.spath}`
             );
+        }
+        transpose(node, output) {
+            const nodes = this.qsa(node);
+            if ( nodes === undefined ) { return; }
             for ( let node of nodes ) {
                 output.push(node);
             }

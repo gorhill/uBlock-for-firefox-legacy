@@ -43,6 +43,7 @@ var µBlock = (function() { // jshint ignore:line
     var hiddenSettingsDefault = {
         assetConvertMyFilters: false,
         assetFetchTimeout: 30,
+        autoCommentFilterTemplate: '{{date}} {{origin}}',
         autoUpdateAssetFetchPeriod: 120,
         autoUpdatePeriod: 7,
         ignoreRedirectFilters: false,
@@ -138,8 +139,8 @@ var µBlock = (function() { // jshint ignore:line
 
         // read-only
         systemSettings: {
-            compiledMagic: 3,
-            selfieMagic: 1
+            compiledMagic: 4,
+            selfieMagic: 2
         },
 
         restoreBackupSettings: {
