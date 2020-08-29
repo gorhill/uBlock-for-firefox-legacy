@@ -51,6 +51,7 @@ var µBlock = (function() { // jshint ignore:line
         manualUpdateAssetFetchPeriod: 500,
         popupFontSize: 'unset',
         suspendTabsUntilReady: false,
+        toolbarButtonForceTypeMenu: false,
         userResourcesLocation: 'unset'
     };
 

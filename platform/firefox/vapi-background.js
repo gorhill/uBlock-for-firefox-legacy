@@ -40,6 +40,7 @@ const {Services} = Cu.import('resource://gre/modules/Services.jsm', null);
 var vAPI = self.vAPI = self.vAPI || {};
 vAPI.firefox = true;
 vAPI.fennec = Services.appinfo.ID === '{aa3c5121-dab2-40e2-81ca-7ea25febc110}';
+vAPI.palemoon = Services.appinfo.ID === '{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}';
 vAPI.thunderbird = Services.appinfo.ID === '{3550f703-e582-4d05-9a08-453d09bdfdc6}';
 
 if ( vAPI.fennec ) {
@@ -2688,17 +2689,23 @@ vAPI.toolbarButton = {
 
         var toolbarButton = document.createElement('toolbarbutton');
         toolbarButton.setAttribute('id', tbb.id);
-        // type = panel would be more accurate, but doesn't look as good
-        toolbarButton.setAttribute('type', 'menu');
+        // type = panel would be more accurate, but in Firefox it doesn't look as good
+        if ( vAPI.palemoon && !µBlock.hiddenSettings.toolbarButtonForceTypeMenu ) {
+            toolbarButton.setAttribute('type', 'panel');
+        } else {
+            toolbarButton.setAttribute('type', 'menu');
+        }
         toolbarButton.setAttribute('removable', 'true');
         toolbarButton.setAttribute('class', 'toolbarbutton-1 chromeclass-toolbar-additional');
         toolbarButton.setAttribute('label', tbb.label);
         toolbarButton.setAttribute('tooltiptext', tbb.label);
 
         var toolbarButtonPanel = document.createElement('panel');
-        // NOTE: Setting level to parent breaks the popup for PaleMoon under
+        // NOTE: Setting level to parent breaks the popup for Pale Moon under
         // linux (mouse pointer misaligned with content). For some reason.
         // toolbarButtonPanel.setAttribute('level', 'parent');
+        toolbarButtonPanel.setAttribute('position', 'bottomleft topleft');
+        toolbarButtonPanel.setAttribute('flip', 'both');
         tbb.populatePanel(document, toolbarButtonPanel);
         toolbarButtonPanel.addEventListener('popupshowing', tbb.onViewShowing);
         toolbarButtonPanel.addEventListener('popuphiding', tbb.onViewHiding);
