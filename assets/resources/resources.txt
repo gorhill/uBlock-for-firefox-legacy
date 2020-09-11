@@ -1430,7 +1430,9 @@ json-prune.js application/javascript
 		let owner = root;
 		let chain = path;
 		for (;;) {
-			if ( owner instanceof Object === false ) { return false; }
+			if ( typeof owner !== 'object' || owner === null  ) {
+				return false;
+			}
 			const pos = chain.indexOf('.');
 			if ( pos === -1 ) {
 				const found = owner.hasOwnProperty(chain);
@@ -1447,8 +1449,8 @@ json-prune.js application/javascript
 			) {
 				const next = chain.slice(pos + 1);
 				let found = false;
-				for ( let item of owner.values() ) {
-					found = findOwner(item, next, prune) || found;
+				for ( let key of Object.keys(owner) ) {
+					found = findOwner(owner[key], next, prune) || found;
 				}
 				return found;
 			}
