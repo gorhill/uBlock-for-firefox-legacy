@@ -1358,6 +1358,11 @@ vAPI.domSurveyor = (function() {
         if ( window.location === null ) { return; }
         if ( vAPI instanceof Object === false ) { return; }
 
+        vAPI.messaging.send(
+            'contentscript',
+            { what: 'shouldRenderNoscriptTags' }
+        );
+
         if ( vAPI.domWatcher instanceof Object ) {
             vAPI.domWatcher.start();
         }

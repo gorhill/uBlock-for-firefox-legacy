@@ -88,9 +88,6 @@ const onMessage = function(request, sender, callback) {
         break;
     }
 
-    // The concatenation with the empty string ensure that the resulting value
-    // is a string. This is important since tab id values are assumed to be
-    // of string type.
     var tabId = sender && sender.tab ? '' + sender.tab.id : 0;
 
     // Sync
@@ -340,6 +337,7 @@ var popupDataFromTabId = function(tabId, tabTitle) {
         r.largeMediaCount = pageStore.largeMediaCount;
         r.noRemoteFonts = µb.hnSwitches.evaluateZ('no-remote-fonts', rootHostname);
         r.remoteFontCount = pageStore.remoteFontCount;
+        r.noScripting = µb.hnSwitches.evaluateZ('no-scripting', rootHostname);
     } else {
         r.hostnameDict = {};
         r.firewallRules = getFirewallRules();
@@ -379,14 +377,6 @@ var onMessage = function(request, sender, callback) {
 
     // Async
     switch ( request.what ) {
-    case 'getPopupLazyData':
-        pageStore = µb.pageStoreFromTabId(request.tabId);
-        if ( pageStore !== null ) {
-            pageStore.hiddenElementCount = 0;
-            µb.scriptlets.injectDeep(request.tabId, 'cosmetic-survey');
-        }
-        return;
-
     case 'getPopupData':
         popupDataFromRequest(request, callback);
         return;
@@ -399,6 +389,15 @@ var onMessage = function(request, sender, callback) {
     var response;
 
     switch ( request.what ) {
+    case 'getPopupLazyData':
+        pageStore = µb.pageStoreFromTabId(request.tabId);
+        if ( pageStore !== null ) {
+            pageStore.hiddenElementCount = 0;
+            pageStore.inlineScriptCount = 0;
+            µb.scriptlets.injectDeep(request.tabId, 'dom-survey');
+        }
+        break;
+
     case 'hasPopupContentChanged':
         pageStore = µb.pageStoreFromTabId(request.tabId);
         var lastModified = pageStore ? pageStore.contentLastModified : 0;
@@ -493,6 +492,22 @@ var onMessage = function(request, sender, callback) {
             pageStore.getNetFilteringSwitch()
         ) {
             pageStore.getBlockedResources(request, response);
+        }
+        break;
+
+    case 'shouldRenderNoscriptTags':
+        if ( pageStore === null ) { break; }
+        let tabContext = µb.tabContextManager.lookup(tabId);
+        if ( tabContext === null ) { break; }
+        if ( pageStore.filterScripting(tabContext.rootHostname) ) {
+            vAPI.tabs.injectScript(
+                tabId,
+                {
+                    file: '/js/scriptlets/noscript-spoof.js',
+                    frameId: frameId,
+                    runAt: 'document_end'
+                }
+            );
         }
         break;
 
@@ -1187,23 +1202,22 @@ vAPI.messaging.listen('documentBlocked', onMessage);
 
 /******************************************************************************/
 
-var µb = µBlock;
-var broadcastTimers = Object.create(null);
+let µb = µBlock;
+let broadcastTimers = new Map();
 
 /******************************************************************************/
 
-var cosmeticallyFilteredElementCountChanged = function(tabId) {
-    delete broadcastTimers[tabId + '-cosmeticallyFilteredElementCountChanged'];
+var domSurveyFinalReport = function(tabId) {
+    broadcastTimers.delete(tabId + '-domSurveyReport');
 
-    var pageStore = µb.pageStoreFromTabId(tabId);
-    if ( pageStore === null ) {
-        return;
-    }
+    let pageStore = µb.pageStoreFromTabId(tabId);
+    if ( pageStore === null ) { return; }
 
     vAPI.messaging.broadcast({
-        what: 'cosmeticallyFilteredElementCountChanged',
+        what: 'domSurveyFinalReport',
         tabId: tabId,
-        count: pageStore.hiddenElementCount
+        affectedElementCount: pageStore.hiddenElementCount,
+        scriptCount: pageStore.scriptCount + pageStore.inlineScriptCount,
     });
 };
 
@@ -1235,7 +1249,7 @@ var logCosmeticFilters = function(tabId, details) {
 
 var onMessage = function(request, sender, callback) {
     const tabId = sender && sender.tab ? sender.tab.id : 0;
-    var pageStore = µb.pageStoreFromTabId(tabId);
+    let pageStore = µb.pageStoreFromTabId(tabId);
 
     // Async
     switch ( request.what ) {
@@ -1247,15 +1261,20 @@ var onMessage = function(request, sender, callback) {
     var response;
 
     switch ( request.what ) {
-    case 'cosmeticallyFilteredElementCount':
-        if ( pageStore !== null && request.filteredElementCount ) {
-            pageStore.hiddenElementCount += request.filteredElementCount;
-            var broadcastKey = tabId + '-cosmeticallyFilteredElementCountChanged';
-            if ( broadcastTimers[broadcastKey] === undefined ) {
-                broadcastTimers[broadcastKey] = vAPI.setTimeout(
-                    cosmeticallyFilteredElementCountChanged.bind(null, tabId),
+    case 'domSurveyTransientReport':
+        if ( pageStore !== null ) {
+            if ( request.filteredElementCount ) {
+                pageStore.hiddenElementCount += request.filteredElementCount;
+            }
+            if ( request.inlineScriptCount ) {
+                pageStore.inlineScriptCount += request.inlineScriptCount;
+            }
+            let broadcastKey = tabId + '-domSurveyReport';
+            if ( broadcastTimers.has(broadcastKey) === false ) {
+                broadcastTimers.set(broadcastKey, vAPI.setTimeout(
+                    ( ) => { domSurveyFinalReport(tabId); },
                     250
-                );
+                ));
             }
         }
         break;
