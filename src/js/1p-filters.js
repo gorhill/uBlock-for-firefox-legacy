@@ -50,7 +50,7 @@ uBlockDashboard.patchCodeMirrorEditor(cmEditor);
 
 function userFiltersChanged(changed) {
     if ( typeof changed !== 'boolean' ) {
-        changed = cmEditor.getValue().trim() !== cachedUserFilters;
+        changed = self.hasUnsavedData();
     }
     uDom.nodeFromId('userFiltersApply').disabled = !changed;
     uDom.nodeFromId('userFiltersRevert').disabled = !changed;
@@ -193,6 +193,12 @@ var setCloudData = function(data, append) {
 
 self.cloud.onPush = getCloudData;
 self.cloud.onPull = setCloudData;
+
+/******************************************************************************/
+
+self.hasUnsavedData = function() {
+    return cmEditor.getValue().trim() !== cachedUserFilters;
+};
 
 /******************************************************************************/
 
