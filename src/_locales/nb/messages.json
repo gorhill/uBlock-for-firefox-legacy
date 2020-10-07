@@ -782,5 +782,17 @@
   "settingsNoScriptingPrompt": {
     "message": "Deaktiver JavaScript",
     "description": "The default state for the per-site no-scripting switch"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "Advarsel! Du har ulagrede endringer",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "Bli",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "Ignorer",
+    "description": "Label for button to ignore unsaved changes"
   }
 }

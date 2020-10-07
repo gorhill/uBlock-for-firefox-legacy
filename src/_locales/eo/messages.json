@@ -782,5 +782,17 @@
   "settingsNoScriptingPrompt": {
     "message": "Malŝalti JavaScript",
     "description": "The default state for the per-site no-scripting switch"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "Averto! Vi havas nekonservitajn ŝanĝojn",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "Resti",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "Ignori",
+    "description": "Label for button to ignore unsaved changes"
   }
 }

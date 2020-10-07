@@ -782,5 +782,17 @@
   "dummy": {
     "message": "This entry must be the last one",
     "description": "so we dont need to deal with comma for last entry"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "Warning! You have unsaved changes",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "Stay",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "Ignore",
+    "description": "Label for button to ignore unsaved changes"
   }
 }

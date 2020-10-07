@@ -782,5 +782,17 @@
   "settingsNoScriptingPrompt": {
     "message": "Απενεργοποίηση του JavaScript",
     "description": "The default state for the per-site no-scripting switch"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "Προειδοποίηση! Έχετε μη αποθηκευμένες αλλαγές",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "Παραμονή",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "Αγνόηση",
+    "description": "Label for button to ignore unsaved changes"
   }
 }

@@ -29,11 +29,13 @@
 
 /******************************************************************************/
 
-var listDetails = {},
-    filteringSettingsHash = '',
-    lastUpdateTemplateString = vAPI.i18n('3pLastUpdate'),
-    reValidExternalList = /[a-z-]+:\/\/\S*\/\S+/,
-    hideUnusedSet = new Set();
+
+const lastUpdateTemplateString = vAPI.i18n('3pLastUpdate');
+const reValidExternalList = /[a-z-]+:\/\/\S*\/\S+/;
+
+let listDetails = {};
+let filteringSettingsHash = '';
+let hideUnusedSet = new Set();
 
 /******************************************************************************/
 
@@ -357,17 +359,14 @@ var updateAssetStatus = function(details) {
 
 **/
 
-var hashFromCurrentFromSettings = function() {
-    var hash = [
+const hashFromCurrentFromSettings = function() {
+    const hash = [
         uDom.nodeFromId('parseCosmeticFilters').checked,
         uDom.nodeFromId('ignoreGenericCosmeticFilters').checked
     ];
-    var listHash = [],
-        listEntries = document.querySelectorAll('#lists .listEntry[data-listkey]:not(.toRemove)'),
-        liEntry,
-        i = listEntries.length;
-    while ( i-- ) {
-        liEntry = listEntries[i];
+    const listHash = [];
+    let listEntries = document.querySelectorAll('#lists .listEntry[data-listkey]:not(.toRemove)');
+    for ( let liEntry of listEntries ) {
         if ( liEntry.querySelector('input[type="checkbox"]:checked') !== null ) {
             listHash.push(liEntry.getAttribute('data-listkey'));
         }
@@ -674,6 +673,12 @@ var fromCloudData = function(data, append) {
 
 self.cloud.onPush = toCloudData;
 self.cloud.onPull = fromCloudData;
+
+/******************************************************************************/
+
+self.hasUnsavedData = function() {
+    return hashFromCurrentFromSettings() !== filteringSettingsHash;
+};
 
 /******************************************************************************/
 

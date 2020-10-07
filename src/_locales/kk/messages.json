@@ -782,5 +782,17 @@
   "settingsNoScriptingPrompt": {
     "message": "Disable JavaScript",
     "description": "The default state for the per-site no-scripting switch"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "Сізде сақталмаған параметрлер бар!",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "Қалу",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "Өшіру",
+    "description": "Label for button to ignore unsaved changes"
   }
 }

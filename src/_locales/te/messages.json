@@ -782,5 +782,17 @@
   "settingsNoScriptingPrompt": {
     "message": "జావాస్క్రిప్ట్‌ను ఆపివేయి",
     "description": "The default state for the per-site no-scripting switch"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "హెచ్చరిక! మీకు సేవ్ చేయని మార్పులు ఉన్నాయి",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "ఉండు",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "వదిలేయి",
+    "description": "Label for button to ignore unsaved changes"
   }
 }

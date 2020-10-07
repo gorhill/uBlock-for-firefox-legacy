@@ -782,5 +782,17 @@
   "settingsNoScriptingPrompt": {
     "message": "Забраняване на JavaScript",
     "description": "The default state for the per-site no-scripting switch"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "Внимание! Има незапазени промени",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "Оставане",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "Игнориране",
+    "description": "Label for button to ignore unsaved changes"
   }
 }

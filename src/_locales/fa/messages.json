@@ -782,5 +782,17 @@
   "settingsNoScriptingPrompt": {
     "message": "غیرفعال کردن جاوا اسکریپت",
     "description": "The default state for the per-site no-scripting switch"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "هشدار! شما تنطیمات ذخیره نشده دارید",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "بمان",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "نادیده بگیر",
+    "description": "Label for button to ignore unsaved changes"
   }
 }

@@ -782,5 +782,17 @@
   "settingsNoScriptingPrompt": {
     "message": "Desgaitu JavaScript",
     "description": "The default state for the per-site no-scripting switch"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "Abisua! Gorde gabeko aldaketak dituzu",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "Geratu",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "Ezikusi",
+    "description": "Label for button to ignore unsaved changes"
   }
 }

@@ -782,5 +782,17 @@
   "settingsNoScriptingPrompt": {
     "message": "JavaScript 비활성화",
     "description": "The default state for the per-site no-scripting switch"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "주의! 변경사항을 저장하지 않았습니다.",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "취소",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "무시",
+    "description": "Label for button to ignore unsaved changes"
   }
 }

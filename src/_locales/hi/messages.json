@@ -782,5 +782,17 @@
   "settingsNoScriptingPrompt": {
     "message": "जावास्क्रिप्ट को बंद करें ",
     "description": "The default state for the per-site no-scripting switch"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "Savdhan! Apke badlav abhi save nahi hue hai",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "रुको",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "नज़रअंदाज़ करो ",
+    "description": "Label for button to ignore unsaved changes"
   }
 }

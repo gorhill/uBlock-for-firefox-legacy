@@ -782,5 +782,17 @@
   "settingsNoScriptingPrompt": {
     "message": "JavaScript letiltása",
     "description": "The default state for the per-site no-scripting switch"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "Figyelem! Neked még vannak nem mentett változtatásaid",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "Tartózkodás",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "Figyelmen kívül hagyás",
+    "description": "Label for button to ignore unsaved changes"
   }
 }

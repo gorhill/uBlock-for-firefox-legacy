@@ -782,5 +782,17 @@
   "settingsNoScriptingPrompt": {
     "message": "JavaScript-ის გათიშვა",
     "description": "The default state for the per-site no-scripting switch"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "გაფრთხილება! ცვლილებები არ შენახულა",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "დარჩენა",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "უგულებელყოფა",
+    "description": "Label for button to ignore unsaved changes"
   }
 }

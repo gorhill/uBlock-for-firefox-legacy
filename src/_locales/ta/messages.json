@@ -782,5 +782,17 @@
   "settingsNoScriptingPrompt": {
     "message": "ஜாவாஸ்கிரிப்டை முடக்கு",
     "description": "The default state for the per-site no-scripting switch"
+  },
+  "dashboardUnsavedWarning": {
+    "message": "எச்சரிக்கை! உங்களிடம் சேமிக்கப்படாத மாற்றங்கள் உள்ளன",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "இருங்கள்",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "பொருட்படுத்தாதே",
+    "description": "Label for button to ignore unsaved changes"
   }
 }
