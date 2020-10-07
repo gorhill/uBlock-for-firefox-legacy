@@ -44,8 +44,8 @@
     "description": "Title for the advanced settings page"
   },
   "popupPowerSwitchInfo": {
-    "message": "இந்த தளத்தில் ‍‍‍uBlock₀ ஐ முடக்கவோ\/இயக்கவோ: இங்கே சுட்டு.\nCtrl+click: என்ற குறுக்குவிசையின் மூலம் uBlock₀ ஐ இந்தப் பக்கத்தில் மட்டும் முடக்கு.",
-    "description": "English: Click: disable\/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
+    "message": "இந்த தளத்தில் ‍‍‍uBlock₀ ஐ முடக்கவோ/இயக்கவோ: இங்கே சுட்டு.\nCtrl+click: என்ற குறுக்குவிசையின் மூலம் uBlock₀ ஐ இந்தப் பக்கத்தில் மட்டும் முடக்கு.",
+    "description": "English: Click: disable/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
   },
   "popupPowerSwitchInfo1": {
     "message": "Click to disable uBlock₀ for this site.\n\nCtrl+click to disable uBlock₀ only on this page.",
@@ -168,7 +168,7 @@
     "description": ""
   },
   "popup3pPassiveRulePrompt": {
-    "message": "மூன்றாம் தரப்பு CSS\/படங்கள்",
+    "message": "மூன்றாம் தரப்பு CSS/படங்கள்",
     "description": ""
   },
   "popupInlineScriptRulePrompt": {
@@ -252,7 +252,7 @@
     "description": ""
   },
   "settingsAdvancedUserPrompt": {
-    "message": "நான் ஒரு மேம்பட்ட பயனர் (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Advanced-user-features'>அவசியம் படிக்க வேண்டியவை<\/a>)",
+    "message": "நான் ஒரு மேம்பட்ட பயனர் (<a href='https://github.com/gorhill/uBlock/wiki/Advanced-user-features'>அவசியம் படிக்க வேண்டியவை</a>)",
     "description": ""
   },
   "settingsAdvancedUserSettings": {
@@ -260,7 +260,7 @@
     "description": "For the tooltip of a link which gives access to advanced settings"
   },
   "settingsPrefetchingDisabledPrompt": {
-    "message": "Disable pre-fetching (to prevent any connection for blocked network requests)",
+    "message": "முன்கூட்டியே பெறுவதை முடக்கு (தடுக்கப்பட்ட பிணைய கோரிக்கைகளுக்கான எந்தவொரு தொடர்பையும் தடுக்க)",
     "description": "English: "
   },
   "settingsHyperlinkAuditingDisabledPrompt": {
@@ -293,7 +293,7 @@
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Block CSP reports",
-    "description": "background information: https:\/\/github.com\/gorhill\/uBlock\/issues\/3150"
+    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
   },
   "settingsStorageUsed": {
     "message": "பயன்படுத்தப்பட்ட சேமிப்பகத்தின் அளவு: {{value}} பைட்டுகள்",
@@ -332,7 +332,7 @@
     "description": "English: Parse and enforce Adblock+ element hiding filters."
   },
   "3pParseAllABPHideFiltersInfo": {
-    "message": "<p>இந்தத் தேர்வு <a href=\"https:\/\/adblockplus.org\/en\/faq_internal#elemhide\">Adblock Plus-க்கு ஏற்ற &ldquo;உறுப்பு மறைக்கும்&rdquo; வடிகட்டிகளைப்<\/a> படிப்பதையும் பயன்படுத்துவத்தையும் செயல்படுத்தும். இந்த வடிகட்டிகள் அடிப்படையில் மேலோட்டமானவை. இணையப் பக்கத்தின் தோற்றத்தில் தொந்தரவாகக் கருதப்பட்டு, ஆனால் இணையக்கோரிக்கைகளை வடிகட்டும் எஞ்சினின் மூலம் தடுக்கப்பட முடியாத பக்க-உறுப்புகளை, பார்வையிலிருந்து மட்டும் மறைக்கும்<\/p><p>இந்தத் தேர்வு uBlock₀-இன் நினைவக உபயோகத்தை அதிகரிக்கும்.<\/p>",
+    "message": "<p>இந்தத் தேர்வு <a href=\"https://adblockplus.org/en/faq_internal#elemhide\">Adblock Plus-க்கு ஏற்ற &ldquo;உறுப்பு மறைக்கும்&rdquo; வடிகட்டிகளைப்</a> படிப்பதையும் பயன்படுத்துவத்தையும் செயல்படுத்தும். இந்த வடிகட்டிகள் அடிப்படையில் மேலோட்டமானவை. இணையப் பக்கத்தின் தோற்றத்தில் தொந்தரவாகக் கருதப்பட்டு, ஆனால் இணையக்கோரிக்கைகளை வடிகட்டும் எஞ்சினின் மூலம் தடுக்கப்பட முடியாத பக்க-உறுப்புகளை, பார்வையிலிருந்து மட்டும் மறைக்கும்</p><p>இந்தத் தேர்வு uBlock₀-இன் நினைவக உபயோகத்தை அதிகரிக்கும்.</p>",
     "description": "Describes the purpose of the 'Parse and enforce cosmetic filters' feature."
   },
   "3pIgnoreGenericCosmeticFilters": {
@@ -472,7 +472,7 @@
     "description": "English: List of your dynamic filtering rules."
   },
   "rulesFormatHint": {
-    "message": "Rule syntax: <code>source destination type action<\/code> (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Dynamic-filtering:-rule-syntax'>full documentation<\/a>).",
+    "message": "Rule syntax: <code>source destination type action</code> (<a href='https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-rule-syntax'>full documentation</a>).",
     "description": "English: dynamic rule syntax and full documentation."
   },
   "whitelistPrompt": {
@@ -488,8 +488,8 @@
     "description": "English: Export"
   },
   "whitelistExportFilename": {
-    "message": "my-ublock-whitelist_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "message": "my-ublock-dynamic-rules_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "மாற்றங்களைச் செயல்படுத்து",
@@ -589,19 +589,19 @@
   },
   "aboutChangelog": {
     "message": "நிரல் மாற்றம் மற்றும் வெளியீடுகளின் பதிவு",
-    "description": "English: Change log"
+    "description": ""
   },
   "aboutWiki": {
     "message": "விக்கி",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
     "message": "ஆதரவு",
     "description": "A link for where to get support"
   },
-  "aboutIssues":{
-    "message":"Issue tracker",
-    "description":"Text for a link to official issue tracker"
+  "aboutIssues": {
+    "message": "Issue tracker",
+    "description": "Text for a link to official issue tracker"
   },
   "aboutCode": {
     "message": "மூல நிரல் (பொது மக்கள் உரிமம் பதிப்பு 3)",
@@ -611,9 +611,9 @@
     "message": "பங்களிப்பாளர்கள்",
     "description": "English: Contributors"
   },
-  "aboutDependencies":{
-    "message":"External dependencies (GPLv3-compatible):",
-    "description":"Shown in the About pane"
+  "aboutDependencies": {
+    "message": "External dependencies (GPLv3-compatible):",
+    "description": "Shown in the About pane"
   },
   "aboutBackupDataButton": {
     "message": "கோப்பிற்கு காப்பு பிரதி எடு",
@@ -677,11 +677,11 @@
   },
   "showDashboardButton": {
     "message": "நிர்வாக மையத்தைக் காட்டுக",
-    "description": "Firefox\/Fennec-specific: Show Dashboard"
+    "description": "Firefox/Fennec-specific: Show Dashboard"
   },
   "showNetworkLogButton": {
     "message": "பதிவேட்டைக் காண்பிக்கவும்",
-    "description": "Firefox\/Fennec-specific: Show Logger"
+    "description": "Firefox/Fennec-specific: Show Logger"
   },
   "fennecMenuItemBlockingOff": {
     "message": "அணைந்து விட்டது",
@@ -697,7 +697,7 @@
   },
   "docblockedNoParamsPrompt": {
     "message": "உரலியில் அளவுருக்கள் இல்லாமல்",
-    "description": "label to be used for the parameter-less URL: https:\/\/cloud.githubusercontent.com\/assets\/585534\/9832014\/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
+    "description": "label to be used for the parameter-less URL: https://cloud.githubusercontent.com/assets/585534/9832014/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
   },
   "docblockedFoundIn": {
     "message": "இதனுள் கண்டறியப்பட்டது:",
@@ -770,5 +770,17 @@
   "dummy": {
     "message": "This entry must be the last one",
     "description": "so we dont need to deal with comma for last entry"
+  },
+  "popupTipNoScripting1": {
+    "message": "இந்த தளத்தில் ஜாவாஸ்கிரிப்டை முடக்க கிளிக் செய்க",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "இந்த தளத்தில் ஜாவாஸ்கிரிப்டை இனி முடக்க கிளிக் செய்க",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "ஜாவாஸ்கிரிப்டை முடக்கு",
+    "description": "The default state for the per-site no-scripting switch"
   }
 }

@@ -32,7 +32,7 @@
     "description": "appears as tab name in dashboard"
   },
   "statsPageName": {
-    "message": "यूब्लॉक  —  नेटवर्क रिक्वेस्ट लॉग",
+    "message": "uBlock₀ — लॉगर",
     "description": "Title for the logger window"
   },
   "aboutPageName": {
@@ -44,8 +44,8 @@
     "description": "Title for the advanced settings page"
   },
   "popupPowerSwitchInfo": {
-    "message": "दबाए : uBlock को इस साईट में बंद\/चालु करने के लिए।\n\nCtrl के साथ दबाए : uBlock को सिर्फ इस पेज में बंद करने के लिए।",
-    "description": "English: Click: disable\/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
+    "message": "दबाए : uBlock को इस साईट में बंद/चालु करने के लिए।\n\nCtrl के साथ दबाए : uBlock को सिर्फ इस पेज में बंद करने के लिए।",
+    "description": "English: Click: disable/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
   },
   "popupPowerSwitchInfo1": {
     "message": "दबाए: uBlock को इस साईट में बंद करने के लिए।\n\nCtrl के साथ दबाए: uBlock को केवल इस पेज में बंद करने के लिए।",
@@ -88,7 +88,7 @@
     "description": "English: Enter element picker mode"
   },
   "popupTipLog": {
-    "message": "अनुरोध दैनिकी में जाए",
+    "message": "लॉगर खोलें",
     "description": "Tooltip used for the logger icon in the panel"
   },
   "popupTipNoPopups": {
@@ -240,7 +240,7 @@
     "description": "A checkbox in the Settings pane"
   },
   "settingsContextMenuPrompt": {
-    "message": "विकल्प सूचि का प्रयोग करें",
+    "message": "जहाँ उपयुक्त हो, संदर्भ मेनू का इस्तेमाल करें",
     "description": "English: Make use of context menu where appropriate"
   },
   "settingsColorBlindPrompt": {
@@ -252,7 +252,7 @@
     "description": ""
   },
   "settingsAdvancedUserPrompt": {
-    "message": "मैं एक उच्च उपयोगकर्ता हूँ (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Advanced-user-features'>आवश्यक पठन<\/a>)",
+    "message": "मैं एक उच्च उपयोगकर्ता हूँ (<a href='https://github.com/gorhill/uBlock/wiki/Advanced-user-features'>आवश्यक पठन</a>)",
     "description": ""
   },
   "settingsAdvancedUserSettings": {
@@ -260,15 +260,15 @@
     "description": "For the tooltip of a link which gives access to advanced settings"
   },
   "settingsPrefetchingDisabledPrompt": {
-    "message": "प्री-फ़ेचिंग अक्षम करें (अवरुद्ध नेटवर्क रिक्वेस्ट को रोकने के लिए)",
+    "message": "प्री-फ़ेचिंग बंद करें (कोई भी ब्लॉक किये गए कनेक्शंनो से संपर्क न करने लिए)",
     "description": "English: "
   },
   "settingsHyperlinkAuditingDisabledPrompt": {
-    "message": "हाइपरलिंक जाँच को अवरुध करें",
+    "message": "हाइपरलिंक जाँच को बंद करें",
     "description": "English: "
   },
   "settingsWebRTCIPAddressHiddenPrompt": {
-    "message": "WebRTC को लोकल IP ऐड्रेस प्रकट करने से रोकें",
+    "message": "WebRTC को स्थानीय IP पतों लीक करने से रोकें ",
     "description": "English: "
   },
   "settingPerSiteSwitchGroup": {
@@ -293,7 +293,7 @@
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Block CSP reports",
-    "description": "background information: https:\/\/github.com\/gorhill\/uBlock\/issues\/3150"
+    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
   },
   "settingsStorageUsed": {
     "message": "प्रचलित मैमोरी: {{value}} बाइट्स",
@@ -332,7 +332,7 @@
     "description": "English: Parse and enforce Adblock+ element hiding filters."
   },
   "3pParseAllABPHideFiltersInfo": {
-    "message": "<p>This option enables the parsing and enforcing of <a href=\"https:\/\/adblockplus.org\/en\/faq_internal#elemhide\">Adblock Plus-compatible &ldquo;element hiding&rdquo; filters<\/a>. These filters are essentially cosmetic, they serve to hide elements in a web page which are deemed to be a visual nuisance, and which can't be blocked by the net request-based filtering engine.<\/p><p>Enabling this feature increases uBlock₀'s memory footprint.<\/p>",
+    "message": "<p>This option enables the parsing and enforcing of <a href=\"https://adblockplus.org/en/faq_internal#elemhide\">Adblock Plus-compatible &ldquo;element hiding&rdquo; filters</a>. These filters are essentially cosmetic, they serve to hide elements in a web page which are deemed to be a visual nuisance, and which can't be blocked by the net request-based filtering engine.</p><p>Enabling this feature increases uBlock₀'s memory footprint.</p>",
     "description": "Describes the purpose of the 'Parse and enforce cosmetic filters' feature."
   },
   "3pIgnoreGenericCosmeticFilters": {
@@ -408,7 +408,7 @@
     "description": "used as a tooltip for error icon beside a list"
   },
   "1pFormatHint": {
-    "message": "One filter per line. A filter can be a plain hostname, or an Adblock Plus-compatible filter. Lines prefixed with <code>!<\/code> will be ignored.",
+    "message": "One filter per line. A filter can be a plain hostname, or an Adblock Plus-compatible filter. Lines prefixed with <code>!</code> will be ignored.",
     "description": "Short information about how to create custom filters"
   },
   "1pImport": {
@@ -472,7 +472,7 @@
     "description": "English: List of your dynamic filtering rules."
   },
   "rulesFormatHint": {
-    "message": "Rule syntax: <code>source destination type action<\/code> (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Dynamic-filtering:-rule-syntax'>full documentation<\/a>).",
+    "message": "Rule syntax: <code>source destination type action</code> (<a href='https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-rule-syntax'>full documentation</a>).",
     "description": "English: dynamic rule syntax and full documentation."
   },
   "whitelistPrompt": {
@@ -488,8 +488,8 @@
     "description": "English: Export"
   },
   "whitelistExportFilename": {
-    "message": "my-ublock-whitelist_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "message": "मेरे-उबलॉक-व्हाइटलिस्ट_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "परिवर्तन लागू करें",
@@ -589,19 +589,19 @@
   },
   "aboutChangelog": {
     "message": "परिवर्तन सूची",
-    "description": "English: Change log"
+    "description": ""
   },
   "aboutWiki": {
     "message": "विकी",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
     "message": "मदद",
     "description": "A link for where to get support"
   },
-  "aboutIssues":{
-    "message":"Issue tracker",
-    "description":"Text for a link to official issue tracker"
+  "aboutIssues": {
+    "message": "Issue tracker",
+    "description": "Text for a link to official issue tracker"
   },
   "aboutCode": {
     "message": "Source code (GPLv3)",
@@ -611,9 +611,9 @@
     "message": "योगदानकर्ता",
     "description": "English: Contributors"
   },
-  "aboutDependencies":{
-    "message":"External dependencies (GPLv3-compatible):",
-    "description":"Shown in the About pane"
+  "aboutDependencies": {
+    "message": "External dependencies (GPLv3-compatible):",
+    "description": "Shown in the About pane"
   },
   "aboutBackupDataButton": {
     "message": "Back up to file",
@@ -677,11 +677,11 @@
   },
   "showDashboardButton": {
     "message": "Show Dashboard",
-    "description": "Firefox\/Fennec-specific: Show Dashboard"
+    "description": "Firefox/Fennec-specific: Show Dashboard"
   },
   "showNetworkLogButton": {
-    "message": "Show Logger",
-    "description": "Firefox\/Fennec-specific: Show Logger"
+    "message": "लॉगर दिखाएं",
+    "description": "Firefox/Fennec-specific: Show Logger"
   },
   "fennecMenuItemBlockingOff": {
     "message": "बंद",
@@ -697,7 +697,7 @@
   },
   "docblockedNoParamsPrompt": {
     "message": "without parameters",
-    "description": "label to be used for the parameter-less URL: https:\/\/cloud.githubusercontent.com\/assets\/585534\/9832014\/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
+    "description": "label to be used for the parameter-less URL: https://cloud.githubusercontent.com/assets/585534/9832014/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
   },
   "docblockedFoundIn": {
     "message": "इन में पायी है:",
@@ -770,5 +770,17 @@
   "dummy": {
     "message": "This entry must be the last one",
     "description": "so we dont need to deal with comma for last entry"
+  },
+  "popupTipNoScripting1": {
+    "message": "जावास्क्रिप्ट को रोकने के के लिए दबाएं",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "जावास्क्रिप्ट को अब और न बंद करने के लिए दबाएं",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "जावास्क्रिप्ट को बंद करें ",
+    "description": "The default state for the per-site no-scripting switch"
   }
 }

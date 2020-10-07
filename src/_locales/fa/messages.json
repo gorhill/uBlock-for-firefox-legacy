@@ -44,8 +44,8 @@
     "description": "Title for the advanced settings page"
   },
   "popupPowerSwitchInfo": {
-    "message": "کلیک: غیر فعال\/ فعال کردن uBlock₀ برای این سایت.\n\nکنترل+کلیک: غیر فعال کردن uBlock₀ فقط برای همین صفحه.",
-    "description": "English: Click: disable\/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
+    "message": "کلیک: غیر فعال/ فعال کردن uBlock₀ برای این سایت.\n\nکنترل+کلیک: غیر فعال کردن uBlock₀ فقط برای همین صفحه.",
+    "description": "English: Click: disable/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
   },
   "popupPowerSwitchInfo1": {
     "message": "کلیک کنید تا uBlock₀ برای این سایت غیر فعال شود.\n\nهمزمان کلیدکنترل را نگهدارید و کلیک کنید تا uBlock₀ فقط برای این صفحه غیر فعال شود.",
@@ -168,7 +168,7 @@
     "description": ""
   },
   "popup3pPassiveRulePrompt": {
-    "message": "تصاویر\/css سایت های ثالث",
+    "message": "تصاویر/css سایت های ثالث",
     "description": ""
   },
   "popupInlineScriptRulePrompt": {
@@ -252,7 +252,7 @@
     "description": ""
   },
   "settingsAdvancedUserPrompt": {
-    "message": "من کاربر حرفه ای هستم (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Advanced-user-features'>لازم است بخوانید<\/a>)",
+    "message": "من کاربر حرفه ای هستم (<a href='https://github.com/gorhill/uBlock/wiki/Advanced-user-features'>لازم است بخوانید</a>)",
     "description": ""
   },
   "settingsAdvancedUserSettings": {
@@ -293,7 +293,7 @@
   },
   "settingsNoCSPReportsPrompt": {
     "message": "مسدود کردن براساس گزارشات سیاست امنیت محتوا",
-    "description": "background information: https:\/\/github.com\/gorhill\/uBlock\/issues\/3150"
+    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
   },
   "settingsStorageUsed": {
     "message": "فضای مصرفی: {{value}} بایت",
@@ -332,7 +332,7 @@
     "description": "English: Parse and enforce Adblock+ element hiding filters."
   },
   "3pParseAllABPHideFiltersInfo": {
-    "message": "<p>این گزینه <a href=\"https:\/\/adblockplus.org\/en\/faq_internal#elemhide\">فیلترهای &ldquo;مخفی‌کردن اشیا&rdquo; سازگار با ادبلاک پلاس<\/a> را تجزیه و اجرا میکند. این فیلتر ها اساساً فنی هستند، آنها اشیاء موجود در صفحه وب را که مزاحم تلقی میشوند و با موتور فیلترینگ شبکه قابل بلاک کردن نیستند را حذف میکنند.<\/p><p>فعال کردن این قابلیت مصرف حافظه ی uBlock را افزایش میدهد.<\/p>",
+    "message": "<p>این گزینه <a href=\"https://adblockplus.org/en/faq_internal#elemhide\">فیلترهای &ldquo;مخفی‌کردن اشیا&rdquo; سازگار با ادبلاک پلاس</a> را تجزیه و اجرا میکند. این فیلتر ها اساساً فنی هستند، آنها اشیاء موجود در صفحه وب را که مزاحم تلقی میشوند و با موتور فیلترینگ شبکه قابل بلاک کردن نیستند را حذف میکنند.</p><p>فعال کردن این قابلیت مصرف حافظه ی uBlock را افزایش میدهد.</p>",
     "description": "Describes the purpose of the 'Parse and enforce cosmetic filters' feature."
   },
   "3pIgnoreGenericCosmeticFilters": {
@@ -472,7 +472,7 @@
     "description": "English: List of your dynamic filtering rules."
   },
   "rulesFormatHint": {
-    "message": "نحوه استفاده: <code>source destination type action<\/code> (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Dynamic-filtering:-rule-syntax'>مستندات کامل<\/a>).",
+    "message": "نحوه استفاده: <code>source destination type action</code> (<a href='https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-rule-syntax'>مستندات کامل</a>).",
     "description": "English: dynamic rule syntax and full documentation."
   },
   "whitelistPrompt": {
@@ -489,7 +489,7 @@
   },
   "whitelistExportFilename": {
     "message": "my-ublock-whitelist_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "اعمال تغییرات",
@@ -589,19 +589,19 @@
   },
   "aboutChangelog": {
     "message": "تغییرات اخیر",
-    "description": "English: Change log"
+    "description": ""
   },
   "aboutWiki": {
     "message": "ویکی",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
     "message": "پشتیبانی",
     "description": "A link for where to get support"
   },
-  "aboutIssues":{
-    "message":"دنبال‌کننده‌ی ایرادات",
-    "description":"Text for a link to official issue tracker"
+  "aboutIssues": {
+    "message": "دنبال‌کننده‌ی ایرادات",
+    "description": "Text for a link to official issue tracker"
   },
   "aboutCode": {
     "message": "سورس کد  (GPLv3)",
@@ -611,9 +611,9 @@
     "message": "مشارکت کنندگان",
     "description": "English: Contributors"
   },
-  "aboutDependencies":{
-    "message":"External dependencies (GPLv3-compatible):",
-    "description":"Shown in the About pane"
+  "aboutDependencies": {
+    "message": "External dependencies (GPLv3-compatible):",
+    "description": "Shown in the About pane"
   },
   "aboutBackupDataButton": {
     "message": "پشتیبان گیری در فایل",
@@ -677,11 +677,11 @@
   },
   "showDashboardButton": {
     "message": "نمایش داشبورد",
-    "description": "Firefox\/Fennec-specific: Show Dashboard"
+    "description": "Firefox/Fennec-specific: Show Dashboard"
   },
   "showNetworkLogButton": {
     "message": "نمایش واقعه‌نگار",
-    "description": "Firefox\/Fennec-specific: Show Logger"
+    "description": "Firefox/Fennec-specific: Show Logger"
   },
   "fennecMenuItemBlockingOff": {
     "message": "خاموش",
@@ -697,7 +697,7 @@
   },
   "docblockedNoParamsPrompt": {
     "message": "بدون پارامترها",
-    "description": "label to be used for the parameter-less URL: https:\/\/cloud.githubusercontent.com\/assets\/585534\/9832014\/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
+    "description": "label to be used for the parameter-less URL: https://cloud.githubusercontent.com/assets/585534/9832014/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
   },
   "docblockedFoundIn": {
     "message": "یافته شده در:",
@@ -770,5 +770,17 @@
   "dummy": {
     "message": "این باید آخرین مطلب باشد",
     "description": "so we dont need to deal with comma for last entry"
+  },
+  "popupTipNoScripting1": {
+    "message": "کلیک کنید تا جاوا اسکریپت در این سایت غیرفعال شود",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "کلیک کنید تا جاوا اسکریپت دیگر در این سایت غیرفعال نشود",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "غیرفعال کردن جاوا اسکریپت",
+    "description": "The default state for the per-site no-scripting switch"
   }
 }

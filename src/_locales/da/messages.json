@@ -32,7 +32,7 @@
     "description": "appears as tab name in dashboard"
   },
   "statsPageName": {
-    "message": "uBlock₀ — Loggen",
+    "message": "uBlock₀ — Logger",
     "description": "Title for the logger window"
   },
   "aboutPageName": {
@@ -44,8 +44,8 @@
     "description": "Title for the advanced settings page"
   },
   "popupPowerSwitchInfo": {
-    "message": "Klik: Deaktiver\/aktiver uBlock₀ på dette websted.\n\nCtrl+klik: Deaktiver uBlock₀ kun på denne side.",
-    "description": "English: Click: disable\/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
+    "message": "Klik: Deaktiver/aktiver uBlock₀ på dette websted.\n\nCtrl+klik: Deaktiver uBlock₀ kun på denne side.",
+    "description": "English: Click: disable/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
   },
   "popupPowerSwitchInfo1": {
     "message": "Klik for at deaktivere uBlock₀ på dette websted.\n\nCtrl+klik for at deaktivere uBlock₀ kun på denne side.",
@@ -88,11 +88,11 @@
     "description": "English: Enter element picker mode"
   },
   "popupTipLog": {
-    "message": "Åbn loggen",
+    "message": "Åbn loggeren",
     "description": "Tooltip used for the logger icon in the panel"
   },
   "popupTipNoPopups": {
-    "message": "Aktiver\/deaktiver blokering af alle popups på dette websted",
+    "message": "Aktiver/deaktiver blokering af alle popups på dette websted",
     "description": "Tooltip for the no-popups per-site switch"
   },
   "popupTipNoPopups1": {
@@ -104,7 +104,7 @@
     "description": "Tooltip for the no-popups per-site switch"
   },
   "popupTipNoLargeMedia": {
-    "message": "Aktiver\/deaktiver blokering af store medie-elementer på dette websted",
+    "message": "Aktiver/deaktiver blokering af store medie-elementer på dette websted",
     "description": "Tooltip for the no-large-media per-site switch"
   },
   "popupTipNoLargeMedia1": {
@@ -116,7 +116,7 @@
     "description": "Tooltip for the no-large-media per-site switch"
   },
   "popupTipNoCosmeticFiltering": {
-    "message": "Aktiver\/deaktiver kosmetiske filtre på dette websted",
+    "message": "Aktiver/deaktiver kosmetiske filtre på dette websted",
     "description": "Tooltip for the no-cosmetic-filtering per-site switch"
   },
   "popupTipNoCosmeticFiltering1": {
@@ -128,7 +128,7 @@
     "description": "Tooltip for the no-cosmetic-filtering per-site switch"
   },
   "popupTipNoRemoteFonts": {
-    "message": "Aktiver\/deaktiver blokering af skrifttyper fra nettet på dette websted",
+    "message": "Aktiver/deaktiver blokering af skrifttyper fra nettet på dette websted",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
   "popupTipNoRemoteFonts1": {
@@ -168,7 +168,7 @@
     "description": ""
   },
   "popup3pPassiveRulePrompt": {
-    "message": "Tredjeparts css\/billeder",
+    "message": "Tredjeparts css/billeder",
     "description": ""
   },
   "popupInlineScriptRulePrompt": {
@@ -252,7 +252,7 @@
     "description": ""
   },
   "settingsAdvancedUserPrompt": {
-    "message": "Jeg er en erfaren bruger (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Advanced-user-features'>krævet læsning<\/a>)",
+    "message": "Jeg er en erfaren bruger (<a href='https://github.com/gorhill/uBlock/wiki/Advanced-user-features'>krævet læsning</a>)",
     "description": ""
   },
   "settingsAdvancedUserSettings": {
@@ -260,11 +260,11 @@
     "description": "For the tooltip of a link which gives access to advanced settings"
   },
   "settingsPrefetchingDisabledPrompt": {
-    "message": "Deaktiver forudindlæsning (for at sikre at alle sortlistede netværksanmodninger bliver blokeret)",
+    "message": "Deaktivér præindlæsning (for at hindre enhver forbindelse for blokerede netværksanmodninger)",
     "description": "English: "
   },
   "settingsHyperlinkAuditingDisabledPrompt": {
-    "message": "Deaktiver hyperlink revision",
+    "message": "Deaktivér hyperlinkrevision",
     "description": "English: "
   },
   "settingsWebRTCIPAddressHiddenPrompt": {
@@ -293,7 +293,7 @@
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Blokér CSP rapporter",
-    "description": "background information: https:\/\/github.com\/gorhill\/uBlock\/issues\/3150"
+    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
   },
   "settingsStorageUsed": {
     "message": "Lagerplads brugt: {{value}} bytes",
@@ -332,7 +332,7 @@
     "description": "English: Parse and enforce Adblock+ element hiding filters."
   },
   "3pParseAllABPHideFiltersInfo": {
-    "message": "<p>Denne indstilling gør det muligt at analysere og anvende <a href=\"https:\/\/adblockplus.org\/en\/faq_internal#elemhide\">Adblock Plus kompatible &ldquo;element skjuldende&rdquo; filtre<\/a>. Disse filtre er i det væsentlige kosmetiske og har til formål at skjule irriterende visuelle elementer websider, som det ikke er muligt at blokere på andre måder. <\/p><p>Denne indstilling øger uBlock₀'s hukommelsesforbrug.<\/p>",
+    "message": "<p>Denne indstilling gør det muligt at analysere og anvende <a href=\"https://adblockplus.org/en/faq_internal#elemhide\">Adblock Plus kompatible &ldquo;element skjuldende&rdquo; filtre</a>. Disse filtre er i det væsentlige kosmetiske og har til formål at skjule irriterende visuelle elementer websider, som det ikke er muligt at blokere på andre måder. </p><p>Denne indstilling øger uBlock₀'s hukommelsesforbrug.</p>",
     "description": "Describes the purpose of the 'Parse and enforce cosmetic filters' feature."
   },
   "3pIgnoreGenericCosmeticFilters": {
@@ -408,7 +408,7 @@
     "description": "used as a tooltip for error icon beside a list"
   },
   "1pFormatHint": {
-    "message": "Ét filter pr. linje. Et filter kan være et almindeligt værtsnavn, eller et Adblock Plus-kompatibelt filter. Linjer der starter med <code>!<\/code> vil blive ignoreret.",
+    "message": "Ét filter pr. linje. Et filter kan være et almindeligt værtsnavn, eller et Adblock Plus-kompatibelt filter. Linjer der starter med <code>!</code> vil blive ignoreret.",
     "description": "Short information about how to create custom filters"
   },
   "1pImport": {
@@ -472,7 +472,7 @@
     "description": "English: List of your dynamic filtering rules."
   },
   "rulesFormatHint": {
-    "message": "Regelsyntaks: <code>kilde destination type handling<\/code> (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Dynamic-filtering:-rule-syntax'>fuld dokumentation<\/a>).",
+    "message": "Regelsyntaks: <code>kilde destination type handling</code> (<a href='https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-rule-syntax'>fuld dokumentation</a>).",
     "description": "English: dynamic rule syntax and full documentation."
   },
   "whitelistPrompt": {
@@ -488,8 +488,8 @@
     "description": "English: Export"
   },
   "whitelistExportFilename": {
-    "message": "min-ublock-whitelist_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "message": "mine-ublock-betroede-websteder_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "Anvend ændringer",
@@ -589,19 +589,19 @@
   },
   "aboutChangelog": {
     "message": "Ændringslog",
-    "description": "English: Change log"
+    "description": ""
   },
   "aboutWiki": {
     "message": "Wiki",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
     "message": "Support",
     "description": "A link for where to get support"
   },
-  "aboutIssues":{
-    "message":"Problemsporer",
-    "description":"Text for a link to official issue tracker"
+  "aboutIssues": {
+    "message": "Problemsporer",
+    "description": "Text for a link to official issue tracker"
   },
   "aboutCode": {
     "message": "Kildekode (GPLv3)",
@@ -611,9 +611,9 @@
     "message": "Bidragydere",
     "description": "English: Contributors"
   },
-  "aboutDependencies":{
-    "message":"Eksterne afhængigheder (GPLv3-kompatible):",
-    "description":"Shown in the About pane"
+  "aboutDependencies": {
+    "message": "Eksterne afhængigheder (GPLv3-kompatible):",
+    "description": "Shown in the About pane"
   },
   "aboutBackupDataButton": {
     "message": "Sikkerhedskopier til fil",
@@ -677,11 +677,11 @@
   },
   "showDashboardButton": {
     "message": "Vis kontrolpanel",
-    "description": "Firefox\/Fennec-specific: Show Dashboard"
+    "description": "Firefox/Fennec-specific: Show Dashboard"
   },
   "showNetworkLogButton": {
-    "message": "Vis loggen",
-    "description": "Firefox\/Fennec-specific: Show Logger"
+    "message": "Vis Logger",
+    "description": "Firefox/Fennec-specific: Show Logger"
   },
   "fennecMenuItemBlockingOff": {
     "message": "Slået fra",
@@ -697,7 +697,7 @@
   },
   "docblockedNoParamsPrompt": {
     "message": "uden parametre",
-    "description": "label to be used for the parameter-less URL: https:\/\/cloud.githubusercontent.com\/assets\/585534\/9832014\/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
+    "description": "label to be used for the parameter-less URL: https://cloud.githubusercontent.com/assets/585534/9832014/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
   },
   "docblockedFoundIn": {
     "message": "Fundet i:",
@@ -770,5 +770,17 @@
   "dummy": {
     "message": "Denne indskrivning må være den sidste",
     "description": "so we dont need to deal with comma for last entry"
+  },
+  "popupTipNoScripting1": {
+    "message": "Klik for at deaktivere JavaScript på dette websted",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Klik for ikke længere at deaktivere JavaScript på dette websted",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Deaktivér JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   }
 }
