@@ -340,7 +340,7 @@
     "description": "This will cause uBO to ignore all generic cosmetic filters."
   },
   "3pIgnoreGenericCosmeticFiltersInfo": {
-    "message": "<p>Yleiset kosmeettiset suotimet ovat ne kosmeettiset suotimet joiden on tarkoitus päteä kaikkiin web-sivustoihin.<p>Vaikka uBlock₀ käsittelee ne tehokkaasti, yleiset kosmeettiset suotimet voivat silti lisätä mitattavaa muisti- ja CPU-ylikuormitusta joillakin web-sivuilla, erityisesti suurilla ja pitkäikäisillä sivuilla.<p>Tämän valinnan salliminen karsii pois web-sivuille lisätyn muisti- ja CPU-ylikuormituksen joka aiheutuu yleisten kosmeettisten suotimien käsittelystä, ja alentaa myös uBlock₀ sovelluksen muisti-jalanjälkeä.<p>On suositeltavaa sallia tämä vaihtoehto vähemmän tehokkailla laitteilla.",
+    "message": "<p>Yleisten kosmeettisten suodattimien on tarkoitus päteä kaikkiin sivustoihin.<p>Vaikka uBlock₀ käsittelee ne tehokkaasti, voivat ne silti lisätä muisti- ja CPU-ylikuormitusta joillakin sivuilla, erityisesti suurilla ja pitkäikäisillä sivuilla.<p>Tämän valinnan salliminen karsii pois web-sivuille lisätyn muisti- ja CPU-ylikuormituksen joka aiheutuu yleisten kosmeettisten suotimien käsittelystä ja alentaa myös uBlock₀ sovelluksen muistijalanjälkeä.<p>On suositeltavaa sallia tämä vaihtoehto vähemmän tehokkailla laitteilla.",
     "description": "Describes the purpose of the 'Ignore generic cosmetic filters' feature."
   },
   "3pListsOfBlockedHostsHeader": {
