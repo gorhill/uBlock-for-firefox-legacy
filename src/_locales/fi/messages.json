@@ -794,5 +794,9 @@
   "dashboardUnsavedWarningIgnore": {
     "message": "Ohita",
     "description": "Label for button to ignore unsaved changes"
+  },
+  "3pViewContent": {
+    "message": "näytä sisältö",
+    "description": "used as a tooltip for eye icon beside a list"
   }
 }

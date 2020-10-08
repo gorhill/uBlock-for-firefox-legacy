@@ -794,5 +794,9 @@
   "dashboardUnsavedWarningIgnore": {
     "message": "Ignore",
     "description": "Label for button to ignore unsaved changes"
+  },
+  "3pViewContent": {
+    "message": "view content",
+    "description": "used as a tooltip for eye icon beside a list"
   }
 }

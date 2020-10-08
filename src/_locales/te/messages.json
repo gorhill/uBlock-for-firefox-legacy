@@ -794,5 +794,9 @@
   "dashboardUnsavedWarningIgnore": {
     "message": "వదిలేయి",
     "description": "Label for button to ignore unsaved changes"
+  },
+  "3pViewContent": {
+    "message": "దీన్ని చూపించు",
+    "description": "used as a tooltip for eye icon beside a list"
   }
 }
