@@ -1,6 +1,6 @@
 html, body {
     border: 0;
-    font: 14px/21px sans-serif;
+    font: 14px/1.5 sans-serif;
     height: 100%;
     margin: 0;
     overflow: hidden;
@@ -21,13 +21,13 @@ html, body {
     width: 100%;
     z-index: 10;
     }
-#dashboard-nav > span {
+#dashboard-nav > span.logo {
     align-items: center;
     display: inline-flex;
     padding: 0 0.5em;
     width: 1.25em;
     }
-#dashboard-nav > span > img {
+#dashboard-nav > span.logo > img {
     width: 100%;
     }
 .tabButton {
@@ -41,11 +41,6 @@ html, body {
 .tabButton:focus {
     outline: 0;
     }
-.tabButton:active,
-.tabButton:visited,
-.tabButton:not(.selected) {
-    color: #20123a;
-}
 .tabButton.selected {
     border-bottom: 3px solid #592acb;
     color: #592acb;
@@ -81,7 +76,7 @@ iframe {
 @media (pointer: coarse) {
     #dashboard-nav {
         flex-wrap: nowrap;
-        font: 16px/24px sans-serif;
+        font: 16px/1.5 sans-serif;
         overflow-x: auto;
     }
 }
