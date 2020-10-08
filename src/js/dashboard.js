@@ -82,13 +82,7 @@ const discardUnsavedData = function(synchronous = false) {
     });
 };
 
-const loadDashboardPanel = function(pane = '') {
-    if ( pane === '' ) {
-        pane = vAPI.localStorage.getItem('dashboardLastVisitedPane');
-        if ( pane === null ) {
-             pane = 'settings.html';
-        }
-    }
+const loadDashboardPanel = function(pane, first) {
     const tabButton = uDom(`[href="#${pane}"]`);
     if ( !tabButton || tabButton.hasClass('selected') ) { return; }
     const loadPane = ( ) => {
@@ -98,6 +92,9 @@ const loadDashboardPanel = function(pane = '') {
         uDom.nodeFromId('iframe').setAttribute('src', pane);
         vAPI.localStorage.setItem('dashboardLastVisitedPane', pane);
     };
+    if ( first ) {
+        return loadPane();
+    }
     const r = discardUnsavedData();
     if ( r === false ) { return; }
     if ( r === true ) {
@@ -120,9 +117,10 @@ const onTabClickHandler = function(ev) {
 
 uDom.onLoad(function() {
     resizeFrame();
+    let pane = vAPI.localStorage.getItem('dashboardLastVisitedPane');
+    loadDashboardPanel(pane !== null ? pane : 'settings.html', true);
     window.addEventListener('resize', resizeFrame);
     uDom('.tabButton').on('click', onTabClickHandler);
-    loadDashboardPanel();
 });
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event
