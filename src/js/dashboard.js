@@ -29,16 +29,6 @@
 
 /******************************************************************************/
 
-const resizeFrame = function() {
-    const navRect = document.getElementById('dashboard-nav')
-                            .getBoundingClientRect();
-    const viewRect = document.documentElement.getBoundingClientRect();
-    document.getElementById('iframe').style.setProperty(
-        'height',
-        (viewRect.height - navRect.height) + 'px'
-    );
-};
-
 const discardUnsavedData = function(synchronous = false) {
     const paneFrame = document.getElementById('iframe');
     const paneWindow = paneFrame.contentWindow;
@@ -118,10 +108,8 @@ const onTabClickHandler = function(ev) {
 /******************************************************************************/
 
 uDom.onLoad(function() {
-    resizeFrame();
     let pane = vAPI.localStorage.getItem('dashboardLastVisitedPane');
     loadDashboardPanel(pane !== null ? pane : 'settings.html', true);
-    window.addEventListener('resize', resizeFrame);
     uDom('.tabButton').on('click', onTabClickHandler);
 });
 
