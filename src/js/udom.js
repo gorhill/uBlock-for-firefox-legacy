@@ -32,7 +32,7 @@
 // the code here does *only* what I need, and nothing more, and with a lot
 // of assumption on passed parameters, etc. I grow it on a per-need-basis only.
 
-var uDom = (function() {
+const uDom = (( ) => {
 
 /******************************************************************************/
 
@@ -91,6 +91,28 @@ DOMListFactory.nodeFromSelector = function(selector) {
 };
 
 /******************************************************************************/
+
+{
+    const root = DOMListFactory.root = document.querySelector(':root');
+    if (
+        window.matchMedia('(pointer: coarse)').matches ||
+        window.matchMedia('(hover: none)').matches
+    ) {
+        root.classList.add('mobile');
+    }
+    if (
+        window.matchMedia('(pointer: fine)').matches &&
+        window.matchMedia('(hover: hover)').matches
+    ) {
+        root.classList.add('desktop');
+    }
+    if ( window.matchMedia('(prefers-color-scheme: dark)').matches ) {
+        root.classList.add('darkTheme');
+    }
+}
+
+/******************************************************************************/
+
 
 var addNodeToList = function(list, node) {
     if ( node ) {
