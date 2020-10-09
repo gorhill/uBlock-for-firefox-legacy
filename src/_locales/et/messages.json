@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "vaata sisu",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "Lähtekood",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "Tõlked",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "Filtriloendid",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }

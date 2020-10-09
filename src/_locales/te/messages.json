@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "దీన్ని చూపించు",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "మూల కోడ్",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "అనువాదాలు",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "జాబితాలను ఫిల్టర్ చేయండి",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }

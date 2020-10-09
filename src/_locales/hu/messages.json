@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "tartalom megtekintése",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "Forráskód",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "Fordítások",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "Szűrő listák",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }

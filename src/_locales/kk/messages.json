@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "view content",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "Бастапқы код",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "Аудармашылар",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "Тізімдерді сүзу",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }

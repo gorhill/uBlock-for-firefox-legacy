@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "内容を表示する",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "ソースコード",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "翻訳",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "内製フィルター",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }

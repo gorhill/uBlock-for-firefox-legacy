@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "xem nội dung",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "Mã nguồn",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "Bản dịch",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "Danh sách bộ lọc",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }

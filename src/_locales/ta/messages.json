@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "உள்ளடக்கத்தைக் காண்க",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "மூல குறியீடு",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "மொழிபெயர்ப்புகள்",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "பட்டியல்களை வடிகட்டவும்",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }
