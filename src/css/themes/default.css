@@ -50,8 +50,6 @@
 :root {
     --font-size: 14px;
 
-    --bg-0: var(--white);
-    --fg-0: var(--ink-80);
     --default-ink: var(--ink-80);
     --default-ink-a4: var(--ink-80-a4);
     --default-surface: var(--light-gray-10);
