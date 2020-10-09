@@ -428,39 +428,43 @@ var selectFilterLists = function(callback) {
     messaging.send('dashboard', {
         what: 'userSettings',
         name: 'parseAllABPHideFilters',
-        value: document.getElementById('parseCosmeticFilters').checked
+        value: uDom.nodeFromId('parseCosmeticFilters').checked,
     });
     messaging.send('dashboard', {
         what: 'userSettings',
         name: 'ignoreGenericCosmeticFilters',
-        value: document.getElementById('ignoreGenericCosmeticFilters').checked
+        value: uDom.nodeFromId('ignoreGenericCosmeticFilters').checked,
     });
 
     // Filter lists to select
-    var toSelect = [],
-        liEntries = document.querySelectorAll('#lists .listEntry[data-listkey]:not(.toRemove)'),
-        i = liEntries.length,
-        liEntry;
-    while ( i-- ) {
-        liEntry = liEntries[i];
+    const toSelect = [];
+    for (
+        let liEntry of
+        document.querySelectorAll('#lists .listEntry[data-listkey]:not(.toRemove)')
+    ) {
         if ( liEntry.querySelector('input[type="checkbox"]:checked') !== null ) {
             toSelect.push(liEntry.getAttribute('data-listkey'));
         }
     }
 
     // External filter lists to remove
-    var toRemove = [];
-    liEntries = document.querySelectorAll('#lists .listEntry.toRemove[data-listkey]');
-    i = liEntries.length;
-    while ( i-- ) {
-        toRemove.push(liEntries[i].getAttribute('data-listkey'));
+    const toRemove = [];
+    for (
+        let liEntry of
+        document.querySelectorAll('#lists .listEntry.toRemove[data-listkey]')
+    ) {
+        toRemove.push(liEntry.getAttribute('data-listkey'));
     }
 
     // External filter lists to import
-    var externalListsElem = document.getElementById('externalLists'),
-        toImport = externalListsElem.value.trim();
-    externalListsElem.value = '';
-    uDom.nodeFromId('importLists').checked = false;
+    const externalListsElem = document.getElementById('externalLists');
+    const toImport = externalListsElem.value.trim();
+    {
+        const liEntry = externalListsElem.closest('.listEntry');
+        liEntry.classList.remove('checked');
+        liEntry.querySelector('input[type="checkbox"]').checked = false;
+        externalListsElem.value = '';
+    }
 
     messaging.send(
         'dashboard',
