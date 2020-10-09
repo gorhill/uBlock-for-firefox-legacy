@@ -99,30 +99,35 @@ button.vflex {
 button:hover {
     background-color: var(--button-surface-hover);
     }
-button.custom.important {
-    background-color: var(--bg-button-important);
+button.active {
+    background-color: var(--button-active-surface);
     }
-button.custom.important:hover {
-    background-color: var(--bg-button-important-hover);
+button.important {
+    background-color: var(--button-important-surface);
     }
-button.custom.disabled,
-button.custom[disabled],
-button.custom.important.disabled,
-button.custom.important[disabled] {
-    background-color: var(--bg-button-disabled);
-    color: var(--fg-button-disabled);
+button.important:hover {
+    background-color: var(--button-important-surface-hover);
+    }
+button.disabled,
+button[disabled],
+button.important.disabled,
+button.important[disabled] {
+    background-color: var(--button-disabled-surface);
+    color: var(--button-disabled-ink);
+    fill: var(--button-disabled-ink);
+    filter: var(--button-disabled-filter);
     pointer-events: none;
     }
-button.custom.iconifiable > .fa,
-button.custom.iconifiable > .fa-icon {
+button.iconifiable > .fa,
+button.iconifiable > .fa-icon {
     padding-left: 0;
     padding-right: 0.4em;
     }
-button.custom.iconifiable > .fa-icon {
+button.iconifiable > .fa-icon {
     font-size: 120%;
     }
-body[dir="rtl"] button.custom.iconifiable > .fa,
-body[dir="rtl"] button.custom.iconifiable > .fa-icon {
+body[dir="rtl"] button.iconifiable > .fa,
+body[dir="rtl"] button.iconifiable > .fa-icon {
     padding-left: 0.5em;
     }
 .hidden {
