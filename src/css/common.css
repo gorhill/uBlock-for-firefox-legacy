@@ -145,9 +145,10 @@ label {
 */
 .checkbox {
     --margin-end: calc(var(--font-size) * 0.75);
-    height: var(--checkbox-size);
     box-sizing: border-box;
     display: inline-flex;
+    flex-shrink: 0;
+    height: var(--checkbox-size);
     margin: 0;
     margin-inline-end: var(--margin-end);
     -webkit-margin-end: var(--margin-end);
@@ -180,7 +181,7 @@ label {
     background-color: var(--checkbox-checked-ink);
     border-color: var(--checkbox-checked-ink);
     stroke: var(--default-surface);
-    }
+}
 
 .hidden {
     display: none;
