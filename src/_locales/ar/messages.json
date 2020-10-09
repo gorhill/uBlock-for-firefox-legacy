@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "نظرة على المحتوى",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "شيفرة المصدر",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "الترجمات",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "القوائم المرشحة",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }

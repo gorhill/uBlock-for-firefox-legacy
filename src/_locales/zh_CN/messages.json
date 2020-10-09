@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "查看内容",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "源代码",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "翻译",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "过滤规则列表",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }

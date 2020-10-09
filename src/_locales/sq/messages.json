@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "shfaq përmbajtjen",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "Materiali burimor",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "Përkthimet",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "Listat e filtrave",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }

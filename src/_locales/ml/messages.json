@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "ഉള്ളടക്കം കാണുക",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "സോഴ്സ് കോഡ്",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "വിവർത്തനങ്ങൾ",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "ലിസ്റ്റുകൾ ഫിൽട്ടർ ചെയ്യുക",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }

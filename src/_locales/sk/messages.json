@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "zobraziť obsah",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "Zdrojový kód",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "Preklady",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "Zoznam filtrov",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }

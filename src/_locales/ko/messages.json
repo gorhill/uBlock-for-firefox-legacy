@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "내용 보기",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "소스 코드",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "번역",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "필터 목록",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }

@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "vezi conținut",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "Cod sursă",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "Traduceri",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "Liste de filtre",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }

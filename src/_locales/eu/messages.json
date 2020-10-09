@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "ikusi edukia",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "Iturburu-kodea",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "Itzulpenak",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "Iragazki-zerrendak",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }

@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "चीजों को देखें ",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "सोर्स कोड",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "अनुवाद",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "फिल्टर सूची",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }

@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "הצג תוכן",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "קוד מקור",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "תרגומים",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "רשימות מסננים",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }

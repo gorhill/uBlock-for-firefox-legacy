@@ -798,5 +798,17 @@
   "3pViewContent": {
     "message": "içeriği görüntüle",
     "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "Kaynak kodu",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "Çeviriler",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "Filtre listeleri",
+    "description": "Link text to uBO's own filter lists repo"
   }
 }
