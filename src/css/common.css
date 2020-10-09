@@ -16,9 +16,14 @@
     vertical-align: middle;
     }
 body {
-    background-color: white;
-    color: black;
+    background-color: var(--bg-0);
+    border: 0;
+    box-sizing: border-box;
+    color: var(--fg-0);
+    fill: var(--fg-0);
     font: 14px/1.5 sans-serif;
+    margin: 0;
+    padding: 0;
     }
 code {
     background-color: #eee;
@@ -32,12 +37,12 @@ button.custom {
     align-items: flex-end;
     border: 1px solid transparent;
     border-radius: 3px;
-    background-color: #e6e6e6;
+    background-color: var(--bg-button);
+    color: var(--fg-button);
     display: inline-flex;
     padding: 0.6em 1em;
     -moz-appearance: none;
     -webkit-appearance: none;
-    color: inherit;
     }
 button.custom:hover {
     background-color: #d4d4d4;
@@ -52,8 +57,8 @@ button.custom.disabled,
 button.custom[disabled],
 button.custom.important.disabled,
 button.custom.important[disabled] {
-    background-color: #eee;
-    color: #888;
+    background-color: var(--bg-button-disabled);
+    color: var(--fg-button-disabled);
     pointer-events: none;
     }
 button.custom.iconifiable > .fa,
@@ -74,6 +79,11 @@ label {
     align-items: center;
     display: inline-flex;
     }
+@media (pointer: coarse) {
+    label {
+        flex-grow: 1
+        }
+}
 input[type="checkbox"] {
     margin: 0;
     margin-inline-start: 0.4em;
