@@ -11,6 +11,18 @@
     "message": "uBlock₀ — ড্যাশবোর্ড",
     "description": "English: uBlock₀ — Dashboard"
   },
+  "dashboardUnsavedWarning": {
+    "message": "সতর্ক হন! আপনার পরিবর্তনগুলো সংরক্ষণ করা হয়নি।",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "অবস্থান করে পরিবর্তন বা সংরক্ষণ করুন।",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "অবজ্ঞা করুন।",
+    "description": "Label for button to ignore unsaved changes"
+  },
   "settingsPageName": {
     "message": "সেটিংস",
     "description": "appears as tab name in dashboard"

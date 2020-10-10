@@ -11,6 +11,18 @@
     "message": "uBlock₀ — నియంత్రణా వేదిక",
     "description": "English: uBlock₀ — Dashboard"
   },
+  "dashboardUnsavedWarning": {
+    "message": "హెచ్చరిక! మీకు సేవ్ చేయని మార్పులు ఉన్నాయి",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "ఉండు",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "వదిలేయి",
+    "description": "Label for button to ignore unsaved changes"
+  },
   "settingsPageName": {
     "message": "ఐచ్చికాలు",
     "description": "appears as tab name in dashboard"

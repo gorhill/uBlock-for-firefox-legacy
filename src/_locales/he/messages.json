@@ -11,6 +11,18 @@
     "message": "uBlock₀ — פאנל הקונפיגורציות",
     "description": "English: uBlock₀ — Dashboard"
   },
+  "dashboardUnsavedWarning": {
+    "message": "אזהרה! יש לך שינויים שלא שמרת עדיין",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "הישאר",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "התעלם",
+    "description": "Label for button to ignore unsaved changes"
+  },
   "settingsPageName": {
     "message": "הגדרות",
     "description": "appears as tab name in dashboard"

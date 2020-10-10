@@ -11,6 +11,18 @@
     "message": "uBlock₀ — डैशबोर्ड",
     "description": "English: uBlock₀ — Dashboard"
   },
+  "dashboardUnsavedWarning": {
+    "message": "Savdhan! Apke badlav abhi save nahi hue hai",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "रुको",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "नज़रअंदाज़ करो ",
+    "description": "Label for button to ignore unsaved changes"
+  },
   "settingsPageName": {
     "message": "सेटिंग्स",
     "description": "appears as tab name in dashboard"
