@@ -11,6 +11,18 @@
     "message": "യുബ്ലോക്ക്ഒ - ഡാഷ്ബോര്‍ഡ്",
     "description": "English: uBlock₀ — Dashboard"
   },
+  "dashboardUnsavedWarning": {
+    "message": "മുന്നറിയിപ്പ്! നിങ്ങൾക്ക് സംരക്ഷിക്കാത്ത മാറ്റങ്ങളുണ്ട്",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "താമസിക്കുക",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "അവഗണിക്കുക",
+    "description": "Label for button to ignore unsaved changes"
+  },
   "settingsPageName": {
     "message": "സെറ്റിംഗ്സ്",
     "description": "appears as tab name in dashboard"

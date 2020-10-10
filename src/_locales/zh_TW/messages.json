@@ -11,6 +11,18 @@
     "message": "uBlock₀ — 控制台",
     "description": "English: uBlock₀ — Dashboard"
   },
+  "dashboardUnsavedWarning": {
+    "message": "警告！變更尚未儲存。",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "留下",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "忽略變更",
+    "description": "Label for button to ignore unsaved changes"
+  },
   "settingsPageName": {
     "message": "設定",
     "description": "appears as tab name in dashboard"

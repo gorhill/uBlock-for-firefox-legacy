@@ -11,6 +11,18 @@
     "message": "uBlock₀ — داشبورد",
     "description": "English: uBlock₀ — Dashboard"
   },
+  "dashboardUnsavedWarning": {
+    "message": "هشدار! شما تنطیمات ذخیره نشده دارید",
+    "description": "A warning in the dashboard when navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningStay": {
+    "message": "بمان",
+    "description": "Label for button to prevent navigating away from unsaved changes"
+  },
+  "dashboardUnsavedWarningIgnore": {
+    "message": "نادیده بگیر",
+    "description": "Label for button to ignore unsaved changes"
+  },
   "settingsPageName": {
     "message": "تنظیمات",
     "description": "appears as tab name in dashboard"

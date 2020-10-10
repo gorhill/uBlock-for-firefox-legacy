@@ -428,6 +428,12 @@ self.cloud.onPull = function(data, append) {
 
 /******************************************************************************/
 
+self.hasUnsavedData = function() {
+    return mergeView.editor().isClean(cleanEditToken) === false;
+};
+
+/******************************************************************************/
+
 messaging.send('dashboard', { what: 'getRules' }, renderRules);
 
 // Handle user interaction
