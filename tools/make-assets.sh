@@ -24,8 +24,6 @@ cp -R ../uAssets/thirdparties/urlhaus-filter                     $DES/thirdparti
 
 mkdir $DES/ublock
 cp -R ../uAssets/filters/*                                       $DES/ublock/
-# Use the locally hosted resources.txt
-rm    $DES/ublock/resources.txt
 cp    ./assets/resources/resources.txt                           $DES/ublock/
 # Optional and obsolete filter lists: do not include in package
 rm    $DES/ublock/annoyances.txt
