@@ -139,6 +139,14 @@
     "message": "Klik: Utzi urruneko letra-tipoak gune honetan blokeatzeari",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Egin klik gune honetan JavaScript desgaitzeko",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Egin klik gune honetan JavaScript desgaitzeari uzteko",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Arau orokorrak: Zutabe hau gune guztietan aplikatzen diren arauentzat da.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -290,6 +298,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Blokeatu urruneko letra-tipoak",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Desgaitu JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Blokeatu CSP txostenak",

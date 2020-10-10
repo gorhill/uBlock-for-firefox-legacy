@@ -139,6 +139,14 @@
     "message": "Klik for at stoppe med at blokere skrifttyper på nettet på dette websted",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Klik for at deaktivere JavaScript på dette websted",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Klik for ikke længere at deaktivere JavaScript på dette websted",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Globale regler: denne kolonne er til de regler der gælder på alle websteder.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -290,6 +298,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Bloker skrifttyper fra nettet",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Deaktivér JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Blokér CSP rapporter",

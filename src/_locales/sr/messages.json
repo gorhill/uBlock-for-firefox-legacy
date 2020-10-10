@@ -139,6 +139,14 @@
     "message": "Кликните да бисте зауставили блокирање удаљених фонтова на овом сајту",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Кликните да онемогућите JavaScript на овом сајту",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Кликните да JavaScript не буде више онемогућен на овом сајту",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Општа правила: ова колона је за правила која се примењују на свим сајтовима.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -290,6 +298,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Блокирај удаљене фонтове",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Онемогући JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Блокирај CSP извештаје",

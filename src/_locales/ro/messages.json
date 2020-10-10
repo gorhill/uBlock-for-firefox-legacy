@@ -139,6 +139,14 @@
     "message": "Clic pentru a nu mai bloca fonturile externe pe acest site",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Apasă pentru a dezactiva JavaScript pe acest site",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Apasă pentru a nu mai dezactiva JavaScript pe acest site",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Reguli globale: această coloană este pentru regulile care se aplică tuturor site-urilor.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -290,6 +298,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Blochează fonturile de la distanță",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Dezactivare JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Blochează rapoartele CSP",

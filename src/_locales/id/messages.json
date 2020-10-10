@@ -139,6 +139,14 @@
     "message": "Klik untuk tidak lagi memblokir fon eksternal pada situs ini",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Klik untuk menonaktifkan total JavaScript di situs ini",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Klik untuk tidak lagi menonaktifkan total JavaScript di situs ini",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Aturan global: kolom ini untuk aturan yang diterapkan ke semua situs.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -290,6 +298,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Blokir fon rajuh",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Nonaktifkan JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Blokir laporan CSP",

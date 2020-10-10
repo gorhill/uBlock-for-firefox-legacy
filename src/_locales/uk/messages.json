@@ -139,6 +139,14 @@
     "message": "Натисніть для скасування бокування всіх віддалених шрифтів на цьому сайті",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Натисніть, щоб повністю вимкнути javaScript на цьому сайті",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Натисніть, щоб повністю припинити вимкнення javaScript на цьому сайті",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Глобальні правила: цей стовпчик для правил, що застосовуються для всіх сайтів.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -290,6 +298,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Блокувати сторонні шрифти",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Вимкнути JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Блокувати CSP-звіти",

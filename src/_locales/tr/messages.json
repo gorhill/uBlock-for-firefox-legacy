@@ -139,6 +139,14 @@
     "message": "Bu sitede uzak yazıtiplerini artık engellememek için tıklayın",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "JavaScript'i bu sitede devre dışı bırakmak için tıklayın",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "JavaScript'i bu sitede artık devre dışı bırakmamak için tıklayın",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Genel kurallar: bu sütun tüm sitelere uygulanan kurallar içindir.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -290,6 +298,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Uzak yazıtiplerini engelle",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "JavaScript'i devre dışı bırak",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "CSP raporlarını engelle",

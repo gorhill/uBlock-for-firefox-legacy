@@ -139,6 +139,14 @@
     "message": "Klõpsa, et lubada välisfondid selle saidil",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Klõpsa, et keelata JavaScript sellel saidil",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Klõpsa, et lõpetada sellel saidil JavaScripti keelamine",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Üldised reeglid: selle veeru reeglid kehtivad kõikidele saitidele.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -290,6 +298,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Keela välised fondid",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Keela JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Keela lehe turvareeglite (CSP-de) aruanded",

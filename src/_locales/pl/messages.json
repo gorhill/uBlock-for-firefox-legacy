@@ -139,6 +139,14 @@
     "message": "Kliknij, aby nie blokować zdalnych czcionek na tej witrynie",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Kliknij, aby wyłączyć JavaScript na tej witrynie",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Kliknij, aby JavaScript nie był już wyłączony na tej witrynie",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Reguły globalne. W tej kolumnie znajdują się reguły stosowane na wszystkich witrynach.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -290,6 +298,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Blokuj zdalne czcionki",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Wyłącz JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Blokuj raporty CSP",

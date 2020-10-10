@@ -139,6 +139,14 @@
     "message": "Κάντε κλικ για αναίρεση φραγής απομακρυσμένων γραμματοσειρών σε αυτή την ιστοσελίδα",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Κάντε κλικ για να απενεργοποιήσετε το JavaScript σε αυτήν την ιστοσελίδα",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Κάντε κλικ για να μην εχετε το JavaScript απενεργοποιημένο για αυτήν την ιστοσελίδα",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Καθολικοί κανόνες: αυτή η στήλη είναι για κανόνες με εφαρμογή σε όλες τις τοποθεσίες.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -290,6 +298,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Φραγή απομακρυσμένων γραμματοσειρών",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Απενεργοποίηση του JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Φραγή αναφορών CSP",

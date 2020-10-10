@@ -139,6 +139,14 @@
     "message": "Klik om eksterne lettertypen op dizze website net mear te blokkearjen",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Klik om JavaScript op dizze website út te skeakeljen",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Klik om JavaScript op dizze website net mear út te skeakeljen",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Globale rigels: dizze kolom is foar rigels dy't op alle websites fan tapassing binne.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -290,6 +298,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Eksterne lettertypen blokkearje",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "JavaScript útskeakelje",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "CSP-rapporten blokkearje",

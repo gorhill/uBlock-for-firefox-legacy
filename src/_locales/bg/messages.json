@@ -139,6 +139,14 @@
     "message": "Щракнете, за да разрешите външните шрифтове за този сайт",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Щракнете, за да забраните JavaScript за този сайт",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Щракнете, за да разрешите JavaScript за този сайт",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Глобални правила: тази колона е за правила, прилагани за всички сайтове.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -290,6 +298,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Блокиране на външни шрифтове",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Забраняване на JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Блокиране на CSP отчетите",

@@ -139,6 +139,14 @@
     "message": "クリックで、このサイトでのリモートフォントがブロックされないようにします",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "クリックすると、このサイトの JavaScript をブロックします",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "クリックすると、このサイトの JavaScript のブロックを解除します",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "グローバルルール: この列にあるルールは、すべてのサイトに適用されます。",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -290,6 +298,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "リモートフォントをブロックする",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "JavaScript をブロックする",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "CSPレポートをブロックする",

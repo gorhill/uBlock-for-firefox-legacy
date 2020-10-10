@@ -139,6 +139,14 @@
     "message": "Click to no longer block remote fonts on this site",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Alklaku por malaktivigi JavaScript en tiu ĉi retejo",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Alklaku por ne plu malaktivigi JavaScript en tiu ĉi retejo",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Ĝeneralaj reguloj: ĉi tiu kolumno estas por reguloj, kiuj aplikas al ĉiuj retejoj.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -290,6 +298,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Bloki forajn tiparojn",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Malŝalti JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Block CSP reports",

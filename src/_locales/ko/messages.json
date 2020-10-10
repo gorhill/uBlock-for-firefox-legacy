@@ -139,6 +139,14 @@
     "message": "클릭하여 이 사이트에서 더 이상 외부 폰트를 차단하지 않습니다.",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "클릭하여 이 사이트에서 JavaScript 비활성화",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "클릭하여 이 사이트에서 JavaScript 활성화",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "공용 규칙: 이 열은 모든 사이트에 적용되는 규칙 열 입니다.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -290,6 +298,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "글꼴 조종 차단",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "JavaScript 비활성화",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "CSP 보고서 차단",

@@ -139,6 +139,14 @@
     "message": "Click to no longer block remote fonts on this site",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Click to disable JavaScript on this site",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Click to no longer disable JavaScript on this site",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Global rules: this column is for rules which apply to all sites.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -290,6 +298,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Ют шрифтсене чар",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Disable JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Block CSP reports",
