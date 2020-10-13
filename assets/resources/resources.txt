@@ -339,6 +339,7 @@ google-analytics.com/analytics.js application/javascript
 	const w = window;
 	const gaName = w.GoogleAnalyticsObject || 'ga';
 	const gaQueue = w[gaName];
+	// https://github.com/uBlockOrigin/uAssets/pull/4115
 	const ga = function() {
 		const len = arguments.length;
 		if ( len === 0 ) { return; }
@@ -347,6 +348,8 @@ google-analytics.com/analytics.js application/javascript
 		let a = args[len-1];
 		if ( a instanceof Object && a.hitCallback instanceof Function ) {
 			fn = a.hitCallback;
+		} else if ( a instanceof Function ) {
+			fn = ( ) => { a(ga.create()); };
 		} else {
 			const pos = args.indexOf('hitCallback');
 			if ( pos !== -1 && args[pos+1] instanceof Function ) {
@@ -355,7 +358,7 @@ google-analytics.com/analytics.js application/javascript
 		}
 		if ( fn instanceof Function === false ) { return; }
 		try {
-			fn();
+			setTimeout(fn, 1);
 		} catch (ex) {
 		}
 	};
