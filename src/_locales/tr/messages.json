@@ -512,8 +512,8 @@
     "description": "English: Export"
   },
   "whitelistExportFilename": {
-    "message": "ublock-beyazlistem_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "message": "ublock-güvenilen-sitelerim_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "Değişiklikleri uygula",
@@ -617,7 +617,7 @@
   },
   "aboutWiki": {
     "message": "Viki",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
     "message": "Destek",

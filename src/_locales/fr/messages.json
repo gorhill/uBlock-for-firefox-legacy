@@ -512,8 +512,8 @@
     "description": "English: Export"
   },
   "whitelistExportFilename": {
-    "message": "ma-liste-blanche-ublock-{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "message": "mes-sites-fiables-ublock-{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "Appliquer",
@@ -616,11 +616,11 @@
     "description": "English: Change log"
   },
   "aboutWiki": {
-    "message": "Documentation (en Anglais)",
-    "description": "English: project' wiki on Github"
+    "message": "Documentation",
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
-    "message": "Support (en Anglais)",
+    "message": "Support",
     "description": "A link for where to get support"
   },
   "aboutIssues": {

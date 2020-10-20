@@ -284,7 +284,7 @@
     "description": "English: "
   },
   "settingsHyperlinkAuditingDisabledPrompt": {
-    "message": "হাইপারলিঙ্ক নিরীক্ষণ/বাতিঘর নিষ্ক্রিয় করুন",
+    "message": "হাইপারলিঙ্ক নিরীক্ষণ নিষ্ক্রিয় করুন",
     "description": "English: "
   },
   "settingsWebRTCIPAddressHiddenPrompt": {
@@ -513,7 +513,7 @@
   },
   "whitelistExportFilename": {
     "message": "amar-ublock-whitelist_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "পরিবর্তনগুলি প্রয়োগ",
@@ -617,7 +617,7 @@
   },
   "aboutWiki": {
     "message": "উইকি",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
     "message": "সমর্থন",

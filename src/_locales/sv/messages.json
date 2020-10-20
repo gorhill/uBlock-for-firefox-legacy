@@ -100,7 +100,7 @@
     "description": "English: Enter element picker mode"
   },
   "popupTipLog": {
-    "message": "Öppna loggen",
+    "message": "Öppna loggaren",
     "description": "Tooltip used for the logger icon in the panel"
   },
   "popupTipNoPopups": {
@@ -260,7 +260,7 @@
     "description": "A checkbox in the Settings pane"
   },
   "settingsContextMenuPrompt": {
-    "message": "Utnyttja kontextmenyn där så är lämpligt",
+    "message": "Använd innehållsmenyn där det är lämpligt",
     "description": "English: Make use of context menu where appropriate"
   },
   "settingsColorBlindPrompt": {
@@ -512,8 +512,8 @@
     "description": "English: Export"
   },
   "whitelistExportFilename": {
-    "message": "min-ublock-vitlista_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "message": "mina-ublock-pålitliga-webbplatser_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "Verkställ ändringar",
@@ -617,7 +617,7 @@
   },
   "aboutWiki": {
     "message": "Wiki",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
     "message": "Hjälp",
@@ -648,7 +648,7 @@
     "description": "English: my-ublock-backup_{{datetime}}.txt"
   },
   "aboutRestoreDataButton": {
-    "message": "Återställ från fil",
+    "message": "Återställ från fil...",
     "description": "English: Restore from file..."
   },
   "aboutResetDataButton": {

@@ -100,7 +100,7 @@
     "description": "English: Enter element picker mode"
   },
   "popupTipLog": {
-    "message": "अनुरोध दैनिकी में जाए",
+    "message": "लॉगर खोलें",
     "description": "Tooltip used for the logger icon in the panel"
   },
   "popupTipNoPopups": {
@@ -260,7 +260,7 @@
     "description": "A checkbox in the Settings pane"
   },
   "settingsContextMenuPrompt": {
-    "message": "विकल्प सूचि का प्रयोग करें",
+    "message": "जहाँ उपयुक्त हो, संदर्भ मेनू का इस्तेमाल करें",
     "description": "English: Make use of context menu where appropriate"
   },
   "settingsColorBlindPrompt": {
@@ -284,7 +284,7 @@
     "description": "English: "
   },
   "settingsHyperlinkAuditingDisabledPrompt": {
-    "message": "हाइपरलिंक जाँच को अवरुध करें",
+    "message": "हाइपरलिंक जाँच को बंद करें",
     "description": "English: "
   },
   "settingsWebRTCIPAddressHiddenPrompt": {
@@ -512,8 +512,8 @@
     "description": "English: Export"
   },
   "whitelistExportFilename": {
-    "message": "my-ublock-whitelist_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "message": "मेरे-उबलॉक-व्हाइटलिस्ट_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "परिवर्तन लागू करें",
@@ -617,7 +617,7 @@
   },
   "aboutWiki": {
     "message": "विकी",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
     "message": "मदद",

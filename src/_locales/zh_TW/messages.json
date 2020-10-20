@@ -100,7 +100,7 @@
     "description": "English: Enter element picker mode"
   },
   "popupTipLog": {
-    "message": "查看連線請求日誌",
+    "message": "開啟記錄器",
     "description": "Tooltip used for the logger icon in the panel"
   },
   "popupTipNoPopups": {
@@ -513,7 +513,7 @@
   },
   "whitelistExportFilename": {
     "message": "我的-ublock-白名單_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "套用變更",
@@ -616,8 +616,8 @@
     "description": "English: Change log"
   },
   "aboutWiki": {
-    "message": "共筆系統",
-    "description": "English: project' wiki on Github"
+    "message": "Wiki",
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
     "message": "支援網站",

@@ -513,7 +513,7 @@
   },
   "whitelistExportFilename": {
     "message": "എന്‍റെ-യുബ്ലോക്ക്-വൈറ്റ്ലിസ്റ്റ്_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "മാറ്റങ്ങള്‍ അപ്ലേ ചെയ്യുക",
@@ -617,10 +617,10 @@
   },
   "aboutWiki": {
     "message": "വിക്കി",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
-    "message": "Support",
+    "message": "പിന്തുണ",
     "description": "A link for where to get support"
   },
   "aboutIssues": {

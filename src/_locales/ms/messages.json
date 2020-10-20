@@ -260,7 +260,7 @@
     "description": "A checkbox in the Settings pane"
   },
   "settingsContextMenuPrompt": {
-    "message": "Make use of context menu where appropriate",
+    "message": "Gunakan menu konteks yang sesuai",
     "description": "English: Make use of context menu where appropriate"
   },
   "settingsColorBlindPrompt": {
@@ -284,7 +284,7 @@
     "description": "English: "
   },
   "settingsHyperlinkAuditingDisabledPrompt": {
-    "message": "Disable hyperlink auditing",
+    "message": "Nyahaktifkan pengauditan hiperpautan",
     "description": "English: "
   },
   "settingsWebRTCIPAddressHiddenPrompt": {
@@ -500,7 +500,7 @@
     "description": "English: dynamic rule syntax and full documentation."
   },
   "whitelistPrompt": {
-    "message": "The trusted site directives dictate on which web pages uBlock Origin should be disabled. One entry per line. Invalid directives will be silently ignored and commented out.",
+    "message": "Arahan laman web yang dipercayai menentukan halaman web mana uBlock Origin harus dilumpuhkan. Satu penyertaan setiap baris. Arahan tidak sah akan diam-diam diabaikan dan dikomentari.",
     "description": "The name of the trusted sites pane."
   },
   "whitelistImport": {
@@ -512,8 +512,8 @@
     "description": "English: Export"
   },
   "whitelistExportFilename": {
-    "message": "my-ublock-whitelist_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "message": "my-ublock-trusted-sites_{{datetime}}.txt\n",
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "Apply changes",
@@ -617,10 +617,10 @@
   },
   "aboutWiki": {
     "message": "Wiki",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
-    "message": "Support",
+    "message": "Sokongan",
     "description": "A link for where to get support"
   },
   "aboutIssues": {
@@ -648,7 +648,7 @@
     "description": "English: my-ublock-backup_{{datetime}}.txt"
   },
   "aboutRestoreDataButton": {
-    "message": "Restore from file...",
+    "message": "Pulihkan dari fail ...",
     "description": "English: Restore from file..."
   },
   "aboutResetDataButton": {

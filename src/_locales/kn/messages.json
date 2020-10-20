@@ -100,7 +100,7 @@
     "description": "English: Enter element picker mode"
   },
   "popupTipLog": {
-    "message": "ಜಾಲ ವಿನಂತಿಗಳ ದಾಖಲೆಗೆ ಹೋಗಿ",
+    "message": "ಲಾಗರ್ ತೆರೆಯಿರಿ",
     "description": "Tooltip used for the logger icon in the panel"
   },
   "popupTipNoPopups": {
@@ -512,8 +512,8 @@
     "description": "English: Export"
   },
   "whitelistExportFilename": {
-    "message": "my-ublock-whitelist_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "message": "my-ublock-trusted-sites_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "Apply changes",
@@ -617,7 +617,7 @@
   },
   "aboutWiki": {
     "message": "ವಿಕಿ",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
     "message": "Support",

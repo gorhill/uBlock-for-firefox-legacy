@@ -513,7 +513,7 @@
   },
   "whitelistExportFilename": {
     "message": "ublock-제외목록_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "변경사항 적용",
@@ -617,7 +617,7 @@
   },
   "aboutWiki": {
     "message": "위키",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
     "message": "지원",

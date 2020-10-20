@@ -40,7 +40,7 @@
     "description": "appears as tab name in dashboard"
   },
   "whitelistPageName": {
-    "message": "Бела листа",
+    "message": "Поуздани сајтови",
     "description": "appears as tab name in dashboard"
   },
   "statsPageName": {
@@ -500,7 +500,7 @@
     "description": "English: dynamic rule syntax and full documentation."
   },
   "whitelistPrompt": {
-    "message": "Смернице дозвољених домена диктирају на којим веб страницама би uBlock Origin требало бити онемогућен. Један унос по реду. Неисправне смернице ће бити тихо занемарене.",
+    "message": "Смернице поузданих сајтова диктирају на којим веб страницама би uBlock Origin требало бити онемогућен. Један унос по реду. Неисправне смернице ће бити тихо занемарене.",
     "description": "The name of the trusted sites pane."
   },
   "whitelistImport": {
@@ -512,8 +512,8 @@
     "description": "English: Export"
   },
   "whitelistExportFilename": {
-    "message": "моја-ublock-листа_дозвољених_домена{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "message": "моји-ublock-поуздани-сајтови_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "Примени промене",
@@ -617,7 +617,7 @@
   },
   "aboutWiki": {
     "message": "Вики",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
     "message": "Подршка",
