@@ -151,6 +151,14 @@
     "message": "Spustelėkite nutolusių šriftų neblokavimui šioje svetainėje",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Spustelėkite JavaScript išjungimui šioje svetainėje",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Spustelėkite JavaScript įjungimui šioje svetainėje",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Globalios taisyklės: ši skiltis skirta visiems puslapiams taikomoms taisyklėms.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -302,6 +310,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Blokuoti nuotolinius šriftus",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Išjungti JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Blokuoti CSP ataskaitas",

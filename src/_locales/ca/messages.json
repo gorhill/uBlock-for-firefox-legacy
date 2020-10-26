@@ -151,6 +151,14 @@
     "message": "Feu clic per desbloquejar les fonts remotes en aquest lloc",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Feu clic per inhabilitar completament el JavaScript en aquest lloc",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Feu clic per no inhabilitar el JavaScript en aquest lloc",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Regles globals: les regles d'aquesta columna s'apliquen a tots els llocs.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -302,6 +310,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Bloqueja les fonts remotes",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Inhabilita el JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Bloqueja informes CSP",

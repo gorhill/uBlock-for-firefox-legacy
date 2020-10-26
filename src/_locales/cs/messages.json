@@ -151,6 +151,14 @@
     "message": "Kliknutím vypnete blokování externích\/vzdálených fontů na tomto webu",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Kliknutím zakážete JavaScript na této stránce",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Kliknutím znovu povolíte JavaScript na této stránce",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Globální pravidla: tento sloupec slouží pro pravidla, která platí pro všechny weby.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -302,6 +310,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Blokovat externí fonty",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Zakázat JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Blokovat CSP reporty",

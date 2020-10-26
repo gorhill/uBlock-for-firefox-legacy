@@ -151,6 +151,14 @@
     "message": "לחץ על מנת לבטל את החסימה של פונטים חיצוניים באתר זה",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "לחץ על מנת לחסום JavaScript באתר זה",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "לחץ על מנת להפסיק לחסום JavaScript באתר זה",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "חוקים גלובליים: עמודה זו היא עבור חוקים אשר תקפים לכל האתרים.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -302,6 +310,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "חסום פונטים חיצוניים",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "חסום JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "חסום דיווחי CSP",

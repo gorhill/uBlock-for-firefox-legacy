@@ -151,6 +151,14 @@
     "message": "Hier klicken, um Remote-Schriftarten auf dieser Website nicht mehr zu blockieren",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Klicken, um JavaScript auf dieser Seite zu deaktivieren",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Klicken, um JavaScript auf dieser Seite wieder zuzulassen",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Globale Regeln: Diese Spalte ist für Regeln, die bei allen Seiten angewendet werden.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -302,6 +310,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Externe Schriftarten blocken",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "JavaScript deaktivieren",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "CSP-Berichte blockieren",

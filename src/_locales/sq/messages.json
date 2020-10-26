@@ -151,6 +151,14 @@
     "message": "Zhbllokoj sistemin e shkronjave në linjë",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Çaktivizoj JavaScript-in te uebsajti",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Nuk e çaktivizoj më JavaScript-in te uebsajti",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Rregullat globale: rregullat në këtë shtyllë aplikohen për të gjitha faqet.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -302,6 +310,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Bllokoj sistemin e shkronjave në linjë",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Çaktivizoj JavaScript-in",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Bllokoj raportet e CSP-së",

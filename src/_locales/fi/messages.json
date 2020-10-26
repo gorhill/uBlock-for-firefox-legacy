@@ -151,6 +151,14 @@
     "message": "Klikkaa salliaksesi ulkoiset kirjasimet tällä sivustolla",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Klikkaa poistaaksesi JavaScript käytöstä tältä sivulta",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Klikkaa palauttaaksesi JavaScriptin käyttö tällä sivulla",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Yleiset säännöt: tämä sarake on säännöille, joita käytetään kaikille sivustoille.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -302,6 +310,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Estä etäladattavat kirjasimet",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Poista JavaScript käytöstä",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Estä CSP-raportit",

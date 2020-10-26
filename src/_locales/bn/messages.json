@@ -151,6 +151,14 @@
     "message": "এই সাইটে রিমোট ফন্ট আর অবরুদ্ধ না করতে ক্লিক করুন",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "এই সাইটের জাভাস্ক্রিপ্ট বন্ধ করতে ক্লিক করুণ",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "এই সাইটের জাভাস্ক্রিপ্ট চালু করতে ক্লিক করুণ",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "সার্বজনীন নিয়ম: এই কলামটি সেইসব নিয়মের জন্য যা সকল সাইটের উপর প্রযোজ্য।",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -302,6 +310,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "রিমোট ফন্ট অবরুদ্ধ করুন",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "জাভা স্ক্রিপ্ট বন্ধ করা",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "CSP প্রতিবেদন অবরুদ্ধ করুন",

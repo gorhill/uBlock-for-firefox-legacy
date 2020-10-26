@@ -151,6 +151,14 @@
     "message": "کلیک کنید تا از این به بعد فونت های راه دور در این سایت مسدود نشوند",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "کلیک کنید تا جاوا اسکریپت در این سایت غیرفعال شود",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "کلیک کنید تا جاوا اسکریپت دیگر در این سایت غیرفعال نشود",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "قوانین همگانی: این ستون برای قوانینی است که برای همۀ سایت ها اعمال می شوند.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -302,6 +310,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "انسداد فونت های راه دور",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "غیرفعال کردن جاوا اسکریپت",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "مسدود کردن براساس گزارشات سیاست امنیت محتوا",

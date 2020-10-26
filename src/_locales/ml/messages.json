@@ -151,6 +151,14 @@
     "message": "Click to no longer block remote fonts on this site",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "ഈ സൈറ്റിൽ JavaScript അപ്രാപ്തമാക്കാൻ ക്ലിക്കുചെയ്യുക",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "ഈ സൈറ്റിൽ‌ ഇനിമുതൽ‌ JavaScript അപ്രാപ്‌തമാക്കുന്നതിന് ക്ലിക്കുചെയ്യുക",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "ആഗോള നിയമങ്ങൾ: ഈ കോളത്തിലെ നിയമങ്ങൾ എല്ലാ സൈറ്റുകളിലും പ്രയോഗിക്കുന്ന നിയമങ്ങള് ആണ്.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -302,6 +310,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "വിദൂര ഫോണ്ടുകൾ തടയുക",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "ജാവാസ്ക്രിപ്റ്റ് അപ്രാപ്തമാക്കുക",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Block CSP reports",

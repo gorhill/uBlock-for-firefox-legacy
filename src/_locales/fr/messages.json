@@ -151,6 +151,14 @@
     "message": "Cliquez pour cesser de bloquer les polices d'écriture distantes sur ce site",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "Cliquez pour désactiver JavaScript sur ce site",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "Cliquez pour cesser de désactiver JavaScript sur ce site",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "Règles globales : Cette colonne concerne des règles qui s'appliquent partout.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -302,6 +310,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "Bloquer les polices d'écriture distantes",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "Désactiver JavaScript",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Bloquer les rapports CSP",

@@ -151,6 +151,14 @@
     "message": "أضغط للسماح للخطوط الخارجية لهذا الموقع",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "انقر لتعطيل الجافا سكريبت كُليًا على هذا الموقع",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "انقر لإلغاء تعطيل الجافا سكريبت كُليًا على هذا الموقع",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "القواعد العامة: هذا العمود يتعلق بالقواعد التي تنطبق على جميع الموقع.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -302,6 +310,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "منع الخطوط البعيدة",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "تعطيل الجافا سكريبت",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "منع تقارير الـ CSP",

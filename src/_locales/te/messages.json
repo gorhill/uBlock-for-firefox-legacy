@@ -151,6 +151,14 @@
     "message": "ఇకపై ఈ సైట్లో రిమోట్ ఫాంట్లను అనుమతించుటకు క్లిక్ చేయండి",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "ఈ సైట్‌లో జావాస్క్రిప్ట్‌ను నిలిపివేయడానికి క్లిక్ చేయండి",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "ఈ సైట్‌లో జావాస్క్రిప్ట్‌ను ఇకపై నిలిపివేయడానికి క్లిక్ చేయండి",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "సామాన్య నియమాలు: ఈ నిలువరుసలో వున్న నియమాలు అన్ని సైట్లకు వర్తిస్తాయి.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -302,6 +310,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "బయటి ఖతులను నిరోధించు",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "జావాస్క్రిప్ట్‌ను ఆపివేయి",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "CSP నివేదికలను నిరోధించు",

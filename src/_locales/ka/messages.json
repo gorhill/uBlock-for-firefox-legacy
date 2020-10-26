@@ -151,6 +151,14 @@
     "message": "დააწკაპეთ ვებშრიფტების შეზღუდვის გასაუქმებლად ამ საიტზე",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
+  "popupTipNoScripting1": {
+    "message": "დააწკაპეთ JavaScript-ის გასათიშად ამ საიტზე",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
+  "popupTipNoScripting2": {
+    "message": "დააწკაპეთ JavaScript-ზე შეზღუდვის მოსახსნელად ამ საიტზე",
+    "description": "Tooltip for the no-scripting per-site switch"
+  },
   "popupTipGlobalRules": {
     "message": "გლობალური წესები: ეს სვეტი არის წესებისთვის, რომლებიც მოქმედებს ყველა საიტზე.",
     "description": "Tooltip when hovering the top-most cell of the global-rules column."
@@ -302,6 +310,10 @@
   "settingsNoRemoteFontsPrompt": {
     "message": "ვებშრიფტების შეზღუდვა",
     "description": ""
+  },
+  "settingsNoScriptingPrompt": {
+    "message": "JavaScript-ის გათიშვა",
+    "description": "The default state for the per-site no-scripting switch"
   },
   "settingsNoCSPReportsPrompt": {
     "message": "CSP მოხსენებების აკრძალვა",
