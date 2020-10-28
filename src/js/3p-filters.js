@@ -89,14 +89,16 @@ var renderFilterLists = function(soft) {
             li = listEntryTemplate.clone().nodeAt(0);
         }
         var on = entry.off !== true;
+        li.classList.toggle('checked', on);
         if ( li.getAttribute('data-listkey') !== listKey ) {
             li.setAttribute('data-listkey', listKey);
             elem = li.querySelector('input[type="checkbox"]');
             elem.checked = on;
-            elem = li.querySelector('a:nth-of-type(1)');
+            elem = li.querySelector('.listname');
+            elem.textContent = listNameFromListKey(listKey);
+            elem = li.querySelector('a.content');
             elem.setAttribute('href', 'asset-viewer.html?url=' + encodeURI(listKey));
             elem.setAttribute('type', 'text/html');
-            elem.textContent = listNameFromListKey(listKey);
             li.classList.remove('toRemove');
             if ( entry.supportName ) {
                 li.classList.add('support');
@@ -382,20 +384,28 @@ const hashFromCurrentFromSettings = function() {
 
 /******************************************************************************/
 
-var onFilteringSettingsChanged = function() {
+const onListsetChanged = function(ev) {
+    const input = ev.target;
+    const li = input.closest('.listEntry');
+    li.classList.toggle('checked', input.checked);
+    onFilteringSettingsChanged();
+};
+
+/******************************************************************************/
+
+const onFilteringSettingsChanged = function() {
     renderWidgets();
 };
 
 /******************************************************************************/
 
-var onRemoveExternalList = function(ev) {
+const onRemoveExternalList = function() {
     var liEntry = uDom(this).ancestors('[data-listkey]'),
         listKey = liEntry.attr('data-listkey');
     if ( listKey ) {
         liEntry.toggleClass('toRemove');
         renderWidgets();
     }
-    ev.preventDefault();
 };
 
 /******************************************************************************/
@@ -559,7 +569,7 @@ var toggleHideUnusedLists = function(which) {
         groupSelector = '.groupEntry[data-groupkey="' + which + '"] ';
         uDom(groupSelector).toggleClass('hideUnused', mustHide);
     }
-    uDom(groupSelector + '.listEntry > input[type="checkbox"]:not(:checked)')
+    uDom(groupSelector + '.listEntry input[type="checkbox"]:not(:checked)')
         .ancestors('.listEntry[data-listkey]')
         .toggleClass('unused', mustHide);
     vAPI.localStorage.setItem(
@@ -568,8 +578,8 @@ var toggleHideUnusedLists = function(which) {
     );
 };
 
-var revealHiddenUsedLists = function() {
-    uDom('#lists .listEntry.unused > input[type="checkbox"]:checked')
+const revealHiddenUsedLists = function() {
+    uDom('#lists .listEntry.unused input[type="checkbox"]:checked')
         .ancestors('.listEntry[data-listkey]')
         .removeClass('unused');
 };
@@ -688,8 +698,8 @@ uDom('#ignoreGenericCosmeticFilters').on('change', onFilteringSettingsChanged);
 uDom('#buttonApply').on('click', buttonApplyHandler);
 uDom('#buttonUpdate').on('click', buttonUpdateHandler);
 uDom('#buttonPurgeAll').on('click', buttonPurgeAllHandler);
-uDom('#lists').on('change', '.listEntry > input', onFilteringSettingsChanged);
-uDom('#lists').on('click', '.listEntry > a.remove', onRemoveExternalList);
+uDom('#lists').on('change', '.listEntry input', onListsetChanged);
+uDom('#lists').on('click', '.listEntry .remove', onRemoveExternalList);
 uDom('#lists').on('click', 'span.cache', onPurgeClicked);
 uDom('#externalLists').on('input', onFilteringSettingsChanged);
 

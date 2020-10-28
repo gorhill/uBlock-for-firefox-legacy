@@ -794,5 +794,9 @@
   "dummy": {
     "message": "Aceasta intrare trebuie sa fie ultima",
     "description": "so we dont need to deal with comma for last entry"
+  },
+  "3pViewContent": {
+    "message": "vezi conținut",
+    "description": "used as a tooltip for eye icon beside a list"
   }
 }

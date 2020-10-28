@@ -794,5 +794,9 @@
   "dummy": {
     "message": "Ten wpis musi być ostatni",
     "description": "so we dont need to deal with comma for last entry"
+  },
+  "3pViewContent": {
+    "message": "zobacz zawartość",
+    "description": "used as a tooltip for eye icon beside a list"
   }
 }

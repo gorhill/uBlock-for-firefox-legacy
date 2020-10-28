@@ -794,5 +794,9 @@
   "dummy": {
     "message": "This entry must be the last one",
     "description": "so we dont need to deal with comma for last entry"
+  },
+  "3pViewContent": {
+    "message": "ynhâld werjaan",
+    "description": "used as a tooltip for eye icon beside a list"
   }
 }

@@ -794,5 +794,9 @@
   "dummy": {
     "message": "Цей запис має бути останнім",
     "description": "so we dont need to deal with comma for last entry"
+  },
+  "3pViewContent": {
+    "message": "переглянути вміст",
+    "description": "used as a tooltip for eye icon beside a list"
   }
 }
