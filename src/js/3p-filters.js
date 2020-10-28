@@ -330,7 +330,7 @@ var renderWidgets = function() {
     );
     uDom('#buttonUpdate').toggleClass(
         'disabled',
-        document.querySelector('body:not(.updating) #lists .listEntry.obsolete > input[type="checkbox"]:checked') === null
+        document.querySelector('body:not(.updating) #lists .listEntry.obsolete input[type="checkbox"]:checked') === null
     );
 };
 

@@ -156,13 +156,13 @@ const onLocalDataReceived = function(details) {
     }
 
     if ( details.cloudStorageSupported === false ) {
-        uDom('#cloud-storage-enabled').attr('disabled', '');
+        uDom('[data-setting-name="cloudStorageEnabled"]').attr('disabled', '');
     }
 
     if ( details.privacySettingsSupported === false ) {
-        uDom('#prefetching-disabled').attr('disabled', '');
-        uDom('#hyperlink-auditing-disabled').attr('disabled', '');
-        uDom('#webrtc-ipaddress-hidden').attr('disabled', '');
+        uDom('[data-setting-name="prefetchingDisabled"]').attr('disabled', '');
+        uDom('[data-setting-name="hyperlinkAuditingDisabled"]').attr('disabled', '');
+        uDom('[data-setting-name="webrtcIPAddressHidden"]').attr('disabled', '');
     }
 };
 
@@ -181,7 +181,7 @@ const resetUserData = function() {
 const synchronizeDOM = function() {
     document.body.classList.toggle(
         'advancedUser',
-        uDom.nodeFromId('advanced-user-enabled').checked === true
+        uDom.nodeFromSelector('[data-setting-name="advancedUserEnabled"]').checked === true
     );
 };
 
@@ -239,7 +239,7 @@ const onUserSettingsReceived = function(details) {
                 });
     });
 
-    uDom('[data-setting-name="noLargeMedia"] ~ label:first-of-type > input[type="number"]')
+    uDom('[data-i18n="settingsNoLargeMediaPrompt"] > input[type="number"]')
         .attr('data-setting-name', 'largeMediaSize')
         .attr('data-setting-type', 'input');
 

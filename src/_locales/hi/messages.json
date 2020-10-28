@@ -356,7 +356,7 @@
     "description": "English: Parse and enforce Adblock+ element hiding filters."
   },
   "3pParseAllABPHideFiltersInfo": {
-    "message": "<p>This option enables the parsing and enforcing of <a href=\"https://adblockplus.org/en/faq_internal#elemhide\">Adblock Plus-compatible &ldquo;element hiding&rdquo; filters</a>. These filters are essentially cosmetic, they serve to hide elements in a web page which are deemed to be a visual nuisance, and which can't be blocked by the net request-based filtering engine.</p><p>Enabling this feature increases uBlock₀'s memory footprint.</p>",
+    "message": "यह विकल्प कॉस्मेटिक फिल्टर्स को लेता और उन्हें जारी करता है जो Adblock Plus- \"एलीमेंट हाइड\" से मिलतें-जुलातें हैं। यह उन चीजों को ब्लॉक करतें हैं जो वेब पेज के दिखावत में छोटे- मोटी समस्या पैदा करतें है जो नेटवर्क रिक्वेस्ट-के फिल्टरों से ब्लुक नहीं किए जा सकते। ",
     "description": "Describes the purpose of the 'Parse and enforce cosmetic filters' feature."
   },
   "3pIgnoreGenericCosmeticFilters": {
@@ -364,7 +364,7 @@
     "description": "This will cause uBO to ignore all generic cosmetic filters."
   },
   "3pIgnoreGenericCosmeticFiltersInfo": {
-    "message": "<p>Generic cosmetic filters are those cosmetic filters which are meant to apply on all web sites.<p>Though handled efficiently by uBlock₀, generic cosmetic filters may still contribute measurable memory and CPU overhead on some web pages, especially for large and long-lived ones.<p>Enabling this option will eliminate the memory and CPU overhead added to web pages as a result of handling generic cosmetic filters, and also lower the memory footprint of uBlock₀ itself.<p>It is recommended to enable this option on less powerful devices.",
+    "message": "जेनेरिक कॉस्मेटिक फिल्टरस वो कॉस्मेटिक फिल्टरस हैं जो सब वेब साइट्स पर लागू होते हैं। यह विकल्प को चालू कराने से मेमोरी और सीपीयू पर जो उपर का दबाव पड़ता है वो नहीं रहेगा जो कॉस्मेटिक फिल्टरों को जारी करने से हुआ था।\n\nइस विकल्प को कमज़ोर डिवाइसों पर चालू कराने की सलाह दी जाती है।",
     "description": "Describes the purpose of the 'Ignore generic cosmetic filters' feature."
   },
   "3pListsOfBlockedHostsHeader": {
