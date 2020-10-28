@@ -56,8 +56,8 @@
     "description": "Title for the advanced settings page"
   },
   "popupPowerSwitchInfo": {
-    "message": "Klick: avaktivera\/aktivera uBlock₀ för denna hemsida permanent.\n\nCtrl+klick: avaktivera uBlock₀ endast för denna sida.",
-    "description": "English: Click: disable\/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
+    "message": "Klick: avaktivera/aktivera uBlock₀ för denna hemsida permanent.\n\nCtrl+klick: avaktivera uBlock₀ endast för denna sida.",
+    "description": "English: Click: disable/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
   },
   "popupPowerSwitchInfo1": {
     "message": "Klicka för att inaktivera uBlock₀ för den här webbplatsen.\n\nCtrl + klicka för att inaktivera uBlock₀ för enbart den här sidan.",
@@ -100,7 +100,7 @@
     "description": "English: Enter element picker mode"
   },
   "popupTipLog": {
-    "message": "Öppna loggen",
+    "message": "Öppna loggaren",
     "description": "Tooltip used for the logger icon in the panel"
   },
   "popupTipNoPopups": {
@@ -188,7 +188,7 @@
     "description": ""
   },
   "popup3pPassiveRulePrompt": {
-    "message": "Tredjeparts-css\/bilder",
+    "message": "Tredjeparts-css/bilder",
     "description": ""
   },
   "popupInlineScriptRulePrompt": {
@@ -260,7 +260,7 @@
     "description": "A checkbox in the Settings pane"
   },
   "settingsContextMenuPrompt": {
-    "message": "Utnyttja kontextmenyn där så är lämpligt",
+    "message": "Använd innehållsmenyn där det är lämpligt",
     "description": "English: Make use of context menu where appropriate"
   },
   "settingsColorBlindPrompt": {
@@ -272,7 +272,7 @@
     "description": ""
   },
   "settingsAdvancedUserPrompt": {
-    "message": "Jag är en avancerad användare (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Advanced-user-features'>obligatorisk läsning<\/a>)",
+    "message": "Jag är en avancerad användare (<a href='https://github.com/gorhill/uBlock/wiki/Advanced-user-features'>obligatorisk läsning</a>)",
     "description": ""
   },
   "settingsAdvancedUserSettings": {
@@ -317,7 +317,7 @@
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Blockera CSP-rapporter",
-    "description": "background information: https:\/\/github.com\/gorhill\/uBlock\/issues\/3150"
+    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
   },
   "settingsStorageUsed": {
     "message": "Använt utrymme: {{value}} bytes",
@@ -356,7 +356,7 @@
     "description": "English: Parse and enforce Adblock+ element hiding filters."
   },
   "3pParseAllABPHideFiltersInfo": {
-    "message": "<p>Det här alternativet aktiverar tolkning och applicering av <a href=\"https:\/\/adblockplus.org\/en\/faq_internal#elemhide\">Adblock Plus-kompatibla &ldquo;elementdöljningsfilter&rdquo;<\/a>. Dessa filter är i huvudsak kosmetiska. De tjänar till att dölja element som anses vara till visuella besvär och som inte kan bli blockerade av den nätförfrågningsbaserade filtreringsmotorn.<\/p><p>Genom att aktivera denna funktion ökar uBlock₀s minnesanvändning.<\/p>",
+    "message": "<p>Det här alternativet aktiverar tolkning och applicering av <a href=\"https://adblockplus.org/en/faq_internal#elemhide\">Adblock Plus-kompatibla &ldquo;elementdöljningsfilter&rdquo;</a>. Dessa filter är i huvudsak kosmetiska. De tjänar till att dölja element som anses vara till visuella besvär och som inte kan bli blockerade av den nätförfrågningsbaserade filtreringsmotorn.</p><p>Genom att aktivera denna funktion ökar uBlock₀s minnesanvändning.</p>",
     "description": "Describes the purpose of the 'Parse and enforce cosmetic filters' feature."
   },
   "3pIgnoreGenericCosmeticFilters": {
@@ -496,7 +496,7 @@
     "description": "English: List of your dynamic filtering rules."
   },
   "rulesFormatHint": {
-    "message": "Regelsyntax: <code>källa destination typ åtgärd<\/code> (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Dynamic-filtering:-rule-syntax'>full dokumentation<\/a>).",
+    "message": "Regelsyntax: <code>källa destination typ åtgärd</code> (<a href='https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-rule-syntax'>full dokumentation</a>).",
     "description": "English: dynamic rule syntax and full documentation."
   },
   "whitelistPrompt": {
@@ -512,8 +512,8 @@
     "description": "English: Export"
   },
   "whitelistExportFilename": {
-    "message": "min-ublock-vitlista_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "message": "mina-ublock-pålitliga-webbplatser_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "Verkställ ändringar",
@@ -617,15 +617,15 @@
   },
   "aboutWiki": {
     "message": "Wiki",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
     "message": "Hjälp",
     "description": "A link for where to get support"
   },
-  "aboutIssues":{
-    "message":"Ärendehantering",
-    "description":"Text for a link to official issue tracker"
+  "aboutIssues": {
+    "message": "Ärendehantering",
+    "description": "Text for a link to official issue tracker"
   },
   "aboutCode": {
     "message": "Källkod (GPLv3)",
@@ -635,9 +635,9 @@
     "message": "Bidragsgivare",
     "description": "English: Contributors"
   },
-  "aboutDependencies":{
-    "message":"Externa beroenden (GPLv3-kompatibla):",
-    "description":"Shown in the About pane"
+  "aboutDependencies": {
+    "message": "Externa beroenden (GPLv3-kompatibla):",
+    "description": "Shown in the About pane"
   },
   "aboutBackupDataButton": {
     "message": "Säkerhetskopiera till fil",
@@ -648,7 +648,7 @@
     "description": "English: my-ublock-backup_{{datetime}}.txt"
   },
   "aboutRestoreDataButton": {
-    "message": "Återställ från fil",
+    "message": "Återställ från fil...",
     "description": "English: Restore from file..."
   },
   "aboutResetDataButton": {
@@ -701,11 +701,11 @@
   },
   "showDashboardButton": {
     "message": "Visa kontrollpanel",
-    "description": "Firefox\/Fennec-specific: Show Dashboard"
+    "description": "Firefox/Fennec-specific: Show Dashboard"
   },
   "showNetworkLogButton": {
     "message": "Visa nätverksbegäranslogg",
-    "description": "Firefox\/Fennec-specific: Show Logger"
+    "description": "Firefox/Fennec-specific: Show Logger"
   },
   "fennecMenuItemBlockingOff": {
     "message": "av",
@@ -721,7 +721,7 @@
   },
   "docblockedNoParamsPrompt": {
     "message": "utan parametrar",
-    "description": "label to be used for the parameter-less URL: https:\/\/cloud.githubusercontent.com\/assets\/585534\/9832014\/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
+    "description": "label to be used for the parameter-less URL: https://cloud.githubusercontent.com/assets/585534/9832014/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
   },
   "docblockedFoundIn": {
     "message": "Hittades i:",

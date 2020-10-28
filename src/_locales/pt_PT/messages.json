@@ -56,8 +56,8 @@
     "description": "Title for the advanced settings page"
   },
   "popupPowerSwitchInfo": {
-    "message": "Clique: desativar\/ativar o uBlock₀ para este site.\n\nCtrl+clique: desativar o uBlock₀ apenas nesta página.",
-    "description": "English: Click: disable\/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
+    "message": "Clique: desativar/ativar o uBlock₀ para este site.\n\nCtrl+clique: desativar o uBlock₀ apenas nesta página.",
+    "description": "English: Click: disable/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
   },
   "popupPowerSwitchInfo1": {
     "message": "Clique para desativar o uBlock₀ para este site.\n\nCtrl+clique para desativar o uBlock₀ apenas nesta página.",
@@ -188,7 +188,7 @@
     "description": ""
   },
   "popup3pPassiveRulePrompt": {
-    "message": "css\/imagens de terceiros",
+    "message": "css/imagens de terceiros",
     "description": ""
   },
   "popupInlineScriptRulePrompt": {
@@ -272,7 +272,7 @@
     "description": ""
   },
   "settingsAdvancedUserPrompt": {
-    "message": "Sou um utilizador avançado (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Advanced-user-features'>leitura necessária<\/a>)",
+    "message": "Sou um utilizador avançado (<a href='https://github.com/gorhill/uBlock/wiki/Advanced-user-features'>leitura necessária</a>)",
     "description": ""
   },
   "settingsAdvancedUserSettings": {
@@ -317,7 +317,7 @@
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Bloquear relatórios CSP",
-    "description": "background information: https:\/\/github.com\/gorhill\/uBlock\/issues\/3150"
+    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
   },
   "settingsStorageUsed": {
     "message": "Armazenamento utilizado: {{value}} bytes",
@@ -356,7 +356,7 @@
     "description": "English: Parse and enforce Adblock+ element hiding filters."
   },
   "3pParseAllABPHideFiltersInfo": {
-    "message": "<p>Esta opção permite a análise e aplicação de <a href=\"https:\/\/adblockplus.org\/en\/faq_internal#elemhide\">filtros de &ldquo;ocultação de elementos&rdquo; compatíveis com o Adblock Plus<\/a>. Estes filtros são essencialmente cosméticos, servindo para ocultar elementos numa página web que sejam considerados incómodo visual, e que não podem ser bloqueados pelo motor de filtragem baseado em pedidos de rede.<\/p><p>Ativar esta funcionalidade aumenta o consumo de memória do <i>uBlock₀<\/i>.<\/p>",
+    "message": "<p>Esta opção permite a análise e aplicação de <a href=\"https://adblockplus.org/en/faq_internal#elemhide\">filtros de &ldquo;ocultação de elementos&rdquo; compatíveis com o Adblock Plus</a>. Estes filtros são essencialmente cosméticos, servindo para ocultar elementos numa página web que sejam considerados incómodo visual, e que não podem ser bloqueados pelo motor de filtragem baseado em pedidos de rede.</p><p>Ativar esta funcionalidade aumenta o consumo de memória do <i>uBlock₀</i>.</p>",
     "description": "Describes the purpose of the 'Parse and enforce cosmetic filters' feature."
   },
   "3pIgnoreGenericCosmeticFilters": {
@@ -432,7 +432,7 @@
     "description": "used as a tooltip for error icon beside a list"
   },
   "1pFormatHint": {
-    "message": "Um filtro por linha. Um filtro pode ser um simples nome de servidor ou um filtro compatível com o Adblock Plus. Linhas começadas por <code>!<\/code> serão ignoradas.",
+    "message": "Um filtro por linha. Um filtro pode ser um simples nome de servidor ou um filtro compatível com o Adblock Plus. Linhas começadas por <code>!</code> serão ignoradas.",
     "description": "Short information about how to create custom filters"
   },
   "1pImport": {
@@ -496,11 +496,11 @@
     "description": "English: List of your dynamic filtering rules."
   },
   "rulesFormatHint": {
-    "message": "Regra de sintaxe: <code>origem destino tipo ação<\/code> (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Dynamic-filtering:-rule-syntax'>documentação completa<\/a>).",
+    "message": "Regra de sintaxe: <code>origem destino tipo ação</code> (<a href='https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-rule-syntax'>documentação completa</a>).",
     "description": "English: dynamic rule syntax and full documentation."
   },
   "whitelistPrompt": {
-    "message": "As diretivas de sites confiáveis determinam em quais páginas da web o uBlock Origin deve ser desativado. Uma entrada por linha. Diretivas inválidas serão ignoradas e comentadas silenciosamente.",
+    "message": "As diretivas de sites confiáveis determinam em quais páginas web o uBlock Origin deve ser desativado. Uma entrada por linha. Diretivas inválidas serão ignoradas e comentadas silenciosamente.",
     "description": "The name of the trusted sites pane."
   },
   "whitelistImport": {
@@ -512,8 +512,8 @@
     "description": "English: Export"
   },
   "whitelistExportFilename": {
-    "message": "my-ublock-whitelist_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "message": "my-ublock-trusted-sites_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "Aplicar alterações",
@@ -617,15 +617,15 @@
   },
   "aboutWiki": {
     "message": "Wiki",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
     "message": "Suporte",
     "description": "A link for where to get support"
   },
-  "aboutIssues":{
-    "message":"Monitorizador de problemas",
-    "description":"Text for a link to official issue tracker"
+  "aboutIssues": {
+    "message": "Monitorizador de problemas",
+    "description": "Text for a link to official issue tracker"
   },
   "aboutCode": {
     "message": "Código fonte (GPLv3)",
@@ -635,9 +635,9 @@
     "message": "Contribuidores",
     "description": "English: Contributors"
   },
-  "aboutDependencies":{
-    "message":"Dependências externas (compatíveis com GPLv3):",
-    "description":"Shown in the About pane"
+  "aboutDependencies": {
+    "message": "Dependências externas (compatíveis com GPLv3):",
+    "description": "Shown in the About pane"
   },
   "aboutBackupDataButton": {
     "message": "Cópia para ficheiro",
@@ -648,7 +648,7 @@
     "description": "English: my-ublock-backup_{{datetime}}.txt"
   },
   "aboutRestoreDataButton": {
-    "message": "Restaurar a partir de um ficheiro...",
+    "message": "Restaurar a partir de ficheiro...",
     "description": "English: Restore from file..."
   },
   "aboutResetDataButton": {
@@ -701,11 +701,11 @@
   },
   "showDashboardButton": {
     "message": "Mostrar painel de controlo",
-    "description": "Firefox\/Fennec-specific: Show Dashboard"
+    "description": "Firefox/Fennec-specific: Show Dashboard"
   },
   "showNetworkLogButton": {
     "message": "Mostrar registador",
-    "description": "Firefox\/Fennec-specific: Show Logger"
+    "description": "Firefox/Fennec-specific: Show Logger"
   },
   "fennecMenuItemBlockingOff": {
     "message": "desativado",
@@ -721,7 +721,7 @@
   },
   "docblockedNoParamsPrompt": {
     "message": "sem parâmetros",
-    "description": "label to be used for the parameter-less URL: https:\/\/cloud.githubusercontent.com\/assets\/585534\/9832014\/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
+    "description": "label to be used for the parameter-less URL: https://cloud.githubusercontent.com/assets/585534/9832014/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
   },
   "docblockedFoundIn": {
     "message": "Encontrado em:",

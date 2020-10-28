@@ -56,8 +56,8 @@
     "description": "Title for the advanced settings page"
   },
   "popupPowerSwitchInfo": {
-    "message": "Klikk: uBlock₀ tiltása\/engedélyezése ezen a webhelyen.\n\nCtrl+klikk: csak a jelenlegi oldal tiltása\/engedélyezése.",
-    "description": "English: Click: disable\/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
+    "message": "Klikk: uBlock₀ tiltása/engedélyezése ezen a webhelyen.\n\nCtrl+klikk: csak a jelenlegi oldal tiltása/engedélyezése.",
+    "description": "English: Click: disable/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
   },
   "popupPowerSwitchInfo1": {
     "message": "Kattints a uBlock₀ letiltásához ezen a webhelyen.\n\nCtrl+klikk a uBlock₀ letiltásához csak a jelenlegi oldalon.",
@@ -104,7 +104,7 @@
     "description": "Tooltip used for the logger icon in the panel"
   },
   "popupTipNoPopups": {
-    "message": "Oldal összes felugró ablakának blokkolása\/engedélyezése",
+    "message": "Oldal összes felugró ablakának blokkolása/engedélyezése",
     "description": "Tooltip for the no-popups per-site switch"
   },
   "popupTipNoPopups1": {
@@ -116,7 +116,7 @@
     "description": "Tooltip for the no-popups per-site switch"
   },
   "popupTipNoLargeMedia": {
-    "message": "Nagyméretű média elemek blokkolásának ki\/bekapcsolása",
+    "message": "Nagyméretű média elemek blokkolásának ki/bekapcsolása",
     "description": "Tooltip for the no-large-media per-site switch"
   },
   "popupTipNoLargeMedia1": {
@@ -140,7 +140,7 @@
     "description": "Tooltip for the no-cosmetic-filtering per-site switch"
   },
   "popupTipNoRemoteFonts": {
-    "message": "Távoli betűkészletek blokkolásának ki\/bekapcsolása ezen az oldalon",
+    "message": "Távoli betűkészletek blokkolásának ki/bekapcsolása ezen az oldalon",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
   "popupTipNoRemoteFonts1": {
@@ -188,7 +188,7 @@
     "description": ""
   },
   "popup3pPassiveRulePrompt": {
-    "message": "3rd-party css\/képek",
+    "message": "3rd-party css/képek",
     "description": ""
   },
   "popupInlineScriptRulePrompt": {
@@ -272,7 +272,7 @@
     "description": ""
   },
   "settingsAdvancedUserPrompt": {
-    "message": "Haladó felhasználó vagyok (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Advanced-user-features'>További tudnivalók<\/a>)",
+    "message": "Haladó felhasználó vagyok (<a href='https://github.com/gorhill/uBlock/wiki/Advanced-user-features'>További tudnivalók</a>)",
     "description": ""
   },
   "settingsAdvancedUserSettings": {
@@ -317,7 +317,7 @@
   },
   "settingsNoCSPReportsPrompt": {
     "message": "CSP jelentések blokkolása",
-    "description": "background information: https:\/\/github.com\/gorhill\/uBlock\/issues\/3150"
+    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
   },
   "settingsStorageUsed": {
     "message": "Tárolóhely használat: {{value}} byte",
@@ -356,7 +356,7 @@
     "description": "English: Parse and enforce Adblock+ element hiding filters."
   },
   "3pParseAllABPHideFiltersInfo": {
-    "message": "<p>Ez a beállítás engedélyezi az <a href=\"https:\/\/adblockplus.org\/en\/faq_internal#elemhide\">Adblock Plus-típusú &ldquo;elemelrejtő&rdquo; szűrőket<\/a>. Ezek kizárólag kozmetikai célokat szolgálnak; elrejtik egy webhely azon elemeit, amelyek vizuálisan zavaróak, de a hálózati lekérések alapján nem szűrhetők ki.<\/p><p>A beállítás engedélyezése megnöveli a <i>uBlock₀<\/i> memóriahasználatát.<\/p>",
+    "message": "<p>Ez a beállítás engedélyezi az <a href=\"https://adblockplus.org/en/faq_internal#elemhide\">Adblock Plus-típusú &ldquo;elemelrejtő&rdquo; szűrőket</a>. Ezek kizárólag kozmetikai célokat szolgálnak; elrejtik egy webhely azon elemeit, amelyek vizuálisan zavaróak, de a hálózati lekérések alapján nem szűrhetők ki.</p><p>A beállítás engedélyezése megnöveli a <i>uBlock₀</i> memóriahasználatát.</p>",
     "description": "Describes the purpose of the 'Parse and enforce cosmetic filters' feature."
   },
   "3pIgnoreGenericCosmeticFilters": {
@@ -496,7 +496,7 @@
     "description": "English: List of your dynamic filtering rules."
   },
   "rulesFormatHint": {
-    "message": "Szabály szintaxis: <code>forrás cél típus művelet<\/code> (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Dynamic-filtering:-rule-syntax'>Teljes dokumentáció<\/a>).",
+    "message": "Szabály szintaxis: <code>forrás cél típus művelet</code> (<a href='https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-rule-syntax'>Teljes dokumentáció</a>).",
     "description": "English: dynamic rule syntax and full documentation."
   },
   "whitelistPrompt": {
@@ -512,8 +512,8 @@
     "description": "English: Export"
   },
   "whitelistExportFilename": {
-    "message": "ublock-kiveteleim_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "message": "ublock-feherlistam_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "Módosítások alkalmazása",
@@ -617,15 +617,15 @@
   },
   "aboutWiki": {
     "message": "Wiki",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
     "message": "Támogatás",
     "description": "A link for where to get support"
   },
-  "aboutIssues":{
-    "message":"Bugok és problémák",
-    "description":"Text for a link to official issue tracker"
+  "aboutIssues": {
+    "message": "Bugok és problémák",
+    "description": "Text for a link to official issue tracker"
   },
   "aboutCode": {
     "message": "Forráskód (GPLv3)",
@@ -635,9 +635,9 @@
     "message": "Közreműködők",
     "description": "English: Contributors"
   },
-  "aboutDependencies":{
-    "message":"Külső függőségek (GPLv3-kompatibilis):",
-    "description":"Shown in the About pane"
+  "aboutDependencies": {
+    "message": "Külső függőségek (GPLv3-kompatibilis):",
+    "description": "Shown in the About pane"
   },
   "aboutBackupDataButton": {
     "message": "Biztonsági mentés fájlba...",
@@ -701,11 +701,11 @@
   },
   "showDashboardButton": {
     "message": "Vezérlőpult megnyitása",
-    "description": "Firefox\/Fennec-specific: Show Dashboard"
+    "description": "Firefox/Fennec-specific: Show Dashboard"
   },
   "showNetworkLogButton": {
     "message": "Napló mutatása",
-    "description": "Firefox\/Fennec-specific: Show Logger"
+    "description": "Firefox/Fennec-specific: Show Logger"
   },
   "fennecMenuItemBlockingOff": {
     "message": "kikapcsolva",
@@ -721,7 +721,7 @@
   },
   "docblockedNoParamsPrompt": {
     "message": "paraméterek nélkül",
-    "description": "label to be used for the parameter-less URL: https:\/\/cloud.githubusercontent.com\/assets\/585534\/9832014\/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
+    "description": "label to be used for the parameter-less URL: https://cloud.githubusercontent.com/assets/585534/9832014/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
   },
   "docblockedFoundIn": {
     "message": "Ezekben található:",

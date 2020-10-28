@@ -57,7 +57,7 @@
   },
   "popupPowerSwitchInfo": {
     "message": "ఈ సైట్లో uBlock₀ను చేతనపరచడానికి లేదా అచేతనపరచడానికి క్లిక్ చేయండి.\n\nకేవలం ఈ పేజిలో uBlock₀ను అచేతనపరచడానికి Ctrl కీ వొత్తి పట్టుకొని క్లిక్ చేయండి.",
-    "description": "English: Click: disable\/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
+    "description": "English: Click: disable/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
   },
   "popupPowerSwitchInfo1": {
     "message": "ఈ సైట్లో uBlock₀ను అచేతనపరచడానికి క్లిక్ చేయండి.\n\nకేవలం ఈ పేజిలో uBlock₀ను అచేతనపరచడానికి Ctrl కీ వొత్తి పట్టుకొని క్లిక్ చేయండి.",
@@ -104,7 +104,7 @@
     "description": "Tooltip used for the logger icon in the panel"
   },
   "popupTipNoPopups": {
-    "message": "ఈ వెబ్సైట్ లో అన్ని పాప్అప్స్ ని నిషేధించు\/అనుమతించు",
+    "message": "ఈ వెబ్సైట్ లో అన్ని పాప్అప్స్ ని నిషేధించు/అనుమతించు",
     "description": "Tooltip for the no-popups per-site switch"
   },
   "popupTipNoPopups1": {
@@ -116,7 +116,7 @@
     "description": "Tooltip for the no-popups per-site switch"
   },
   "popupTipNoLargeMedia": {
-    "message": "ఈ సైట్లో వున్న భారి దృశ్య\/శ్రవణ అంశాల నిరోధనా స్థితిని మార్చు",
+    "message": "ఈ సైట్లో వున్న భారి దృశ్య/శ్రవణ అంశాల నిరోధనా స్థితిని మార్చు",
     "description": "Tooltip for the no-large-media per-site switch"
   },
   "popupTipNoLargeMedia1": {
@@ -188,7 +188,7 @@
     "description": ""
   },
   "popup3pPassiveRulePrompt": {
-    "message": "సైట్-ఏతరుల సిఎస్ఎస్\/చిత్రాలు",
+    "message": "సైట్-ఏతరుల సిఎస్ఎస్/చిత్రాలు",
     "description": ""
   },
   "popupInlineScriptRulePrompt": {
@@ -272,7 +272,7 @@
     "description": ""
   },
   "settingsAdvancedUserPrompt": {
-    "message": "మీరు నిపుణత కలిగిన వినియోగాదారులితే (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Advanced-user-features'>ఇది తప్పనిసరిగా చదవాలి<\/a>)",
+    "message": "మీరు నిపుణత కలిగిన వినియోగాదారులితే (<a href='https://github.com/gorhill/uBlock/wiki/Advanced-user-features'>ఇది తప్పనిసరిగా చదవాలి</a>)",
     "description": ""
   },
   "settingsAdvancedUserSettings": {
@@ -317,7 +317,7 @@
   },
   "settingsNoCSPReportsPrompt": {
     "message": "CSP నివేదికలను నిరోధించు",
-    "description": "background information: https:\/\/github.com\/gorhill\/uBlock\/issues\/3150"
+    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
   },
   "settingsStorageUsed": {
     "message": "వాడుతున్న నిలువల పరిమాణం: {{value}} బైట్స్",
@@ -356,7 +356,7 @@
     "description": "English: Parse and enforce Adblock+ element hiding filters."
   },
   "3pParseAllABPHideFiltersInfo": {
-    "message": "<p>ఈ ఎంపిక  <a href=\"https:\/\/adblockplus.org\/en\/faq_internal#elemhide\">Adblock Plus-అనుకూల &ldquo;అంశాల దపరికాన్ని&rdquo; వడపోతలను<\/a> పదనిరుపనచేసి లాగుపరుస్తుంది. ఈ వడపోతలు చాలావరకు కాస్మెటిక్ అయివుంటాయి, అవి నెట్వర్క్ అభ్యర్ధన నిరోదన ద్వారా నిరోధించాబడలేని అవాంఛిథ అంశాలను దాచుటకు ఉపకరిస్తాయి.<\/p><p>ఈ ఎంపిక ను ఎంచుకున్నయేడల uBlock₀ యొక్క మెమరీ వాడుక పెరిగే ఆస్కారమున్నది<\/p>",
+    "message": "<p>ఈ ఎంపిక  <a href=\"https://adblockplus.org/en/faq_internal#elemhide\">Adblock Plus-అనుకూల &ldquo;అంశాల దపరికాన్ని&rdquo; వడపోతలను</a> పదనిరుపనచేసి లాగుపరుస్తుంది. ఈ వడపోతలు చాలావరకు కాస్మెటిక్ అయివుంటాయి, అవి నెట్వర్క్ అభ్యర్ధన నిరోదన ద్వారా నిరోధించాబడలేని అవాంఛిథ అంశాలను దాచుటకు ఉపకరిస్తాయి.</p><p>ఈ ఎంపిక ను ఎంచుకున్నయేడల uBlock₀ యొక్క మెమరీ వాడుక పెరిగే ఆస్కారమున్నది</p>",
     "description": "Describes the purpose of the 'Parse and enforce cosmetic filters' feature."
   },
   "3pIgnoreGenericCosmeticFilters": {
@@ -496,7 +496,7 @@
     "description": "English: List of your dynamic filtering rules."
   },
   "rulesFormatHint": {
-    "message": "నియమనిర్మాన పద్ధతి: <code>మూలం గమ్యం రకం చర్య<\/code> (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Dynamic-filtering:-rule-syntax'>పూర్తి వివరాలు<\/a>).",
+    "message": "నియమనిర్మాన పద్ధతి: <code>మూలం గమ్యం రకం చర్య</code> (<a href='https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-rule-syntax'>పూర్తి వివరాలు</a>).",
     "description": "English: dynamic rule syntax and full documentation."
   },
   "whitelistPrompt": {
@@ -513,7 +513,7 @@
   },
   "whitelistExportFilename": {
     "message": "my-ublock-whitelist_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "మార్పులను భద్రపరచు",
@@ -617,15 +617,15 @@
   },
   "aboutWiki": {
     "message": "వికి",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
     "message": "సహాయము",
     "description": "A link for where to get support"
   },
-  "aboutIssues":{
-    "message":"సమస్యా సంచిక",
-    "description":"Text for a link to official issue tracker"
+  "aboutIssues": {
+    "message": "సమస్యా సంచిక",
+    "description": "Text for a link to official issue tracker"
   },
   "aboutCode": {
     "message": "మూలం (GPLv3)",
@@ -635,9 +635,9 @@
     "message": "ప్రాజెక్ట్కు సహాయ పడిన వారు",
     "description": "English: Contributors"
   },
-  "aboutDependencies":{
-    "message":"External dependencies (GPLv3-compatible):",
-    "description":"Shown in the About pane"
+  "aboutDependencies": {
+    "message": "External dependencies (GPLv3-compatible):",
+    "description": "Shown in the About pane"
   },
   "aboutBackupDataButton": {
     "message": "ఫైల్ లో భద్రపరచు",
@@ -701,11 +701,11 @@
   },
   "showDashboardButton": {
     "message": "నియంత్రణా పట్టికను చూపు",
-    "description": "Firefox\/Fennec-specific: Show Dashboard"
+    "description": "Firefox/Fennec-specific: Show Dashboard"
   },
   "showNetworkLogButton": {
     "message": "నెట్వర్క్ అభ్యర్ధనల చిట్టాను చూపు",
-    "description": "Firefox\/Fennec-specific: Show Logger"
+    "description": "Firefox/Fennec-specific: Show Logger"
   },
   "fennecMenuItemBlockingOff": {
     "message": "అచేతనం",
@@ -721,7 +721,7 @@
   },
   "docblockedNoParamsPrompt": {
     "message": "పారామితులు లేని",
-    "description": "label to be used for the parameter-less URL: https:\/\/cloud.githubusercontent.com\/assets\/585534\/9832014\/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
+    "description": "label to be used for the parameter-less URL: https://cloud.githubusercontent.com/assets/585534/9832014/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
   },
   "docblockedFoundIn": {
     "message": "ఈ వడపోత వున్న జాబితా పేరు:",
@@ -788,7 +788,7 @@
     "description": ""
   },
   "contextMenuTemporarilyAllowLargeMediaElements": {
-    "message": "భారి దృశ్య\/శ్రవణ అంశాలను తాత్కాలికంగా అనుమతించు",
+    "message": "భారి దృశ్య/శ్రవణ అంశాలను తాత్కాలికంగా అనుమతించు",
     "description": "A context menu entry, present when large media elements have been blocked on the current site"
   },
   "dummy": {

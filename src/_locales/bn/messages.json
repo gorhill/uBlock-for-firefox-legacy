@@ -56,8 +56,8 @@
     "description": "Title for the advanced settings page"
   },
   "popupPowerSwitchInfo": {
-    "message": "ক্লিক: এই সাইটের জন্য uBlock₀ নিষ্ক্রিয়\/সক্রিয় করবে।\n\nCtrl+ক্লিক: শুধু এই পাতার জন্য uBlock₀ নিষ্ক্রিয় করবে।",
-    "description": "English: Click: disable\/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
+    "message": "ক্লিক: এই সাইটের জন্য uBlock₀ নিষ্ক্রিয়/সক্রিয় করবে।\n\nCtrl+ক্লিক: শুধু এই পাতার জন্য uBlock₀ নিষ্ক্রিয় করবে।",
+    "description": "English: Click: disable/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
   },
   "popupPowerSwitchInfo1": {
     "message": "এই সাইটের জন্য uBlock₀ নিষ্ক্রিয় করতে ক্লিক করুন।\n\nCtrl+ক্লিক করলে শুধু এই পাতার জন্য uBlock₀ নিষ্ক্রিয় হবে।",
@@ -188,7 +188,7 @@
     "description": ""
   },
   "popup3pPassiveRulePrompt": {
-    "message": "৩য়-দলের css\/চিত্র",
+    "message": "৩য়-দলের css/চিত্র",
     "description": ""
   },
   "popupInlineScriptRulePrompt": {
@@ -272,7 +272,7 @@
     "description": ""
   },
   "settingsAdvancedUserPrompt": {
-    "message": "আমি একজন উন্নত ব্যবহারকারী (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Advanced-user-features'>পড়া আবশ্যক<\/a>)",
+    "message": "আমি একজন উন্নত ব্যবহারকারী (<a href='https://github.com/gorhill/uBlock/wiki/Advanced-user-features'>পড়া আবশ্যক</a>)",
     "description": ""
   },
   "settingsAdvancedUserSettings": {
@@ -284,7 +284,7 @@
     "description": "English: "
   },
   "settingsHyperlinkAuditingDisabledPrompt": {
-    "message": "হাইপারলিঙ্ক নিরীক্ষণ\/বাতিঘর নিষ্ক্রিয় করুন",
+    "message": "হাইপারলিঙ্ক নিরীক্ষণ নিষ্ক্রিয় করুন",
     "description": "English: "
   },
   "settingsWebRTCIPAddressHiddenPrompt": {
@@ -317,7 +317,7 @@
   },
   "settingsNoCSPReportsPrompt": {
     "message": "CSP প্রতিবেদন অবরুদ্ধ করুন",
-    "description": "background information: https:\/\/github.com\/gorhill\/uBlock\/issues\/3150"
+    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
   },
   "settingsStorageUsed": {
     "message": "সংগ্রহস্থল ব্যবহার: {{value}} বাইট",
@@ -356,7 +356,7 @@
     "description": "English: Parse and enforce Adblock+ element hiding filters."
   },
   "3pParseAllABPHideFiltersInfo": {
-    "message": "<p>এই অপশনটি <a href=\"https:\/\/adblockplus.org\/en\/faq_internal#elemhide\">অ্যাডব্লক-প্লাসের সামঞ্জস্যপূর্ণ &ldquo;উপাদান আড়াল করার&rdquo; ফিল্টারকে<\/a> সক্রিয় করবে। এই ফিল্টারগুলি মূলত প্রসাধনী, তাদের একটি ওয়েব পাতায় উপাদান আড়াল করতে প্রয়োজন হয় যাকে চাক্ষুষ উত্পাত বলিয়া গণ্য করা হয়, এবং যাদের নেট অনুরোধ ভিত্তিক ফিল্টারিং ইঞ্জিন দ্বারা অবরুদ্ধ করা যায় না।<\/p><p>এই বৈশিষ্ট্য সক্রিয় করলে uBlock₀-এর মেমরির পদচিহ্ন বৃদ্ধি পাবে।<\/p>",
+    "message": "<p>এই অপশনটি <a href=\"https://adblockplus.org/en/faq_internal#elemhide\">অ্যাডব্লক-প্লাসের সামঞ্জস্যপূর্ণ &ldquo;উপাদান আড়াল করার&rdquo; ফিল্টারকে</a> সক্রিয় করবে। এই ফিল্টারগুলি মূলত প্রসাধনী, তাদের একটি ওয়েব পাতায় উপাদান আড়াল করতে প্রয়োজন হয় যাকে চাক্ষুষ উত্পাত বলিয়া গণ্য করা হয়, এবং যাদের নেট অনুরোধ ভিত্তিক ফিল্টারিং ইঞ্জিন দ্বারা অবরুদ্ধ করা যায় না।</p><p>এই বৈশিষ্ট্য সক্রিয় করলে uBlock₀-এর মেমরির পদচিহ্ন বৃদ্ধি পাবে।</p>",
     "description": "Describes the purpose of the 'Parse and enforce cosmetic filters' feature."
   },
   "3pIgnoreGenericCosmeticFilters": {
@@ -496,7 +496,7 @@
     "description": "English: List of your dynamic filtering rules."
   },
   "rulesFormatHint": {
-    "message": "শব্দবিন্যাসের নিয়ম: <code>source destination type action<\/code> (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Dynamic-filtering:-rule-syntax'>সম্পূর্ণ নথিপত্র<\/a>)।",
+    "message": "শব্দবিন্যাসের নিয়ম: <code>source destination type action</code> (<a href='https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-rule-syntax'>সম্পূর্ণ নথিপত্র</a>)।",
     "description": "English: dynamic rule syntax and full documentation."
   },
   "whitelistPrompt": {
@@ -513,7 +513,7 @@
   },
   "whitelistExportFilename": {
     "message": "amar-ublock-whitelist_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "পরিবর্তনগুলি প্রয়োগ",
@@ -617,15 +617,15 @@
   },
   "aboutWiki": {
     "message": "উইকি",
-    "description": "English: project' wiki on Github"
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
     "message": "সমর্থন",
     "description": "A link for where to get support"
   },
-  "aboutIssues":{
-    "message":"ইস্যু অনুসরণকারী",
-    "description":"Text for a link to official issue tracker"
+  "aboutIssues": {
+    "message": "ইস্যু অনুসরণকারী",
+    "description": "Text for a link to official issue tracker"
   },
   "aboutCode": {
     "message": "উত্স কোড (GPLv৩)",
@@ -635,9 +635,9 @@
     "message": "অবদানকারী",
     "description": "English: Contributors"
   },
-  "aboutDependencies":{
-    "message":"External dependencies (GPLv3-compatible):",
-    "description":"Shown in the About pane"
+  "aboutDependencies": {
+    "message": "External dependencies (GPLv3-compatible):",
+    "description": "Shown in the About pane"
   },
   "aboutBackupDataButton": {
     "message": "ফাইলে ব্যাকআপ",
@@ -701,11 +701,11 @@
   },
   "showDashboardButton": {
     "message": "ড্যাশবোর্ড দেখুন",
-    "description": "Firefox\/Fennec-specific: Show Dashboard"
+    "description": "Firefox/Fennec-specific: Show Dashboard"
   },
   "showNetworkLogButton": {
     "message": "লগার দেখান",
-    "description": "Firefox\/Fennec-specific: Show Logger"
+    "description": "Firefox/Fennec-specific: Show Logger"
   },
   "fennecMenuItemBlockingOff": {
     "message": "বন্ধ",
@@ -721,7 +721,7 @@
   },
   "docblockedNoParamsPrompt": {
     "message": "প্যারামিটার বিহীন",
-    "description": "label to be used for the parameter-less URL: https:\/\/cloud.githubusercontent.com\/assets\/585534\/9832014\/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
+    "description": "label to be used for the parameter-less URL: https://cloud.githubusercontent.com/assets/585534/9832014/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
   },
   "docblockedFoundIn": {
     "message": "যা এতে পাওয়া গেছে:",

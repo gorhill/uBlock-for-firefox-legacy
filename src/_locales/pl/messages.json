@@ -40,7 +40,7 @@
     "description": "appears as tab name in dashboard"
   },
   "whitelistPageName": {
-    "message": "Biała lista",
+    "message": "Zaufane witryny",
     "description": "appears as tab name in dashboard"
   },
   "statsPageName": {
@@ -48,7 +48,7 @@
     "description": "Title for the logger window"
   },
   "aboutPageName": {
-    "message": "Informacje",
+    "message": "O rozszerzeniu",
     "description": "appears as tab name in dashboard"
   },
   "advancedSettingsPageName": {
@@ -56,8 +56,8 @@
     "description": "Title for the advanced settings page"
   },
   "popupPowerSwitchInfo": {
-    "message": "Kliknij, aby włączyć\/wyłączyć uBlock₀ na tej witrynie.\n\nKliknij z wciśniętym klawiszem Ctrl, aby włączyć\/wyłączyć uBlock₀ tylko na tej stronie.",
-    "description": "English: Click: disable\/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
+    "message": "Kliknij, aby włączyć/wyłączyć uBlock₀ na tej witrynie.\n\nKliknij z wciśniętym klawiszem Ctrl, aby włączyć/wyłączyć uBlock₀ tylko na tej stronie.",
+    "description": "English: Click: disable/enable uBlock₀ for this site.\n\nCtrl+click: disable uBlock₀ only on this page."
   },
   "popupPowerSwitchInfo1": {
     "message": "Kliknij, aby wyłączyć uBlock₀ dla tej witryny.\n\nKliknij z wciśniętym klawiszem Ctrl, aby wyłączyć uBlock₀ tylko dla tej strony.",
@@ -100,11 +100,11 @@
     "description": "English: Enter element picker mode"
   },
   "popupTipLog": {
-    "message": "Przejdź do dziennika żądań",
+    "message": "Otwórz rejestrator",
     "description": "Tooltip used for the logger icon in the panel"
   },
   "popupTipNoPopups": {
-    "message": "Włącz\/wyłącz blokowanie wyskakujących okien na tej witrynie",
+    "message": "Włącz/wyłącz blokowanie wyskakujących okien na tej witrynie",
     "description": "Tooltip for the no-popups per-site switch"
   },
   "popupTipNoPopups1": {
@@ -116,7 +116,7 @@
     "description": "Tooltip for the no-popups per-site switch"
   },
   "popupTipNoLargeMedia": {
-    "message": "Włącz\/wyłącz blokowanie dużych elementów multimedialnych na tej witrynie",
+    "message": "Włącz/wyłącz blokowanie dużych elementów multimedialnych na tej witrynie",
     "description": "Tooltip for the no-large-media per-site switch"
   },
   "popupTipNoLargeMedia1": {
@@ -128,7 +128,7 @@
     "description": "Tooltip for the no-large-media per-site switch"
   },
   "popupTipNoCosmeticFiltering": {
-    "message": "Włącz\/wyłącz kosmetyczne filtrowanie na tej witrynie",
+    "message": "Włącz/wyłącz kosmetyczne filtrowanie na tej witrynie",
     "description": "Tooltip for the no-cosmetic-filtering per-site switch"
   },
   "popupTipNoCosmeticFiltering1": {
@@ -140,7 +140,7 @@
     "description": "Tooltip for the no-cosmetic-filtering per-site switch"
   },
   "popupTipNoRemoteFonts": {
-    "message": "Włącz\/wyłącz blokowanie zdalnych czcionek na tej witrynie",
+    "message": "Włącz/wyłącz blokowanie zdalnych czcionek na tej witrynie",
     "description": "Tooltip for the no-remote-fonts per-site switch"
   },
   "popupTipNoRemoteFonts1": {
@@ -188,7 +188,7 @@
     "description": ""
   },
   "popup3pPassiveRulePrompt": {
-    "message": "zewnętrzne css\/obrazki",
+    "message": "zewnętrzne css/obrazki",
     "description": ""
   },
   "popupInlineScriptRulePrompt": {
@@ -260,7 +260,7 @@
     "description": "A checkbox in the Settings pane"
   },
   "settingsContextMenuPrompt": {
-    "message": "Korzystaj z menu kontekstowego w stosownych przypadkach",
+    "message": "Używaj menu kontekstowego, gdzie to możliwe",
     "description": "English: Make use of context menu where appropriate"
   },
   "settingsColorBlindPrompt": {
@@ -272,7 +272,7 @@
     "description": ""
   },
   "settingsAdvancedUserPrompt": {
-    "message": "Jestem zaawansowanym użytkownikiem (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Advanced-user-features'>Wymagana lektura<\/a>)",
+    "message": "Jestem zaawansowanym użytkownikiem (<a href='https://github.com/gorhill/uBlock/wiki/Advanced-user-features'>Wymagana lektura</a>)",
     "description": ""
   },
   "settingsAdvancedUserSettings": {
@@ -284,7 +284,7 @@
     "description": "English: "
   },
   "settingsHyperlinkAuditingDisabledPrompt": {
-    "message": "Nie śledź kliknięć odnośników",
+    "message": "Wyłącz śledzenie kliknięć odnośników",
     "description": "English: "
   },
   "settingsWebRTCIPAddressHiddenPrompt": {
@@ -317,7 +317,7 @@
   },
   "settingsNoCSPReportsPrompt": {
     "message": "Blokuj raporty CSP",
-    "description": "background information: https:\/\/github.com\/gorhill\/uBlock\/issues\/3150"
+    "description": "background information: https://github.com/gorhill/uBlock/issues/3150"
   },
   "settingsStorageUsed": {
     "message": "Użycie pamięci masowej: {{value}} bajtów",
@@ -356,7 +356,7 @@
     "description": "English: Parse and enforce Adblock+ element hiding filters."
   },
   "3pParseAllABPHideFiltersInfo": {
-    "message": "<p>Włączenie tej funkcji skutkuje przetwarzaniem i używaniem <a href=\"https:\/\/adblockplus.org\/en\/faq_internal#elemhide\">filtrów kompatybilnych z dodatkiem Adblock Plus służących do ukrywania elementów<\/a>. Są to filtry kosmetyczne i służą do ukrycia elementów uważanych za wizualnie uciążliwe, których nie można zablokować przez filtry sieciowe.<\/p><p>Włączenie tej funkcji powoduje zwiększenie użycia pamięci przez uBlock₀.<\/p>",
+    "message": "<p>Włączenie tej funkcji skutkuje przetwarzaniem i używaniem <a href=\"https://adblockplus.org/en/faq_internal#elemhide\">filtrów kompatybilnych z dodatkiem Adblock Plus służących do ukrywania elementów</a>. Są to filtry kosmetyczne i służą do ukrycia elementów uważanych za wizualnie uciążliwe, których nie można zablokować przez filtry sieciowe.</p><p>Włączenie tej funkcji powoduje zwiększenie użycia pamięci przez uBlock₀.</p>",
     "description": "Describes the purpose of the 'Parse and enforce cosmetic filters' feature."
   },
   "3pIgnoreGenericCosmeticFilters": {
@@ -432,7 +432,7 @@
     "description": "used as a tooltip for error icon beside a list"
   },
   "1pFormatHint": {
-    "message": "Jeden filtr na linię. Filtrem może być nazwa hosta lub filtr kompatybilny z dodatkiem Adblock Plus. Wiersze poprzedzone <code>!<\/code> będą pomijane.",
+    "message": "Jeden filtr na linię. Filtrem może być nazwa hosta lub filtr kompatybilny z dodatkiem Adblock Plus. Wiersze poprzedzone <code>!</code> będą pomijane.",
     "description": "Short information about how to create custom filters"
   },
   "1pImport": {
@@ -496,11 +496,11 @@
     "description": "English: List of your dynamic filtering rules."
   },
   "rulesFormatHint": {
-    "message": "Składnia reguły: <code>źródło cel typ akcja<\/code> (<a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Dynamic-filtering:-rule-syntax'>pełna dokumentacja<\/a>).",
+    "message": "Składnia reguły: <code>źródło cel typ akcja</code> (<a href='https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-rule-syntax'>pełna dokumentacja</a>).",
     "description": "English: dynamic rule syntax and full documentation."
   },
   "whitelistPrompt": {
-    "message": "Dyrektywy białej listy wskazują, na których stronach uBlock Origin powinien zostać wyłączony. Jeden wpis na linię. Nieprawidłowe wpisy zostaną bez powiadomienia zignorowane i wykomentowane.",
+    "message": "Wytyczne zaufanych witryn nakazują, na których stronach uBlock Origin powinien zostać wyłączony. Jeden wpis na linię. Nieprawidłowe linie zostaną bez powiadomienia zignorowane i wykomentowane.",
     "description": "The name of the trusted sites pane."
   },
   "whitelistImport": {
@@ -512,8 +512,8 @@
     "description": "English: Export"
   },
   "whitelistExportFilename": {
-    "message": "ublock-lista-wyjatkow_{{datetime}}.txt",
-    "description": "English: my-ublock-whitelist_{{datetime}}.txt"
+    "message": "ublock-zaufane-witryny_{{datetime}}.txt",
+    "description": "The default filename to use for import/export purpose"
   },
   "whitelistApply": {
     "message": "Zastosuj zmiany",
@@ -616,16 +616,16 @@
     "description": "English: Change log"
   },
   "aboutWiki": {
-    "message": "Informacje",
-    "description": "English: project' wiki on Github"
+    "message": "Instrukcja obsługi",
+    "description": "English: project' wiki on GitHub"
   },
   "aboutSupport": {
-    "message": "Pomoc",
+    "message": "Pomoc techniczna",
     "description": "A link for where to get support"
   },
-  "aboutIssues":{
-    "message":"Zgłaszanie błędów",
-    "description":"Text for a link to official issue tracker"
+  "aboutIssues": {
+    "message": "Zgłaszanie błędów",
+    "description": "Text for a link to official issue tracker"
   },
   "aboutCode": {
     "message": "Kod źródłowy (GPLv3)",
@@ -635,9 +635,9 @@
     "message": "Współtwórcy",
     "description": "English: Contributors"
   },
-  "aboutDependencies":{
-    "message":"Zewnętrzne zależności (kompatybilne z GPLv3):",
-    "description":"Shown in the About pane"
+  "aboutDependencies": {
+    "message": "Zewnętrzne zależności (kompatybilne z GPLv3):",
+    "description": "Shown in the About pane"
   },
   "aboutBackupDataButton": {
     "message": "Utwórz kopię zapasową",
@@ -648,7 +648,7 @@
     "description": "English: my-ublock-backup_{{datetime}}.txt"
   },
   "aboutRestoreDataButton": {
-    "message": "Przywróć z kopii…",
+    "message": "Przywróć z pliku…",
     "description": "English: Restore from file..."
   },
   "aboutResetDataButton": {
@@ -701,11 +701,11 @@
   },
   "showDashboardButton": {
     "message": "Panel sterowania",
-    "description": "Firefox\/Fennec-specific: Show Dashboard"
+    "description": "Firefox/Fennec-specific: Show Dashboard"
   },
   "showNetworkLogButton": {
     "message": "Dziennik żądań",
-    "description": "Firefox\/Fennec-specific: Show Logger"
+    "description": "Firefox/Fennec-specific: Show Logger"
   },
   "fennecMenuItemBlockingOff": {
     "message": "wyłączony",
@@ -721,7 +721,7 @@
   },
   "docblockedNoParamsPrompt": {
     "message": "bez parametrów",
-    "description": "label to be used for the parameter-less URL: https:\/\/cloud.githubusercontent.com\/assets\/585534\/9832014\/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
+    "description": "label to be used for the parameter-less URL: https://cloud.githubusercontent.com/assets/585534/9832014/bfb1b8f0-593b-11e5-8a27-fba472a5529a.png"
   },
   "docblockedFoundIn": {
     "message": "Filtr znajduje się na liście:",
