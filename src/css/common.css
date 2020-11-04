@@ -26,7 +26,7 @@ body {
     padding: 0;
     }
 code {
-    background-color: #eee;
+    background-color: var(--bg-code);
     padding: 0 0.25em;
     }
 textarea {
@@ -44,14 +44,19 @@ button.custom {
     -moz-appearance: none;
     -webkit-appearance: none;
     }
+button.custom.vflex {
+    height: 100%;
+    padding-bottom: 0;
+    padding-top: 0;
+    }
 button.custom:hover {
-    background-color: #d4d4d4;
+    background-color: var(--bg-button-hover);
     }
 button.custom.important {
-    background-color: #ffddaa;
+    background-color: var(--bg-button-important);
     }
 button.custom.important:hover {
-    background-color: #ffcc80;
+    background-color: var(--bg-button-important-hover);
     }
 button.custom.disabled,
 button.custom[disabled],
@@ -107,7 +112,7 @@ input[type="checkbox"] {
 @media (max-width: 640px) {
     button.custom.iconifiable > .fa,
     button.custom.iconifiable > .fa-icon {
-        font-size: 120%;
+        font-size: 1.2rem;
         padding: 0;
         }
     button.custom.iconifiable > [data-i18n] {
