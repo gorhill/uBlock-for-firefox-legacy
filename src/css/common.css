@@ -25,9 +25,17 @@ body {
       -webkit-user-select: none;
     vertical-align: middle;
     }
+a {
+    color: var(--link-ink);
+    }
 code {
     background-color: var(--bg-code);
     padding: 0 0.25em;
+    }
+hr {
+    border: 0;
+    border-top: 1px solid var(--hor-separator-color);
+    margin: 1em 0;
     }
 textarea {
     font-size: 90%;
@@ -96,7 +104,7 @@ input[type="checkbox"] {
     -webkit-margin-end: 0.4em;
     }
 .ul {
-    margin: 0.5em 0;
+    margin: 1em 0;
     }
 .li {
     align-items: center;
