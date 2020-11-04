@@ -53,6 +53,7 @@ var µBlock = (function() { // jshint ignore:line
         requestJournalProcessPeriod: 1000,
         suspendTabsUntilReady: false,
         toolbarButtonForceTypeMenu: false,
+        uiStyles: 'unset',
         userResourcesLocation: 'unset'
     };
 
