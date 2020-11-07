@@ -608,8 +608,12 @@
     "description": "Used in the static filtering wizard"
   },
   "loggerStaticFilteringFinderSentence1": {
-    "message": "انسداد ایستا {{filter}} یافت شد در:",
-    "description": "Below this sentence, the filter lists in which the filter was found"
+    "message": "انسداد ایستا <code>{{filter}}</code> یافت شد در:",
+    "description": "Below this sentence, the filter list(s) in which the filter was found"
+  },
+  "loggerStaticFilteringFinderSentence2": {
+    "message": "فیلتر ایستا <code>{{filter}}</code> در هیچ یک از لیست‌های فیلتر فعال پیدا نشد",
+    "description": "Message to show when a filter cannot be found in any filter lists"
   },
   "aboutChangelog": {
     "message": "تغییرات اخیر",

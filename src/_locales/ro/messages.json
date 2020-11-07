@@ -608,8 +608,12 @@
     "description": "Used in the static filtering wizard"
   },
   "loggerStaticFilteringFinderSentence1": {
-    "message": "Filtru static {{filter}} găsit în:",
-    "description": "Below this sentence, the filter lists in which the filter was found"
+    "message": "Filtrul static <code>{{filter}}</code> găsit în:",
+    "description": "Below this sentence, the filter list(s) in which the filter was found"
+  },
+  "loggerStaticFilteringFinderSentence2": {
+    "message": "Filtrul static <code>{{filter}}</code> nu se găsește în niciuna dintre listele de filtre activate",
+    "description": "Message to show when a filter cannot be found in any filter lists"
   },
   "aboutChangelog": {
     "message": "Jurnalul de modificări",

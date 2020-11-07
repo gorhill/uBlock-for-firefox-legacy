@@ -608,8 +608,12 @@
     "description": "Used in the static filtering wizard"
   },
   "loggerStaticFilteringFinderSentence1": {
-    "message": "Statičen filter {{filter}} najden v:",
-    "description": "Below this sentence, the filter lists in which the filter was found"
+    "message": "Statičen filter <code>{{filter}}</code> najden v:",
+    "description": "Below this sentence, the filter list(s) in which the filter was found"
+  },
+  "loggerStaticFilteringFinderSentence2": {
+    "message": "Statični filter <code>{{filter}}</code> ni bil najden v nobenem izmed trenutno izbranih seznamov",
+    "description": "Message to show when a filter cannot be found in any filter lists"
   },
   "aboutChangelog": {
     "message": "Dnevnik sprememb",
