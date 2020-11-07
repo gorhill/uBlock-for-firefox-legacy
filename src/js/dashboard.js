@@ -29,16 +29,6 @@
 
 /******************************************************************************/
 
-const resizeFrame = function() {
-    const navRect = document.getElementById('dashboard-nav')
-                            .getBoundingClientRect();
-    const viewRect = document.documentElement.getBoundingClientRect();
-    document.getElementById('iframe').style.setProperty(
-        'height',
-        (viewRect.height - navRect.height) + 'px'
-    );
-};
-
 const discardUnsavedData = function(synchronous = false) {
     const paneFrame = document.getElementById('iframe');
     const paneWindow = paneFrame.contentWindow;
@@ -83,12 +73,15 @@ const discardUnsavedData = function(synchronous = false) {
 };
 
 const loadDashboardPanel = function(pane, first) {
-    const tabButton = uDom(`[href="#${pane}"]`);
-    if ( !tabButton || tabButton.hasClass('selected') ) { return; }
+    const tabButton = uDom.nodeFromSelector(`[data-pane="${pane}"]`);
+    if ( tabButton === null || tabButton.classList.contains('selected') ) {
+        return;
+    }
     const loadPane = ( ) => {
         self.location.replace(`#${pane}`);
         uDom('.tabButton.selected').toggleClass('selected', false);
-        tabButton.toggleClass('selected', true);
+        tabButton.classList.add('selected');
+        tabButton.scrollIntoView();
         uDom.nodeFromId('iframe').setAttribute('src', pane);
         vAPI.localStorage.setItem('dashboardLastVisitedPane', pane);
     };
@@ -109,17 +102,14 @@ const loadDashboardPanel = function(pane, first) {
 /******************************************************************************/
 
 const onTabClickHandler = function(ev) {
-    loadDashboardPanel(ev.target.hash.slice(1));
-    ev.preventDefault();
+    loadDashboardPanel(ev.target.getAttribute('data-pane'));
 };
 
 /******************************************************************************/
 
 uDom.onLoad(function() {
-    resizeFrame();
     let pane = vAPI.localStorage.getItem('dashboardLastVisitedPane');
     loadDashboardPanel(pane !== null ? pane : 'settings.html', true);
-    window.addEventListener('resize', resizeFrame);
     uDom('.tabButton').on('click', onTabClickHandler);
 });
 

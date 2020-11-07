@@ -1,10 +1,3 @@
-body {
-    background-color: #fff;
-    box-sizing: border-box;
-    color: #000;
-    margin: 0;
-    padding: 0;
-    }
 body > div.body {
     padding: 0 0.5em;
     }
@@ -15,7 +8,6 @@ body > div.body {
     }
 h2, h3 {
     margin: 1em 0;
-    font-family: sans-serif;
     }
 h2 {
     font-size: 18px;
@@ -26,69 +18,30 @@ h3 {
 a {
     text-decoration: none;
     }
-a.info {
-    color: black;
-    opacity: 0.3;
+.fa.info,
+.fa-icon.info {
+    color: var(--fg-icon-info-lvl-0-dimmed);
+    fill: var(--fg-icon-info-lvl-0-dimmed);
+    font-size: 115%;
     }
-a.info:hover {
-    opacity: 0.9
+.fa.info:hover,
+.fa-icon.info:hover {
+    color: inherit;
+    fill: inherit;
     }
-a.info.important {
-    color: orangered;
+.fa.info.important,
+.fa-icon.info.important {
+    color: var(--fg-icon-info-lvl-3-dimmed);
     }
-button {
-    padding: 0.33em;
+.fa.info.important:hover,
+.fa-icon.info.important:hover {
+    color: var(--fg-icon-info-lvl-3);
     }
 input[type="number"] {
     width: 5em;
     }
-input[type="checkbox"][disabled] + label {
-    opacity: 0.4;
-    }
-.para {
-    width: 40em;
-    }
-.synopsis {
-    display: inline-block;
-    padding: 0.25em 0;
-    }
-.whatisthis {
-    margin: 0 0 0 8px;
-    border: 0;
-    padding: 0 0 4px 0;
-    width: 16px;
-    height: 16px;
-    background: url('../img/help16.png') no-repeat;
-    cursor: pointer;
-    opacity: 0.5;
-    vertical-align: middle;
-    }
-.whatisthis:hover {
-    opacity: 1.0;
-    }
-.whatisthis-expandable {
-    margin: 0.5em 0 1em 1.25em;
-    padding: 0.5em;
-    display: none;
-    border: 1px dotted black;
-    background-color: #F8F8F8;
-    font-size: 13px;
-    white-space: pre-line;
-    }
-.whatisthis-expandable > p {
-    margin-top: 1em;
-    margin-bottom: 0;
-    }
-.whatisthis-expandable > p:first-child {
-    margin-top: 0;
-    }
-.whatisthis-expandable.whatisthis-expanded {
-    display: block;
-    }
-.warn {
-    margin: 0;
-    padding: 5px;
-    background-color: #FEDAE0;
+input[type="checkbox"][disabled] + * {
+    color: var(--fg-0-50);
     }
 @media (max-height: 640px), (max-height: 800px) and (max-width: 480px) {
     .body > p,
@@ -99,9 +52,15 @@ input[type="checkbox"][disabled] + label {
         display: none !important;
         }
     }
-@media (max-height: 400px) {
-    html {
-        min-height: 400px !important;
-        overflow: auto !important;
-        }
+/**
+    On mobile device, the on-screen keyboard may take up
+    so much space that it overlaps the content being edited.
+    The rule below makes it possible to scroll the edited
+    content within view.
+*/
+:root.mobile {
+    overflow: auto;
+    }
+:root.mobile body {
+    min-height: 600px;
     }

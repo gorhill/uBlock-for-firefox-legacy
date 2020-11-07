@@ -89,14 +89,16 @@ var renderFilterLists = function(soft) {
             li = listEntryTemplate.clone().nodeAt(0);
         }
         var on = entry.off !== true;
+        li.classList.toggle('checked', on);
         if ( li.getAttribute('data-listkey') !== listKey ) {
             li.setAttribute('data-listkey', listKey);
             elem = li.querySelector('input[type="checkbox"]');
             elem.checked = on;
-            elem = li.querySelector('a:nth-of-type(1)');
+            elem = li.querySelector('.listname');
+            elem.textContent = listNameFromListKey(listKey);
+            elem = li.querySelector('a.content');
             elem.setAttribute('href', 'asset-viewer.html?url=' + encodeURI(listKey));
             elem.setAttribute('type', 'text/html');
-            elem.textContent = listNameFromListKey(listKey);
             li.classList.remove('toRemove');
             if ( entry.supportName ) {
                 li.classList.add('support');
@@ -317,18 +319,24 @@ var renderFilterLists = function(soft) {
 
 /******************************************************************************/
 
-var renderWidgets = function() {
-    uDom('#buttonApply').toggleClass(
+const renderWidgets = function() {
+    let cl = uDom.nodeFromId('buttonApply').classList;
+    cl.toggle(
         'disabled',
         filteringSettingsHash === hashFromCurrentFromSettings()
     );
-    uDom('#buttonPurgeAll').toggleClass(
+    const updating = document.body.classList.contains('updating');
+    cl = uDom.nodeFromId('buttonUpdate').classList;
+    cl.toggle('active', updating);
+    cl.toggle(
         'disabled',
-        document.querySelector('#lists .listEntry.cached:not(.obsolete)') === null
-    );
-    uDom('#buttonUpdate').toggleClass(
+        updating === false &&
+        document.querySelector('#lists .listEntry.obsolete:not(.toRemove) input[type="checkbox"]:checked') === null
+        );
+    cl = uDom.nodeFromId('buttonPurgeAll').classList;
+    cl.toggle(
         'disabled',
-        document.querySelector('body:not(.updating) #lists .listEntry.obsolete > input[type="checkbox"]:checked') === null
+        updating || document.querySelector('#lists .listEntry.cached:not(.obsolete)') === null
     );
 };
 
@@ -382,29 +390,34 @@ const hashFromCurrentFromSettings = function() {
 
 /******************************************************************************/
 
-var onFilteringSettingsChanged = function() {
+const onListsetChanged = function(ev) {
+    const input = ev.target;
+    const li = input.closest('.listEntry');
+    li.classList.toggle('checked', input.checked);
+    onFilteringSettingsChanged();
+};
+
+/******************************************************************************/
+
+const onFilteringSettingsChanged = function() {
     renderWidgets();
 };
 
 /******************************************************************************/
 
-var onRemoveExternalList = function(ev) {
-    var liEntry = uDom(this).ancestors('[data-listkey]'),
-        listKey = liEntry.attr('data-listkey');
-    if ( listKey ) {
-        liEntry.toggleClass('toRemove');
-        renderWidgets();
-    }
-    ev.preventDefault();
+const onRemoveExternalList = function(ev) {
+    const liEntry = ev.target.closest('[data-listkey]');
+    if ( liEntry === null ) { return; }
+    liEntry.classList.toggle('toRemove');
+    renderWidgets();
 };
 
 /******************************************************************************/
 
-var onPurgeClicked = function() {
-    var button = uDom(this),
-        liEntry = button.ancestors('[data-listkey]'),
-        listKey = liEntry.attr('data-listkey');
-    if ( !listKey ) { return; }
+const onPurgeClicked = function(ev) {
+    const liEntry = ev.target.closest('[data-listkey]');
+    const listKey = liEntry.getAttribute('data-listkey') || '';
+    if ( listKey === '' ) { return; }
 
     messaging.send('dashboard', { what: 'purgeCache', assetKey: listKey });
 
@@ -413,10 +426,10 @@ var onPurgeClicked = function() {
     // https://github.com/gorhill/uBlock/issues/1733
     //   An external filter list must not be marked as obsolete, they will
     //   always be fetched anyways if there is no cached copy.
-    liEntry.addClass('obsolete');
-    liEntry.removeClass('cached');
+    liEntry.classList.add('obsolete');
+    liEntry.classList.remove('cached');
 
-    if ( liEntry.descendants('input').first().prop('checked') ) {
+    if ( liEntry.querySelector('input[type="checkbox"]').checked ) {
         renderWidgets();
     }
 };
@@ -428,39 +441,43 @@ var selectFilterLists = function(callback) {
     messaging.send('dashboard', {
         what: 'userSettings',
         name: 'parseAllABPHideFilters',
-        value: document.getElementById('parseCosmeticFilters').checked
+        value: uDom.nodeFromId('parseCosmeticFilters').checked,
     });
     messaging.send('dashboard', {
         what: 'userSettings',
         name: 'ignoreGenericCosmeticFilters',
-        value: document.getElementById('ignoreGenericCosmeticFilters').checked
+        value: uDom.nodeFromId('ignoreGenericCosmeticFilters').checked,
     });
 
     // Filter lists to select
-    var toSelect = [],
-        liEntries = document.querySelectorAll('#lists .listEntry[data-listkey]:not(.toRemove)'),
-        i = liEntries.length,
-        liEntry;
-    while ( i-- ) {
-        liEntry = liEntries[i];
+    const toSelect = [];
+    for (
+        let liEntry of
+        document.querySelectorAll('#lists .listEntry[data-listkey]:not(.toRemove)')
+    ) {
         if ( liEntry.querySelector('input[type="checkbox"]:checked') !== null ) {
             toSelect.push(liEntry.getAttribute('data-listkey'));
         }
     }
 
     // External filter lists to remove
-    var toRemove = [];
-    liEntries = document.querySelectorAll('#lists .listEntry.toRemove[data-listkey]');
-    i = liEntries.length;
-    while ( i-- ) {
-        toRemove.push(liEntries[i].getAttribute('data-listkey'));
+    const toRemove = [];
+    for (
+        let liEntry of
+        document.querySelectorAll('#lists .listEntry.toRemove[data-listkey]')
+    ) {
+        toRemove.push(liEntry.getAttribute('data-listkey'));
     }
 
     // External filter lists to import
-    var externalListsElem = document.getElementById('externalLists'),
-        toImport = externalListsElem.value.trim();
-    externalListsElem.value = '';
-    uDom.nodeFromId('importLists').checked = false;
+    const externalListsElem = document.getElementById('externalLists');
+    const toImport = externalListsElem.value.trim();
+    {
+        const liEntry = externalListsElem.closest('.listEntry');
+        liEntry.classList.remove('checked');
+        liEntry.querySelector('input[type="checkbox"]').checked = false;
+        externalListsElem.value = '';
+    }
 
     messaging.send(
         'dashboard',
@@ -559,7 +576,7 @@ var toggleHideUnusedLists = function(which) {
         groupSelector = '.groupEntry[data-groupkey="' + which + '"] ';
         uDom(groupSelector).toggleClass('hideUnused', mustHide);
     }
-    uDom(groupSelector + '.listEntry > input[type="checkbox"]:not(:checked)')
+    uDom(groupSelector + '.listEntry input[type="checkbox"]:not(:checked)')
         .ancestors('.listEntry[data-listkey]')
         .toggleClass('unused', mustHide);
     vAPI.localStorage.setItem(
@@ -568,8 +585,8 @@ var toggleHideUnusedLists = function(which) {
     );
 };
 
-var revealHiddenUsedLists = function() {
-    uDom('#lists .listEntry.unused > input[type="checkbox"]:checked')
+const revealHiddenUsedLists = function() {
+    uDom('#lists .listEntry.unused input[type="checkbox"]:checked')
         .ancestors('.listEntry[data-listkey]')
         .removeClass('unused');
 };
@@ -688,10 +705,15 @@ uDom('#ignoreGenericCosmeticFilters').on('change', onFilteringSettingsChanged);
 uDom('#buttonApply').on('click', buttonApplyHandler);
 uDom('#buttonUpdate').on('click', buttonUpdateHandler);
 uDom('#buttonPurgeAll').on('click', buttonPurgeAllHandler);
-uDom('#lists').on('change', '.listEntry > input', onFilteringSettingsChanged);
-uDom('#lists').on('click', '.listEntry > a.remove', onRemoveExternalList);
+uDom('#lists').on('change', '.listEntry input', onListsetChanged);
+uDom('#lists').on('click', '.listEntry .remove', onRemoveExternalList);
 uDom('#lists').on('click', 'span.cache', onPurgeClicked);
 uDom('#externalLists').on('input', onFilteringSettingsChanged);
+
+uDom('#lists').on('click', '.listEntry label *', ev => {
+    if ( ev.target.matches('a,input,.forinput') ) { return; }
+    ev.preventDefault();
+});
 
 /******************************************************************************/
 

@@ -19,7 +19,7 @@
     Home: https://github.com/gorhill/uBlock
 */
 
-/* global CodeMirror, uDom */
+/* global uDom */
 
 'use strict';
 
@@ -169,41 +169,7 @@ self.uBlockDashboard.patchCodeMirrorEditor = (function() {
         grabFocusAsync(cm);
     };
 
-    var resizeTimer,
-        resizeObserver;
-    var resize = function(cm) {
-        resizeTimer = undefined;
-        var child = document.querySelector('.codeMirrorFillVertical');
-        if ( child === null ) { return; }
-        var prect = document.documentElement.getBoundingClientRect();
-        var crect = child.getBoundingClientRect();
-        var cssHeight = Math.floor(Math.max(prect.bottom - crect.top, 80)) + 'px';
-        if ( child.style.height !== cssHeight ) {
-            child.style.height = cssHeight;
-            if ( cm instanceof CodeMirror ) {
-                cm.refresh();
-            }
-        }
-    };
-    var resizeAsync = function(cm, delay) {
-        if ( resizeTimer !== undefined ) { return; }
-        resizeTimer = vAPI.setTimeout(
-            resize.bind(null, cm),
-            typeof delay === 'number' ? delay : 66
-        );
-    };
-
     return function(cm) {
-        if ( document.querySelector('.codeMirrorFillVertical') !== null ) {
-            var boundResizeAsync = resizeAsync.bind(null, cm);
-            window.addEventListener('resize', boundResizeAsync);
-            resizeObserver = new MutationObserver(boundResizeAsync);
-            resizeObserver.observe(document.querySelector('.body'), {
-                childList: true,
-                subtree: true
-            });
-            resizeAsync(cm, 1);
-        }
         if ( cm.options.inputStyle === 'contenteditable' ) {
             cm.on('beforeSelectionChange', patchSelectAll);
         }
@@ -231,10 +197,3 @@ self.uBlockDashboard.openOrSelectPage = function(url, options = {}) {
 // Open links in the proper window
 uDom('a').attr('target', '_blank');
 uDom('a[href*="dashboard.html"]').attr('target', '_parent');
-uDom('.whatisthis').on('click', function() {
-    uDom(this)
-        .parent()
-        .descendants('.whatisthis-expandable')
-        .first()
-        .toggleClass('whatisthis-expanded');
-});

@@ -54,8 +54,9 @@ textarea {
     vertical-align: middle;
     }
 #pageSelector {
-    width: 28em;
+    min-width: 10em;
     padding: 0.2em 0;
+    width: 50vw;
     }
 
 /*
@@ -357,7 +358,6 @@ body[dir="rtl"] #popupContainer > div {
 #netFilteringDialog .dialog select {
     max-width: 75%;
     outline: none;
-    padding: 0.2em;
 }
 
 #netFilteringDialog .dialog > div.preview {

@@ -178,6 +178,10 @@ const onMessage = function(request, sender, callback) {
         µb.toggleHostnameSwitch(request);
         break;
 
+    case 'uiStyles':
+        response = µb.hiddenSettings.uiStyles;
+        break;
+
     case 'userSettings':
         response = µb.changeUserSettings(request.name, request.value);
         break;

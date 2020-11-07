@@ -356,7 +356,7 @@
     "description": "English: Parse and enforce Adblock+ element hiding filters."
   },
   "3pParseAllABPHideFiltersInfo": {
-    "message": "<p>Deze optie schakelt het inlezen en toepassen van <a href=\"https://adblockplus.org/en/faq_internal#elemhide\">Adblock Plus-compatibele &lsquo;elementverbergende&rsquo; filters</a> in. Deze filters zijn puur cosmetisch; ze verbergen elementen in de webpagina die visueel storend kunnen zijn en niet door de op netwerkaanvragen gebaseerde filter-engine kunnen worden geblokkeerd.</p><p>Het inschakelen van deze functie verhoogt het geheugengebruik van uBlock₀.</p>",
+    "message": "Cosmetische filters dienen voor het verbergen van elementen in een webpagina die visueel storend kunnen zijn en niet door de op netwerkaanvragen gebaseerde filter-engines kunnen worden geblokkeerd.",
     "description": "Describes the purpose of the 'Parse and enforce cosmetic filters' feature."
   },
   "3pIgnoreGenericCosmeticFilters": {
@@ -364,7 +364,7 @@
     "description": "This will cause uBO to ignore all generic cosmetic filters."
   },
   "3pIgnoreGenericCosmeticFiltersInfo": {
-    "message": "<p>Algemene cosmetische filters zijn die cosmetische filters die zijn bedoeld om op alle websites te worden toegepast.<p>Hoewel ze efficiënt door uBlock₀ worden verwerkt, kunnen algemene cosmetische filters op sommige webpagina’s toch bijdragen aan meetbare geheugen- en cpu-overhead, met name op grote pagina’s en die met een lange levensduur.<p>Het inschakelen van deze optie elimineert de aan webpagina’s toegevoegde geheugen- en cpu-overhead als gevolg van het verwerken van algemene cosmetische filters, en verlaagt tevens het geheugengebruik van uBlock₀ zelf.<p>Het wordt aanbevolen deze optie op minder krachtige apparaten in te schakelen.",
+    "message": "Algemene cosmetische filters zijn die cosmetische filters die zijn bedoeld om op alle websites te worden toegepast. Het inschakelen van deze optie elimineert de aan webpagina’s toegevoegde geheugen- en cpu-overhead als gevolg van het verwerken van algemene cosmetische filters.\n\nHet wordt aanbevolen deze optie op minder krachtige apparaten in te schakelen.",
     "description": "Describes the purpose of the 'Ignore generic cosmetic filters' feature."
   },
   "3pListsOfBlockedHostsHeader": {
@@ -794,5 +794,37 @@
   "dummy": {
     "message": "This entry must be the last one",
     "description": "so we dont need to deal with comma for last entry"
+  },
+  "3pViewContent": {
+    "message": "inhoud weergeven",
+    "description": "used as a tooltip for eye icon beside a list"
+  },
+  "aboutSourceCode": {
+    "message": "Broncode",
+    "description": "Link text to source code repo"
+  },
+  "aboutTranslations": {
+    "message": "Vertalingen",
+    "description": "Link text to translations repo"
+  },
+  "aboutFilterLists": {
+    "message": "Filterlijsten",
+    "description": "Link text to uBO's own filter lists repo"
+  },
+  "storageUsed": {
+    "message": "Gebruikte opslagruimte: {{value}} {{unit}}",
+    "description": " In Setting pane, renders as (example): Storage used: 13.2 MB"
+  },
+  "KB": {
+    "message": "KB",
+    "description": "short for 'kilobytes'"
+  },
+  "MB": {
+    "message": "MB",
+    "description": "short for 'megabytes'"
+  },
+  "GB": {
+    "message": "GB",
+    "description": "short for 'gigabytes'"
   }
 }

@@ -325,7 +325,7 @@ var onTextChanged = (function() {
             cleanEditToken = mergeView.editor().changeGeneration();
             isClean = true;
         }
-        diff.classList.toggle('editing', isClean === false);
+        document.body.classList.toggle('editing', isClean === false);
         diff.classList.toggle('dirty', mergeView.leftChunks().length !== 0);
         document.getElementById('editSaveButton').classList.toggle(
             'disabled',
