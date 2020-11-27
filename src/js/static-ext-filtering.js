@@ -740,12 +740,6 @@
                 entryPoint.pseudoclass = compiled.pseudo;
             }
 
-            µb.logger.writeOne(
-                '',
-                'error',
-                'Cosmetic filtering – invalid filter: ' + raw
-            );
-
             return JSON.stringify(compiled);
         };
 
