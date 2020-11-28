@@ -39,7 +39,12 @@
         },
         function(details) {
             cmEditor.setValue(details && details.content || '');
-        }   
+            if ( details.sourceURL ) {
+                const a = document.querySelector('.cm-search-widget .sourceURL');
+                a.setAttribute('href', details.sourceURL);
+                a.setAttribute('title', details.sourceURL);
+            }
+        }
     );
 
     var cmEditor = new CodeMirror(
