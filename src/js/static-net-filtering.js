@@ -2161,7 +2161,8 @@ FilterContainer.prototype.compile = function(raw, writer) {
 
     // Ignore filters with unsupported options
     if ( parsed.unsupported ) {
-        µb.logger.writeOne('', 'error', 'Network filtering – invalid filter: ' + raw);
+        const who = writer.properties.get('assetKey') || '?';
+        µb.logger.writeOne('', 'error', `Invalid network filter in ${who}: ${raw}`);
         return false;
     }
 

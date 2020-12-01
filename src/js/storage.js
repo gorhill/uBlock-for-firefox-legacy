@@ -431,28 +431,33 @@
                 .replace('{{origin}}', options.origin);
     }
 
-    var µb = this;
-
-    var onSaved = function() {
-        var compiledFilters = µb.compileFilters(filters),
-            snfe = µb.staticNetFilteringEngine,
-            cfe = µb.cosmeticFilteringEngine,
-            acceptedCount = snfe.acceptedCount + cfe.acceptedCount,
-            discardedCount = snfe.discardedCount + cfe.discardedCount;
-        µb.applyCompiledFilters(compiledFilters, true);
-        var entry = µb.availableFilterLists[µb.userFiltersPath],
-            deltaEntryCount = snfe.acceptedCount + cfe.acceptedCount - acceptedCount,
-            deltaEntryUsedCount = deltaEntryCount - (snfe.discardedCount + cfe.discardedCount - discardedCount);
+    let onSaved = ( ) => {
+        const compiledFilters = this.compileFilters(
+            filters,
+            { assetKey: this.userFiltersPath }
+        );
+        const snfe = this.staticNetFilteringEngine;
+        const cfe = this.cosmeticFilteringEngine;
+        const acceptedCount = snfe.acceptedCount + cfe.acceptedCount;
+        const discardedCount = snfe.discardedCount + cfe.discardedCount;
+        this.applyCompiledFilters(compiledFilters, true);
+        const entry = this.availableFilterLists[this.userFiltersPath];
+        const deltaEntryCount =
+            snfe.acceptedCount +
+            cfe.acceptedCount - acceptedCount;
+        const deltaEntryUsedCount =
+            deltaEntryCount -
+            (snfe.discardedCount + cfe.discardedCount - discardedCount);
         entry.entryCount += deltaEntryCount;
         entry.entryUsedCount += deltaEntryUsedCount;
-        vAPI.storage.set({ 'availableFilterLists': µb.availableFilterLists });
-        µb.staticNetFilteringEngine.freeze();
-        µb.redirectEngine.freeze();
-        µb.staticExtFilteringEngine.freeze();
-        µb.selfieManager.destroy();
+        vAPI.storage.set({ 'availableFilterLists': this.availableFilterLists });
+        this.staticNetFilteringEngine.freeze();
+        this.redirectEngine.freeze();
+        this.staticExtFilteringEngine.freeze();
+        this.selfieManager.destroy();
     };
 
-    var onLoaded = function(details) {
+    let onLoaded = details => {
         if ( details.error ) { return; }
         // The comment, if any, will be applied if and only if it is different
         // from the last comment found in the user filter list.
@@ -469,7 +474,7 @@
         // If we reached this point, the filter quite probably needs to be
         // added for sure: do not try to be too smart, trying to avoid
         // duplicates at this point may lead to more issues.
-        µb.saveUserFilters(details.content.trim() + '\n' + filters, onSaved);
+        this.saveUserFilters(details.content.trim() + '\n' + filters, onSaved);
     };
 
     this.loadUserFilters(onLoaded);
@@ -739,7 +744,10 @@
 
     var onCompiledListLoaded2 = function(details) {
         if ( details.content === '' ) {
-            details.content = µb.compileFilters(rawContent);
+            details.content = µb.compileFilters(
+                rawContent,
+                { assetKey: assetKey }
+            );
             µb.assets.put(compiledPath, details.content);
         }
         rawContent = undefined;
@@ -818,19 +826,27 @@
 
 /******************************************************************************/
 
-µBlock.compileFilters = function(rawText) {
+µBlock.compileFilters = function(rawText, details) {
     let writer = new this.CompiledLineIO.Writer();
+
+    // Populate the writer with information potentially useful to the
+    // client compilers.
+    if ( details ) {
+        if ( details.assetKey ) {
+            writer.properties.set('assetKey', details.assetKey);
+        }
+    }
 
     // Useful references:
     //    https://adblockplus.org/en/filter-cheatsheet
     //    https://adblockplus.org/en/filters
-    let staticNetFilteringEngine = this.staticNetFilteringEngine,
-        staticExtFilteringEngine = this.staticExtFilteringEngine,
-        reIsWhitespaceChar = /\s/,
-        reMaybeLocalIp = /^[\d:f]/,
-        reIsLocalhostRedirect = /\s+(?:0\.0\.0\.0|broadcasthost|localhost|local|ip6-\w+)(?:[^\w.-]|$)/,
-        reLocalIp = /^(?:0\.0\.0\.0|127\.0\.0\.1|::1|fe80::1%lo0)/,
-        lineIter = new this.LineIterator(this.processDirectives(rawText));
+    let staticNetFilteringEngine = this.staticNetFilteringEngine;
+    let staticExtFilteringEngine = this.staticExtFilteringEngine;
+    let reIsWhitespaceChar = /\s/;
+    let reMaybeLocalIp = /^[\d:f]/;
+    let reIsLocalhostRedirect = /\s+(?:0\.0\.0\.0|broadcasthost|localhost|local|ip6-\w+)(?:[^\w.-]|$)/;
+    let reLocalIp = /^(?:0\.0\.0\.0|127\.0\.0\.1|::1|fe80::1%lo0)/;
+    let lineIter = new this.LineIterator(this.processDirectives(rawText));
 
     while ( lineIter.eot() === false ) {
         // rhill 2014-04-18: The trim is important here, as without it there
@@ -1300,7 +1316,10 @@
                     );
                     this.assets.put(
                         'compiled/' + details.assetKey,
-                        this.compileFilters(details.content)
+                        this.compileFilters(
+                            details.content,
+                            { assetKey: details.assetKey }
+                        )
                     );
                 }
             } else {
