@@ -2099,6 +2099,65 @@ nano-setInterval-booster.js application/javascript
 })();
 
 
+no-fetch-if.js application/javascript
+(function() {
+	let arg1 = '{{1}}';
+	if ( arg1 === '{{1}}' ) { arg1 = ''; }
+	const needles = [];
+	for ( let condition of arg1.split(/\s+/) ) {
+		const pos = condition.indexOf(':');
+		let key, value;
+		if ( pos !== -1 ) {
+			key = condition.slice(0, pos);
+			value = condition.slice(pos + 1);
+		} else {
+			key = 'url';
+			value = condition;
+		}
+		if ( value === '' ) {
+			value = '^';
+		} else if ( value.startsWith('/') && value.endsWith('/') ) {
+			value = value.slice(1, -1);
+		} else {
+			value = value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+		}
+		needles.push({ key, re: new RegExp(value) });
+	}
+	self.fetch = new Proxy(self.fetch, {
+		apply: function(target, thisArg, args) {
+			let proceed = true;
+			try {
+				const url = args[0] instanceof self.Request
+					? args[0].url
+					: args[0];
+				const props = new Map([ [ 'url', url ] ]);
+				const init = args[1];
+				if ( init instanceof Object ) {
+					for ( let prop in init ) {
+						if ( init.hasOwnProperty(prop) === false ) { continue; }
+						props.set( prop, init[prop]);
+					}
+				}
+				proceed = false;
+				for ( let { key, re } of needles ) {
+					if (
+						props.has(key) === false ||
+						re.test(props.get(key)) === false
+					) {
+						proceed = true;
+						break;
+					}
+				}
+			} catch(ex) {
+			}
+			return proceed
+				? Reflect.apply(target, thisArg, args)
+				: Promise.resolve(new Response());
+		}
+	});
+})();
+
+
 remove-attr.js application/javascript
 (function() {
 	var attr = '{{1}}';
