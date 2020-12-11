@@ -2105,6 +2105,7 @@ no-fetch-if.js application/javascript
 	if ( arg1 === '{{1}}' ) { arg1 = ''; }
 	const needles = [];
 	for ( let condition of arg1.split(/\s+/) ) {
+		if ( condition === '' ) { continue; }
 		const pos = condition.indexOf(':');
 		let key, value;
 		if ( pos !== -1 ) {
@@ -2123,6 +2124,7 @@ no-fetch-if.js application/javascript
 		}
 		needles.push({ key, re: new RegExp(value) });
 	}
+	const log = needles.length === 0 ? console.log.bind(console) : undefined;
 	self.fetch = new Proxy(self.fetch, {
 		apply: function(target, thisArg, args) {
 			let proceed = true;
@@ -2138,7 +2140,13 @@ no-fetch-if.js application/javascript
 						props.set( prop, init[prop]);
 					}
 				}
-				proceed = false;
+				if ( log !== undefined ) {
+					const out = Array.from(props)
+									 .map(a => `${a[0]}:${a[1]}`)
+									 .join(' ');
+					log(`uBO: fetch(${out})`);
+				}
+				proceed = needles.length === 0;
 				for ( let { key, re } of needles ) {
 					if (
 						props.has(key) === false ||
