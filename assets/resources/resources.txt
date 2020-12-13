@@ -1775,7 +1775,8 @@ disable-newtab-links.js application/javascript
 
 set-constant.js application/javascript
 (function() {
-	var cValue = '{{2}}';
+	const thisScript = document.currentScript;
+	let cValue = '{{2}}';
 	if ( cValue === 'undefined' ) {
 		cValue = undefined;
 	} else if ( cValue === 'false' ) {
@@ -1799,8 +1800,8 @@ set-constant.js application/javascript
 	} else {
 		return;
 	}
-	var aborted = false;
-	var mustAbort = function(v) {
+	let aborted = false;
+	const mustAbort = function(v) {
 		if ( aborted ) { return true; }
 		aborted =
 			(v !== undefined && v !== null) &&
@@ -1808,17 +1809,18 @@ set-constant.js application/javascript
 			(typeof v !== typeof cValue);
 		return aborted;
 	};
-	var chain = '{{1}}', owner = window;
-	var makeProxy = function(owner, chain) {
-		var desc;
-		var pos = chain.indexOf('.');
+	const makeProxy = function(owner, chain) {
+		const pos = chain.indexOf('.');
 		if ( pos === -1 ) {
-			if ( mustAbort(owner[chain]) ) { return; }
-			desc = Object.getOwnPropertyDescriptor(owner, chain);
+			const original = owner[chain];
+			if ( mustAbort(original) ) { return; }
+			const desc = Object.getOwnPropertyDescriptor(owner, chain);
 			if ( desc === undefined || desc.get === undefined ) {
 				Object.defineProperty(owner, chain, {
 					get: function() {
-						return cValue;
+						return document.currentScript === thisScript
+							? original
+							: cValue;
 					},
 					set: function(a) {
 						if ( mustAbort(a) ) {
@@ -1829,9 +1831,9 @@ set-constant.js application/javascript
 			}
 			return;
 		}
-		var prop = chain.slice(0, pos),
-			v = owner[prop];
-		chain = chain.slice(pos + 1); 
+		const prop = chain.slice(0, pos);
+		let v = owner[prop];
+		chain = chain.slice(pos + 1);
 		if (
 			(v instanceof Object) ||
 			(typeof v === 'object' && v !== null)
@@ -1839,8 +1841,8 @@ set-constant.js application/javascript
 			makeProxy(v, chain);
 			return;
 		}
-		desc = Object.getOwnPropertyDescriptor(owner, prop);
-		if ( desc && desc.set ) { return; }
+		const desc = Object.getOwnPropertyDescriptor(owner, prop);
+		if ( desc && desc.set !== undefined ) { return; }
 		Object.defineProperty(owner, prop, {
 			get: function() {
 				return v;
@@ -1853,7 +1855,7 @@ set-constant.js application/javascript
 			}
 		});
 	};
-	makeProxy(owner, chain);
+	makeProxy(window, '{{1}}');
 })();
 
 
