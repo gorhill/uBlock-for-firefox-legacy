@@ -127,7 +127,7 @@
         this.dirty = true;
         this.lines = [];
         cm.on('changes', (cm, changes) => {
-            for ( const change of changes ) {
+            for ( let change of changes ) {
                 if ( change.text.length !== 0 || change.removed !== 0 ) {
                     this.dirty = true;
                     break;
@@ -295,7 +295,7 @@
             const annotations = [];
             let lineBeg = -1;
             let lineEnd = -1;
-            for ( const line of lines ) {
+            for ( let line of lines ) {
                 if ( lineBeg === -1 ) {
                     lineBeg = line;
                     lineEnd = line + 1;
