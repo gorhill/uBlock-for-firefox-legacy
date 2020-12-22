@@ -25,7 +25,7 @@
 
 const faIconsInit = function(root) {
     const icons = (root || document).querySelectorAll('.fa-icon');
-    for ( const icon of icons ) {
+    for ( let icon of icons ) {
         if ( icon.firstChild === null || icon.firstChild.nodeType !== 3 ) {
             continue;
         }
@@ -34,7 +34,7 @@ const faIconsInit = function(root) {
         svg.classList.add('fa-icon_' + name);
         const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
         const href = 'img/fontawesome/fontawesome-defs.svg#' + name;
-        use.setAttribute('href', href);
+        use.setAttributeNS('http://www.w3.org/1999/xlink', 'href', href);
         svg.appendChild(use);
         icon.replaceChild(svg, icon.firstChild);
         if ( icon.classList.contains('fa-icon-badged') ) {
