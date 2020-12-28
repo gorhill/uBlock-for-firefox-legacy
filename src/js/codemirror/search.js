@@ -3,8 +3,16 @@
 // I added/removed and modified code in order to get a closer match to a
 // browser's built-in find-in-page feature which are just enough for
 // uBlock Origin.
+//
+// This file was originally wholly imported from:
+// https://github.com/codemirror/CodeMirror/blob/3e1bb5fff682f8f6cbfaef0e56c61d62403d4798/addon/search/search.js
+//
+// And has been modified over time to better suit uBO's usage and coding style:
+// https://github.com/gorhill/uBlock/commits/master/src/js/codemirror/search.js
+//
+// The original copyright notice is reproduced below:
 
-
+// =====
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: http://codemirror.net/LICENSE
 
@@ -15,44 +23,39 @@
 // Ctrl-G (or whatever is bound to findNext) press. You prevent a
 // replace by making sure the match is no longer selected when hitting
 // Ctrl-G.
-
-/* globals define, require, CodeMirror */
+// =====
 
 'use strict';
 
-(function(mod) {
-  if (typeof exports === "object" && typeof module === "object") // CommonJS
-    mod(require("../../lib/codemirror"), require("./searchcursor"), require("../dialog/dialog"));
-  else if (typeof define === "function" && define.amd) // AMD
-    define(["../../lib/codemirror", "./searchcursor", "../dialog/dialog"], mod);
-  else // Plain browser env
-    mod(CodeMirror);
-})(function(CodeMirror) {
+(function(CodeMirror) {
 
-    function searchOverlay(query, caseInsensitive) {
-        if (typeof query === "string")
-            query = new RegExp(query.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&"), caseInsensitive ? "gi" : "g");
-        else if (!query.global)
-            query = new RegExp(query.source, query.ignoreCase ? "gi" : "g");
+    const searchOverlay = function(query, caseInsensitive) {
+        if ( typeof query === 'string' )
+            query = new RegExp(
+                query.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&'),
+                caseInsensitive ? 'gi' : 'g'
+            );
+        else if ( !query.global )
+            query = new RegExp(query.source, query.ignoreCase ? 'gi' : 'g');
 
         return {
             token: function(stream) {
                 query.lastIndex = stream.pos;
-                var match = query.exec(stream.string);
-                if (match && match.index === stream.pos) {
+                const match = query.exec(stream.string);
+                if ( match && match.index === stream.pos ) {
                     stream.pos += match[0].length || 1;
-                    return "searching";
-                } else if (match) {
+                    return 'searching';
+                } else if ( match ) {
                     stream.pos = match.index;
                 } else {
                     stream.skipToEnd();
                 }
             }
         };
-    }
+    };
 
-    function searchWidgetKeydownHandler(cm, ev) {
-        var keyName = CodeMirror.keyName(ev);
+    const searchWidgetKeydownHandler = function(cm, ev) {
+        const keyName = CodeMirror.keyName(ev);
         if ( !keyName ) { return; }
         CodeMirror.lookupKey(
             keyName,
@@ -64,60 +67,54 @@
                 }
             }
         );
-    }
+    };
 
-    function searchWidgetTimerHandler(cm) {
-        var state = getSearchState(cm);
-        state.queryTimer = null;
-        findCommit(cm);
-    }
-
-    function searchWidgetInputHandler(cm) {
-        var state = getSearchState(cm);
-        if ( queryTextFromSearchWidget(cm) !== state.queryText ) {
-            if ( state.queryTimer !== null ) {
-                clearTimeout(state.queryTimer);
-            }
-            state.queryTimer = setTimeout(
-                searchWidgetTimerHandler.bind(null, cm),
-                350
-            );
+    const searchWidgetInputHandler = function(cm) {
+        let state = getSearchState(cm);
+        if ( queryTextFromSearchWidget(cm) === state.queryText ) { return; }
+        if ( state.queryTimer !== null ) {
+            clearTimeout(state.queryTimer);
         }
-    }
+        state.queryTimer = setTimeout(
+            () => {
+                state.queryTimer = null;
+                findCommit(cm, 0);
+            },
+            350
+        );
+    };
 
-    function searchWidgetClickHandler(cm, ev) {
-        var tcl = ev.target.classList;
+    const searchWidgetClickHandler = function(cm, ev) {
+        const tcl = ev.target.classList;
         if ( tcl.contains('cm-search-widget-up') ) {
-            findNext(cm, true);
+            findNext(cm, -1);
         } else if ( tcl.contains('cm-search-widget-down') ) {
-            findNext(cm, false);
+            findNext(cm, 1);
         }
         if ( ev.target.localName !== 'input' ) {
             ev.preventDefault();
         } else {
             ev.stopImmediatePropagation();
         }
-    }
+    };
 
-    function queryTextFromSearchWidget(cm) {
-        return getSearchState(cm).widget.querySelector('input[type="text"]').value;
-    }
+    const queryTextFromSearchWidget = function(cm) {
+        return getSearchState(cm).widget.querySelector('input[type="search"]').value;
+    };
 
-    function queryTextToSearchWidget(cm, q) {
-        var input = getSearchState(cm).widget.querySelector('input[type="text"]');
+    const queryTextToSearchWidget = function(cm, q) {
+        const input = getSearchState(cm).widget.querySelector('input[type="search"]');
         if ( typeof q === 'string' && q !== input.value ) {
             input.value = q;
         }
         input.setSelectionRange(0, input.value.length);
         input.focus();
-    }
+    };
 
-    function SearchState(cm) {
+    const SearchState = function(cm) {
         this.query = null;
-        this.overlay = null;
         this.panel = null;
-        const widgetParent =
-            document.querySelector('.cm-search-widget-template').cloneNode(true);
+        const widgetParent = document.querySelector('.cm-search-widget-template').cloneNode(true);
         this.widget = widgetParent.children[0];
         this.widget.addEventListener('keydown', searchWidgetKeydownHandler.bind(null, cm));
         this.widget.addEventListener('input', searchWidgetInputHandler.bind(null, cm));
@@ -127,127 +124,250 @@
         }
         this.queryText = '';
         this.queryTimer = null;
-    }
+        this.dirty = true;
+        this.lines = [];
+        cm.on('changes', (cm, changes) => {
+            for ( let change of changes ) {
+                if ( change.text.length !== 0 || change.removed !== 0 ) {
+                    this.dirty = true;
+                    break;
+                }
+            }
+        });
+        cm.on('cursorActivity', cm => {
+            updateCount(cm);
+        });
+    };
 
     // We want the search widget to behave as if the focus was on the
     // CodeMirror editor.
 
     const reSearchCommands = /^(?:find|findNext|findPrev|newlineAndIndent)$/;
 
-    function widgetCommandHandler(cm, command) {
+    const widgetCommandHandler = function(cm, command) {
         if ( reSearchCommands.test(command) === false ) { return false; }
-        var queryText = queryTextFromSearchWidget(cm);
+        const queryText = queryTextFromSearchWidget(cm);
         if ( command === 'find' ) {
             queryTextToSearchWidget(cm);
             return true;
         }
         if ( queryText.length !== 0 ) {
-            findNext(cm, command === 'findPrev');
+            findNext(cm, command === 'findPrev' ? -1 : 1);
         }
         return true;
-    }
+    };
 
-    function getSearchState(cm) {
+    const getSearchState = function(cm) {
         return cm.state.search || (cm.state.search = new SearchState(cm));
-    }
+    };
 
-    function queryCaseInsensitive(query) {
-        return typeof query === "string" && query === query.toLowerCase();
-    }
+    const queryCaseInsensitive = function(query) {
+        return typeof query === 'string' && query === query.toLowerCase();
+    };
 
-    function getSearchCursor(cm, query, pos) {
-        // Heuristic: if the query string is all lowercase, do a case insensitive search.
+    // Heuristic: if the query string is all lowercase, do a case insensitive search.
+    const getSearchCursor = function(cm, query, pos) {
         return cm.getSearchCursor(
             query,
             pos,
-            {caseFold: queryCaseInsensitive(query), multiline: true}
+            { caseFold: queryCaseInsensitive(query), multiline: false }
         );
-    }
+    };
 
-    function parseString(string) {
-        return string.replace(/\\(.)/g, function(_, ch) {
-            if (ch === "n") return "\n";
-            if (ch === "r") return "\r";
-            return ch;
+    // https://github.com/uBlockOrigin/uBlock-issues/issues/658
+    //   Modified to backslash-escape ONLY widely-used control characters.
+    const parseString = function(string) {
+        return string.replace(/\\[nrt\\]/g, match => {
+            if ( match === '\\n' ) { return '\n'; }
+            if ( match === '\\r' ) { return '\r'; }
+            if ( match === '\\t' ) { return '\t'; }
+            if ( match === '\\\\' ) { return '\\'; }
+            return match;
         });
-    }
+    };
 
-    function parseQuery(query) {
-        var isRE = query.match(/^\/(.*)\/([a-z]*)$/);
-        if (isRE) {
-            try { query = new RegExp(isRE[1], isRE[2].indexOf("i") === -1 ? "" : "i"); }
-            catch(e) {} // Not a regular expression after all, do a string search
-        } else {
-            query = parseString(query);
+    const reEscape = /[.*+\-?^${}()|[\]\\]/g;
+
+    // Must always return a RegExp object.
+    //
+    // Assume case-sensitivity if there is at least one uppercase in plain
+    // query text.
+    const parseQuery = function(query) {
+        let flags = 'i';
+        let reParsed = query.match(/^\/(.+)\/([iu]*)$/);
+        if ( reParsed !== null ) {
+            try {
+                const re = new RegExp(reParsed[1], reParsed[2]);
+                query = re.source;
+                flags = re.flags;
+            }
+            catch (e) {
+                reParsed = null;
+            }
         }
-        if (typeof query === "string" ? query === "" : query.test(""))
-            query = /x^/;
-        return query;
-    }
+        if ( reParsed === null ) {
+            if ( /[A-Z]/.test(query) ) { flags = ''; }
+            query = parseString(query).replace(reEscape, '\\$&');
+        }
+        if ( typeof query === 'string' ? query === '' : query.test('') ) {
+            query = 'x^';
+        }
+        return new RegExp(query, 'gm' + flags);
+    };
 
-    function startSearch(cm, state) {
+    let intlNumberFormat;
+
+    const formatNumber = function(n) {
+        if ( intlNumberFormat === undefined ) {
+            intlNumberFormat = null;
+            if ( Intl.NumberFormat instanceof Function ) {
+                const intl = new Intl.NumberFormat(undefined, {
+                    notation: 'compact',
+                    maximumSignificantDigits: 3
+                });
+                if (
+                    intl.resolvedOptions instanceof Function &&
+                    intl.resolvedOptions().hasOwnProperty('notation')
+                ) {
+                    intlNumberFormat = intl;
+                }
+            }
+        }
+        return n > 10000 && intlNumberFormat instanceof Object
+            ? intlNumberFormat.format(n)
+            : n.toLocaleString();
+    };
+
+    const updateCount = function(cm) {
+        const state = getSearchState(cm);
+        const lines = state.lines;
+        const current = cm.getCursor().line;
+        let l = 0;
+        let r = lines.length;
+        let i = -1;
+        while ( l < r ) {
+            i = l + r >>> 1;
+            const candidate = lines[i];
+            if ( current === candidate ) { break; }
+            if ( current < candidate ) {
+                r = i;
+            } else /* if ( current > candidate ) */ {
+                l = i + 1;
+            }
+        }
+        let text = '';
+        if ( i !== -1 ) {
+            text = formatNumber(i + 1);
+            if ( lines[i] !== current ) {
+                text = '~' + text;
+            }
+            text = text + '\xA0/\xA0';
+        }
+        const count = lines.length;
+        text += formatNumber(count);
+        const span = state.widget.querySelector('.cm-search-widget-count');
+        span.textContent = text;
+        span.title = count.toLocaleString();
+    };
+
+    const startSearch = function(cm, state) {
         state.query = parseQuery(state.queryText);
-        if ( state.overlay ) {
+        if ( state.overlay !== undefined ) {
             cm.removeOverlay(state.overlay, queryCaseInsensitive(state.query));
         }
         state.overlay = searchOverlay(state.query, queryCaseInsensitive(state.query));
         cm.addOverlay(state.overlay);
-        if ( cm.showMatchesOnScrollbar ) {
-            if ( state.annotate ) {
-                state.annotate.clear();
-                state.annotate = null;
-            }
-            state.annotate = cm.showMatchesOnScrollbar(
-                state.query,
-                queryCaseInsensitive(state.query)
-            );
-            let count = state.annotate.matches.length;
-            state.widget
-                 .querySelector('.cm-search-widget-count > span:nth-of-type(2)')
-                 .textContent = count > 1000 ? '1000+' : count;
-            state.widget.setAttribute('data-query', state.queryText);
-            // Ensure the caret is visible
-            let input = state.widget.querySelector('.cm-search-widget-input > input');
-            input.selectionStart = input.selectionStart;
+        if ( state.dirty || self.searchThread.needHaystack() ) {
+            self.searchThread.setHaystack(cm.getValue());
+            state.dirty = false;
         }
-    }
+        self.searchThread.search(state.query).then(lines => {
+            if ( Array.isArray(lines) === false ) { return; }
+            state.lines = lines;
+            const count = lines.length;
+            updateCount(cm);
+            if ( state.annotate !== undefined ) {
+                state.annotate.clear();
+                state.annotate = undefined;
+            }
+            if ( count === 0 ) { return; }
+            state.annotate = cm.annotateScrollbar('CodeMirror-search-match');
+            const annotations = [];
+            let lineBeg = -1;
+            let lineEnd = -1;
+            for ( let line of lines ) {
+                if ( lineBeg === -1 ) {
+                    lineBeg = line;
+                    lineEnd = line + 1;
+                    continue;
+                } else if ( line === lineEnd ) {
+                    lineEnd = line + 1;
+                    continue;
+                }
+                annotations.push({
+                    from: { line: lineBeg, ch: 0 },
+                    to: { line: lineEnd, ch: 0 }
+                });
+                lineBeg = -1;
+            }
+            if ( lineBeg !== -1 ) {
+                annotations.push({
+                    from: { line: lineBeg, ch: 0 },
+                    to: { line: lineEnd, ch: 0 }
+                });
+            }
+            state.annotate.update(annotations);
+        });
+        state.widget.setAttribute('data-query', state.queryText);
+        // Ensure the caret is visible
+        const input = state.widget.querySelector('.cm-search-widget-input input');
+        input.selectionStart = input.selectionStart;
+    };
 
-    function findNext(cm, rev, callback) {
+    const findNext = function(cm, dir, callback) {
         cm.operation(function() {
-            var state = getSearchState(cm);
+            const state = getSearchState(cm);
             if ( !state.query ) { return; }
-            var cursor = getSearchCursor(
+            let cursor = getSearchCursor(
                 cm,
                 state.query,
-                rev ? cm.getCursor('from') : cm.getCursor('to')
+                dir <= 0 ? cm.getCursor('from') : cm.getCursor('to')
             );
-            if (!cursor.find(rev)) {
+            const previous = dir < 0;
+            if (!cursor.find(previous)) {
                 cursor = getSearchCursor(
                     cm,
                     state.query,
-                    rev ? CodeMirror.Pos(cm.lastLine()) : CodeMirror.Pos(cm.firstLine(), 0)
+                    previous
+                        ? CodeMirror.Pos(cm.lastLine())
+                        : CodeMirror.Pos(cm.firstLine(), 0)
                 );
-                if (!cursor.find(rev)) return;
+                if (!cursor.find(previous)) return;
             }
             cm.setSelection(cursor.from(), cursor.to());
-            cm.scrollIntoView({from: cursor.from(), to: cursor.to()}, 20);
+            const { clientHeight } = cm.getScrollInfo();
+            cm.scrollIntoView(
+                { from: cursor.from(), to: cursor.to() },
+                clientHeight >>> 1
+            );
             if (callback) callback(cursor.from(), cursor.to());
         });
-    }
+    };
 
-    function clearSearch(cm, hard) {
+    const clearSearch = function(cm, hard) {
         cm.operation(function() {
-            var state = getSearchState(cm);
+            const state = getSearchState(cm);
             if ( state.query ) {
                 state.query = state.queryText = null;
             }
-            if ( state.overlay ) {
+            state.lines = [];
+            if ( state.overlay !== undefined ) {
                 cm.removeOverlay(state.overlay);
-                state.overlay = null;
+                state.overlay = undefined;
             }
             if ( state.annotate ) {
                 state.annotate.clear();
-                state.annotate = null;
+                state.annotate = undefined;
             }
             state.widget.removeAttribute('data-query');
             if ( hard ) {
@@ -257,15 +377,15 @@
                 cm.state.search = null;
             }
         });
-    }
+    };
 
-    function findCommit(cm) {
-        var state = getSearchState(cm);
+    const findCommit = function(cm, dir) {
+        const state = getSearchState(cm);
         if ( state.queryTimer !== null ) {
             clearTimeout(state.queryTimer);
             state.queryTimer = null;
         }
-        var queryText = queryTextFromSearchWidget(cm);
+        const queryText = queryTextFromSearchWidget(cm);
         if ( queryText === state.queryText ) { return; }
         state.queryText = queryText;
         if ( state.queryText === '' ) {
@@ -273,15 +393,15 @@
         } else {
             cm.operation(function() {
                 startSearch(cm, state);
-                findNext(cm, false);
+                findNext(cm, dir);
             });
         }
-    }
+    };
 
-    function findCommand(cm) {
-        var queryText = cm.getSelection() || undefined;
+    const findCommand = function(cm) {
+        let queryText = cm.getSelection() || undefined;
         if ( !queryText ) {
-            var word = cm.findWordAt(cm.getCursor());
+            const word = cm.findWordAt(cm.getCursor());
             queryText = cm.getRange(word.anchor, word.head);
             if ( /^\W|\W$/.test(queryText) ) {
                 queryText = undefined;
@@ -289,32 +409,30 @@
             cm.setCursor(word.anchor);
         }
         queryTextToSearchWidget(cm, queryText);
-        findCommit(cm);
-    }
+        findCommit(cm, 1);
+    };
 
-    function findNextCommand(cm) {
-        var state = getSearchState(cm);
-        if ( state.query ) { return findNext(cm, false); }
-    }
+    const findNextCommand = function(cm) {
+        const state = getSearchState(cm);
+        if ( state.query ) { return findNext(cm, 1); }
+    };
 
-    function findPrevCommand(cm) {
-        var state = getSearchState(cm);
-        if ( state.query ) { return findNext(cm, true); }
-    }
+    const findPrevCommand = function(cm) {
+        const state = getSearchState(cm);
+        if ( state.query ) { return findNext(cm, -1); }
+    };
 
     {
         const searchWidgetTemplate =
             '<div class="cm-search-widget-template" style="display:none;">' +
               '<div class="cm-search-widget">' +
-                '<span class="fa-icon fa-icon-ro">search</span>&ensp;' +
                 '<span class="cm-search-widget-input">' +
-                  '<input type="text">' +
-                  '<span class="cm-search-widget-count">' +
-                    '<span><!-- future use --></span><span>0</span>' +
-                  '</span>' +
-                '</span>&ensp;' +
-                '<span class="cm-search-widget-up cm-search-widget-button fa-icon">angle-up</span>&ensp;' +
-                '<span class="cm-search-widget-down cm-search-widget-button fa-icon fa-icon-vflipped">angle-up</span>&ensp;' +
+                  '<span class="fa-icon fa-icon-ro">search</span>&ensp;' +
+                  '<input type="search" spellcheck="false">&emsp;' +
+                  '<span class="cm-search-widget-up cm-search-widget-button fa-icon">angle-up</span>&nbsp;' +
+                  '<span class="cm-search-widget-down cm-search-widget-button fa-icon fa-icon-vflipped">angle-up</span>&emsp;' +
+                  '<span class="cm-search-widget-count"></span>' +
+                '</span>' +
                 '<a class="fa-icon sourceURL" href>external-link</a>' +
               '</div>' +
             '</div>';
@@ -331,4 +449,4 @@
     CodeMirror.defineInitHook(function(cm) {
         getSearchState(cm);
     });
-});
+})(self.CodeMirror);
