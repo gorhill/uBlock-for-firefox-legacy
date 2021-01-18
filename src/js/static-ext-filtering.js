@@ -582,7 +582,7 @@
             return µb.cosmeticFilteringEngine.discardedCount +
                    µb.scriptletFilteringEngine.discardedCount +
                    µb.htmlFilteringEngine.discardedCount;
-        }
+        },
     };
 
     //--------------------------------------------------------------------------
@@ -703,6 +703,8 @@
         ]);
 
         const entryPoint = function(raw) {
+            entryPoint.pseudoclass = -1;
+
             const extendedSyntax = reExtendedSyntax.test(raw);
             if ( cssSelectorType(raw) === 1 && extendedSyntax === false ) {
                 return raw;
@@ -711,19 +713,17 @@
             // We  rarely reach this point -- majority of selectors are plain
             // CSS selectors.
 
-            let operator;
-
-            // Supported Adguard/ABP advanced selector syntax: will translate into
-            // uBO's syntax before further processing.
+            // Supported Adguard/ABP advanced selector syntax: will translate
+            // into uBO's syntax before further processing.
             // Mind unsupported advanced selector syntax, such as ABP's
             // `-abp-properties`.
-            // Note: extended selector syntax has been deprecated in ABP, in favor
-            // of the procedural one (i.e. `:operator(...)`). See
-            // https://issues.adblockplus.org/ticket/5287
+            // Note: extended selector syntax has been deprecated in ABP, in
+            // favor of the procedural one (i.e. `:operator(...)`).
+            // See https://issues.adblockplus.org/ticket/5287
             if ( extendedSyntax ) {
                 let matches;
                 while ( (matches = reExtendedSyntaxParser.exec(raw)) !== null ) {
-                    operator = normalizedExtendedSyntaxOperators.get(matches[1]);
+                    const operator = normalizedExtendedSyntaxOperators.get(matches[1]);
                     if ( operator === undefined ) { return; }
                     raw = raw.slice(0, matches.index) +
                           operator + '(' + matches[3] + ')' +
@@ -742,6 +742,8 @@
 
             return JSON.stringify(compiled);
         };
+
+        entryPoint.pseudoclass = -1;
 
         return entryPoint;
     })();
