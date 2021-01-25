@@ -645,7 +645,14 @@ FilterContainer.prototype.compileGenericHideSelector = function(parsed, writer) 
     // - Bad syntax
     // - Procedural filters (can't be generic): the compiled version of
     //   a procedural selector is NEVER equal to its raw version.
-    if ( compiled === undefined || compiled !== selector ) {
+    // https://github.com/uBlockOrigin/uBlock-issues/issues/464
+    //   Pseudoclass-based selectors can be compiled, but are also valid
+    //   plain selectors.
+    if (
+        compiled === undefined ||
+        compiled !== selector &&
+        µb.staticExtFilteringEngine.compileSelector.pseudoclass === -1
+    ) {
         const who = writer.properties.get('assetKey') || '?';
         µb.logger.writeOne('', 'error', `Invalid generic cosmetic filter in ${who} : ##${selector}`);
         return;
@@ -933,7 +940,7 @@ FilterContainer.prototype.skipCompiledContent = function(reader) {
 FilterContainer.prototype.toSelfie = function() {
     var selfieFromMap = function(map) {
         var selfie = [];
-        // Note: destructuring assignment not supported before Chromium 49. 
+        // Note: destructuring assignment not supported before Chromium 49.
         for ( var entry of map ) {
             selfie.push([ entry[0], entry[1].compile() ]);
         }
