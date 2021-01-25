@@ -35,6 +35,10 @@ nooptext text/plain
 noopcss text/css
 
 
+noopvmap-1.0 text/xml
+<vmap:VMAP xmlns:vmap="http://www.iab.net/videosuite/vmap" version="1.0"></vmap:VMAP>
+
+
 noopjs application/javascript
 (function() {
 	;

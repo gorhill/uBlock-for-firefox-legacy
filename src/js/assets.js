@@ -320,6 +320,7 @@ api.fetchFilterList.legacy = {
         '=silent-noeval': '=silent-noeval.js',
         '=noop.js': '=noopjs',
         '=noop.txt': '=nooptext',
+        '=noop-vmap1.0.xml': '=noopvmap-1.0',
         '=popads.js': '=popads.net.js',
         '(popads.js)': '(popads.net.js)',
         '(popads)': '(popads.net.js)',
