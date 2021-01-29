@@ -27,6 +27,6 @@ cp -R ../uAssets/filters/*                                       $DES/ublock/
 cp    ./assets/resources/resources.txt                           $DES/ublock/
 # Optional and obsolete filter lists: do not include in package
 rm    $DES/ublock/annoyances.txt
-rm    $DES/ublock/experimental.txt
+rm    $DES/ublock/badlists.txt
 
 echo "done."
