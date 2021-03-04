@@ -132,12 +132,7 @@ function waitForHiddenWindow() {
         // window for the actual background page (windowless browsers are
         // also what the webextension implementation in Firefox uses for
         // background pages).
-        let { Services } = Cu.import('resource://gre/modules/Services.jsm', null);
-        if ( Services.vc.compare(Services.appinfo.platformVersion, '27') >= 0 ) {
-            getWindowlessBrowserFrame(appShell);
-        } else {
-            createBgProcess(hiddenDoc);
-        }
+        getWindowlessBrowserFrame(appShell);
         return true;
     };
 
