@@ -1493,6 +1493,7 @@ setInterval-logger.js application/javascript
 
 
 # https://github.com/uBlockOrigin/uAssets/issues/521
+# https://github.com/uBlockOrigin/uAssets/issues/9123#issuecomment-848255120
 addEventListener-logger.js application/javascript
 (function() {
 	const log = console.log.bind(console);
@@ -1500,8 +1501,12 @@ addEventListener-logger.js application/javascript
 		self.EventTarget.prototype.addEventListener,
 		{
 			apply: function(target, thisArg, args) {
-				const type = String(args[0]);
-				const handler = String(args[1]);
+				let type, handler;
+				try {
+					type = String(args[0]);
+					handler = String(args[1]);
+				} catch(ex) {
+				}
 				log('addEventListener("%s", %s)', type, handler);
 				return target.apply(thisArg, args);
 			}
@@ -1619,6 +1624,7 @@ json-prune.js application/javascript
 
 
 # https://github.com/uBlockOrigin/uAssets/issues/521
+# https://github.com/uBlockOrigin/uAssets/issues/9123#issuecomment-848255120
 addEventListener-defuser.js application/javascript
 (function() {
 	let needle1 = '{{1}}';
@@ -1643,8 +1649,12 @@ addEventListener-defuser.js application/javascript
 		self.EventTarget.prototype.addEventListener,
 		{
 			apply: function(target, thisArg, args) {
-				const type = String(args[0]);
-				const handler = String(args[1]);
+				let type, handler;
+				try {
+					type = String(args[0]);
+					handler = String(args[1]);
+				} catch(ex) {
+				}
 				if (
 					needle1.test(type) === false ||
 					needle2.test(handler) === false
