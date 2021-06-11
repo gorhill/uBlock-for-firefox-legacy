@@ -1511,6 +1511,13 @@ addEventListener-logger.js application/javascript
 
 
 # https://github.com/gorhill/uBlock/commit/2fd86a66fcc2665e5672cc5862e24b3782ee7504
+#
+#  When no "prune paths" argument is provided, the scriptlet is
+#  used for logging purpose and the "needle paths" argument is
+#  used to filter logging output.
+#
+#  https://github.com/uBlockOrigin/uBlock-issues/issues/1545
+#  - Add support for "remove everything if needle matches" case
 json-prune.js application/javascript
 (function() {
 	const rawPrunePaths = '{{1}}';
@@ -1546,9 +1553,15 @@ json-prune.js application/javascript
 			}
 			const pos = chain.indexOf('.');
 			if ( pos === -1 ) {
-				const found = owner.hasOwnProperty(chain);
-				if ( found === false ) { return false; }
-				if ( prune ) {
+				if ( prune === false ) {
+					return owner.hasOwnProperty(chain);
+				}
+				if ( chain === '*' ) {
+					for ( let key in owner ) {
+						if ( owner.hasOwnProperty(key) === false ) { continue; }
+						delete owner[key];
+					}
+				} else if ( owner.hasOwnProperty(chain) ) {
 					delete owner[chain];
 				}
 				return true;
