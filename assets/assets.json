@@ -457,11 +457,11 @@
 		"content": "filters",
 		"group": "regions",
 		"off": true,
-		"title": "NOR, DNK, ISL: Dandelion Sprouts nordiske filtre",
+		"title": "NOR, DNK, ISL: Dandelion Sprouts nordiske filtre – Legacy",
 		"lang": "nb nn no da is",
 		"contentURL": [
-			"https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianList.txt",
-			"https://repo.or.cz/FilterMirrorRepo.git/blob_plain/refs/heads/master:/NorwegianList.txt"
+			"https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/NordicFilters-uBOLegacy.txt",
+			"https://gitlab.com/DandelionSprout/adfilt/-/raw/master/NorwegianExperimentalList%20alternate%20versions/NordicFilters-uBOLegacy.txt"
 		],
 		"supportURL": "https://github.com/DandelionSprout/adfilt"
 	},
