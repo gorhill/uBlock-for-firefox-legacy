@@ -457,11 +457,11 @@
 		"content": "filters",
 		"group": "regions",
 		"off": true,
-		"title": "NOR, DNK, ISL: Dandelion Sprouts nordiske filtre (for XUL uBlock Origin)",
+		"title": "NOR, DNK, ISL: Dandelion Sprouts nordiske filtre (for «uBlock Origin Legacy»)",
 		"lang": "nb nn no da is",
 		"contentURL": [
-			"https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/NordicFiltersXULuBO.txt",
-			"https://gitlab.com/DandelionSprout/adfilt/-/raw/master/NorwegianExperimentalList%20alternate%20versions/NordicFiltersXULuBO.txt"
+			"https://raw.githubusercontent.com/DandelionSprout/adfilt/master/NorwegianExperimentalList%20alternate%20versions/NordicFilters-uBOLegacy.txt",
+			"https://gitlab.com/DandelionSprout/adfilt/-/raw/master/NorwegianExperimentalList%20alternate%20versions/NordicFilters-uBOLegacy.txt"
 		],
 		"supportURL": "https://github.com/DandelionSprout/adfilt"
 	},
