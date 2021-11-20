@@ -830,5 +830,13 @@
   "GB": {
     "message": "ജി.ബി.",
     "description": "short for 'gigabytes'"
+  },
+  "shortcutsPageName": {
+    "message": "കുറുക്കുവഴികൾ",
+    "description": "appears as tab name in dashboard"
+  },
+  "shortcutCapturePlaceholder": {
+    "message": "ഒരു കുറുക്കുവഴി ടൈപ്പുചെയ്യുക",
+    "description": "Placeholder string for input field used to capture a keyboard shortcut"
   }
 }

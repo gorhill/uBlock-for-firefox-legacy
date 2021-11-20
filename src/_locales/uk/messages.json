@@ -830,5 +830,13 @@
   "GB": {
     "message": "ГБ",
     "description": "short for 'gigabytes'"
+  },
+  "shortcutsPageName": {
+    "message": "Комбінації клавіш",
+    "description": "appears as tab name in dashboard"
+  },
+  "shortcutCapturePlaceholder": {
+    "message": "Уведіть комбінацію",
+    "description": "Placeholder string for input field used to capture a keyboard shortcut"
   }
 }

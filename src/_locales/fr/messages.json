@@ -830,5 +830,13 @@
   "GB": {
     "message": "Go",
     "description": "short for 'gigabytes'"
+  },
+  "shortcutsPageName": {
+    "message": "Raccourcis",
+    "description": "appears as tab name in dashboard"
+  },
+  "shortcutCapturePlaceholder": {
+    "message": "Saisir un raccourci",
+    "description": "Placeholder string for input field used to capture a keyboard shortcut"
   }
 }

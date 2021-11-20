@@ -107,7 +107,11 @@ const onTabClickHandler = function(ev) {
 
 /******************************************************************************/
 
-uDom.onLoad(function() {
+uDom.onLoad(function () {
+    // https://github.com/uBlockOrigin/uBlock-issues/issues/106
+    vAPI.messaging.send('dashboard', { what: 'canUpdateShortcuts' }, response => {
+        document.body.classList.toggle('canUpdateShortcuts', response === true);
+    });
     let pane = vAPI.localStorage.getItem('dashboardLastVisitedPane');
     loadDashboardPanel(pane !== null ? pane : 'settings.html', true);
     uDom('.tabButton').on('click', onTabClickHandler);

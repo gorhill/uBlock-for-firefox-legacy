@@ -830,5 +830,13 @@
   "GB": {
     "message": "GB",
     "description": "short for 'gigabytes'"
+  },
+  "shortcutsPageName": {
+    "message": "Tipkovni prečaci",
+    "description": "appears as tab name in dashboard"
+  },
+  "shortcutCapturePlaceholder": {
+    "message": "Utipkajte tipkovni prečac",
+    "description": "Placeholder string for input field used to capture a keyboard shortcut"
   }
 }

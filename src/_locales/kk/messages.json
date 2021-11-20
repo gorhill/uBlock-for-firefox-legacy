@@ -830,5 +830,13 @@
   "GB": {
     "message": "ГБ",
     "description": "short for 'gigabytes'"
+  },
+  "shortcutsPageName": {
+    "message": "Жапсырм-р",
+    "description": "appears as tab name in dashboard"
+  },
+  "shortcutCapturePlaceholder": {
+    "message": "Жарлық теріңіз",
+    "description": "Placeholder string for input field used to capture a keyboard shortcut"
   }
 }

@@ -830,5 +830,13 @@
   "GB": {
     "message": "جيغا بايت",
     "description": "short for 'gigabytes'"
+  },
+  "shortcutsPageName": {
+    "message": "الاختصارات",
+    "description": "appears as tab name in dashboard"
+  },
+  "shortcutCapturePlaceholder": {
+    "message": "ادخل اختصار",
+    "description": "Placeholder string for input field used to capture a keyboard shortcut"
   }
 }

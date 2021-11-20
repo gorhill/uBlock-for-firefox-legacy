@@ -1,7 +1,7 @@
 /*******************************************************************************
 
     uBlock Origin - a browser extension to block requests.
-    Copyright (C) 2014-2018 Raymond Hill
+    Copyright (C) 2014-present Raymond Hill
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -737,6 +737,38 @@ var µb = µBlock;
 
 /******************************************************************************/
 
+// Shortcuts pane
+
+let getShortcuts = function(callback) {
+    if ( µb.canUseShortcuts === false ) {
+        return callback([]);
+    }
+
+    let response = [];
+    for (let command of vAPI.commands.getAll()) {
+        let desc = command.description;
+        let match = /^__MSG_(.+?)__$/.exec(desc);
+        if ( match !== null ) {
+            desc = vAPI.i18n(match[1]);
+        }
+        if ( desc === '' ) { continue; }
+        command.description = desc;
+        response.push(command);
+    }
+    callback(response);
+};
+
+let setShortcut = function(details) {
+    if  ( µb.canUpdateShortcuts === false ) { return; }
+    if ( details.shortcut === undefined ) {
+        vAPI.commands.reset(details.name);
+    } else {
+        vAPI.commands.update(details.name, details.shortcut);
+    }
+};
+
+/******************************************************************************/
+
 // Settings
 
 var getLocalData = function(callback) {
@@ -962,6 +994,9 @@ var onMessage = function(request, sender, callback) {
     case 'getLocalData':
         return getLocalData(callback);
 
+    case 'getShortcuts':
+        return getShortcuts(callback);
+
     case 'readUserFilters':
         return µb.loadUserFilters(callback);
 
@@ -976,6 +1011,10 @@ var onMessage = function(request, sender, callback) {
     var response;
 
     switch ( request.what ) {
+    case 'canUpdateShortcuts':
+        response = µb.canUpdateShortcuts;
+        break;
+
     case 'getRules':
         response = getRules();
         break;
@@ -1015,6 +1054,10 @@ var onMessage = function(request, sender, callback) {
 
     case 'resetUserData':
         resetUserData();
+        break;
+
+    case 'setShortcut':
+        setShortcut(request);
         break;
 
     case 'writeHiddenSettings':

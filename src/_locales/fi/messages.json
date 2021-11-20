@@ -830,5 +830,13 @@
   "GB": {
     "message": "Gt",
     "description": "short for 'gigabytes'"
+  },
+  "shortcutsPageName": {
+    "message": "Pikanäppäimet",
+    "description": "appears as tab name in dashboard"
+  },
+  "shortcutCapturePlaceholder": {
+    "message": "Syötä pikanäppäimet",
+    "description": "Placeholder string for input field used to capture a keyboard shortcut"
   }
 }
