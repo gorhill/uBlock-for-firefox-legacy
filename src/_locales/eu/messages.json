@@ -830,5 +830,13 @@
   "GB": {
     "message": "GB",
     "description": "short for 'gigabytes'"
+  },
+  "shortcutsPageName": {
+    "message": "Lasterbideak",
+    "description": "appears as tab name in dashboard"
+  },
+  "shortcutCapturePlaceholder": {
+    "message": "Idatzi lasterbide bat",
+    "description": "Placeholder string for input field used to capture a keyboard shortcut"
   }
 }

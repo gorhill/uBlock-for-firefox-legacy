@@ -830,5 +830,13 @@
   "GB": {
     "message": "GB",
     "description": "short for 'gigabytes'"
+  },
+  "shortcutsPageName": {
+    "message": "குறுக்குவழிகள்",
+    "description": "appears as tab name in dashboard"
+  },
+  "shortcutCapturePlaceholder": {
+    "message": "குறுக்குவழியைத் தட்டச்சு செய்க",
+    "description": "Placeholder string for input field used to capture a keyboard shortcut"
   }
 }

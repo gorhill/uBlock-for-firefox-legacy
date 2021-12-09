@@ -830,5 +830,13 @@
   "GB": {
     "message": "GB",
     "description": "short for 'gigabytes'"
+  },
+  "shortcutsPageName": {
+    "message": "Atajos",
+    "description": "appears as tab name in dashboard"
+  },
+  "shortcutCapturePlaceholder": {
+    "message": "Escribe un atajo",
+    "description": "Placeholder string for input field used to capture a keyboard shortcut"
   }
 }

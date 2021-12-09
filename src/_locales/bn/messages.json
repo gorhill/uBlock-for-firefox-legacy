@@ -830,5 +830,13 @@
   "GB": {
     "message": "গিগাবাইট",
     "description": "short for 'gigabytes'"
+  },
+  "shortcutsPageName": {
+    "message": "শর্টকাটগুলি",
+    "description": "appears as tab name in dashboard"
+  },
+  "shortcutCapturePlaceholder": {
+    "message": "শর্টকাট লিখুন",
+    "description": "Placeholder string for input field used to capture a keyboard shortcut"
   }
 }

@@ -830,5 +830,13 @@
   "GB": {
     "message": "GB",
     "description": "short for 'gigabytes'"
+  },
+  "shortcutsPageName": {
+    "message": "ショートカットキー",
+    "description": "appears as tab name in dashboard"
+  },
+  "shortcutCapturePlaceholder": {
+    "message": "ショートカットを入力",
+    "description": "Placeholder string for input field used to capture a keyboard shortcut"
   }
 }

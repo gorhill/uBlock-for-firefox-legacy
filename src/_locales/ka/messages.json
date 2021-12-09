@@ -830,5 +830,13 @@
   "GB": {
     "message": "გბ",
     "description": "short for 'gigabytes'"
+  },
+  "shortcutsPageName": {
+    "message": "მალსახმობები",
+    "description": "appears as tab name in dashboard"
+  },
+  "shortcutCapturePlaceholder": {
+    "message": "მალსახმობის მითითება",
+    "description": "Placeholder string for input field used to capture a keyboard shortcut"
   }
 }

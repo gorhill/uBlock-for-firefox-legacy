@@ -78,6 +78,10 @@ iframe {
     width: 100vw;
     }
 
+body:not(.canUpdateShortcuts) .tabButton[href="#shortcuts.html"] {
+    display: none;
+    }
+
 /* high dpi devices */
 :root.hidpi .tabButton {
     font-family: Metropolis, sans-serif;

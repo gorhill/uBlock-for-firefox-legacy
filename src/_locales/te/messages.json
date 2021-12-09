@@ -830,5 +830,13 @@
   "GB": {
     "message": "జీబీ",
     "description": "short for 'gigabytes'"
+  },
+  "shortcutsPageName": {
+    "message": "షార్ట్కట్లు",
+    "description": "appears as tab name in dashboard"
+  },
+  "shortcutCapturePlaceholder": {
+    "message": "షార్ట్కట్ టైప్ చేయండి",
+    "description": "Placeholder string for input field used to capture a keyboard shortcut"
   }
 }

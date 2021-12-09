@@ -830,5 +830,13 @@
   "GB": {
     "message": "GB",
     "description": "short for 'gigabytes'"
+  },
+  "shortcutsPageName": {
+    "message": "Shkurtoret",
+    "description": "appears as tab name in dashboard"
+  },
+  "shortcutCapturePlaceholder": {
+    "message": "Vendosni kombinimin",
+    "description": "Placeholder string for input field used to capture a keyboard shortcut"
   }
 }

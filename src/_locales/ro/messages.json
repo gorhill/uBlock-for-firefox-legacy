@@ -830,5 +830,13 @@
   "GB": {
     "message": "GB",
     "description": "short for 'gigabytes'"
+  },
+  "shortcutsPageName": {
+    "message": "Comenzi rapide",
+    "description": "appears as tab name in dashboard"
+  },
+  "shortcutCapturePlaceholder": {
+    "message": "Tastează o comandă rapidă",
+    "description": "Placeholder string for input field used to capture a keyboard shortcut"
   }
 }

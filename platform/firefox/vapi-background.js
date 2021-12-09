@@ -3330,7 +3330,7 @@ vAPI.contextMenu = (function() {
 // Assuming only one client listener is installed.
 
 // Shortcuts can be customized in `about:config` using
-//     extensions.ublock0.shortcuts.[command id]    => modifier-key
+//     extensions.ublock0.shortcuts.[command id]    => modifier-key or modifier-VK_name
 // To disable a shortcut, set it to `-`:
 //     extensions.ublock0.shortcuts.[command id]    => -
 
@@ -3338,9 +3338,9 @@ vAPI.commands = (function() {
     if ( vAPI.fennec || vAPI.thunderbird ) { return; }
 
     var commands = [
-        { id: 'launch-element-zapper' },
-        { id: 'launch-element-picker' },
-        { id: 'launch-logger' }
+        { name: 'launch-element-zapper', description: "__MSG_popupTipZapper__" },
+        { name: 'launch-element-picker', description: "__MSG_popupTipPicker__" },
+        { name: 'launch-logger', description: "__MSG_popupTipLog__" }
     ];
     var clientListener;
 
@@ -3351,41 +3351,87 @@ vAPI.commands = (function() {
         clientListener(match[1]);
     };
 
-    var canRegister = function(win) {
+    var browserWindow = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator).getMostRecentWindow("navigator:browser");
+
+    var getAll = function () {
+        for (var command of commands) {
+            command.shortcut = vAPI.localStorage.getItem('shortcuts.' + command.name)
+                .replace("alt", "Alt")
+                .replace("shift", "Shift")
+                .replace("accel", "Ctrl")
+                .replace(new RegExp("\\-", 'g'), "+")
+                .replace("VK_", "")
+                .replace("Page_", "Page");
+        };
+        return commands;
+    };
+
+    var update = function (name, shortcut) {
+        vAPI.localStorage.setItem('shortcuts.' + name, shortcut.replace(new RegExp("\\+", 'g'), "-")
+            .replace("Alt", "alt")
+            .replace("Shift", "shift")
+            .replace("Ctrl", "accel")
+            .replace(/(F[1-9]|F1[0-2]|Home|End|Insert|Delete|Up|Down|Left|Right|Period|Comma|Space)$/i, "VK_$1")
+            .replace("Page", "VK_$1_"));
+        vAPI.commands.unregister(browserWindow);
+        vAPI.commands.register(browserWindow);
+    };
+
+    var reset = function (name) {
+        vAPI.localStorage.setItem('shortcuts.' + name, "");
+        vAPI.commands.unregister(browserWindow);
+        vAPI.commands.register(browserWindow);
+    };
+
+    var canRegister = function (win) {
         return win && win.document.readyState === 'complete';
     };
 
-    var register = function(window) {
-        if ( canRegister(window) !== true ) { return; }
+    var register = function (window) {
+        if (canRegister(window) !== true) { return; }
 
         var doc = window.document,
             myKeyset = doc.getElementById('uBlock0Keyset');
         // Already registered?
-        if ( myKeyset !== null ) { return; }
+        if (myKeyset !== null) { return; }
 
         var mainKeyset = doc.getElementById('mainKeyset'),
             keysetHolder = mainKeyset && mainKeyset.parentNode;
-        if ( keysetHolder === null ) { return; }
+        if (keysetHolder === null) { return; }
 
         myKeyset = doc.createElement('keyset');
         myKeyset.setAttribute('id', 'uBlock0Keyset');
 
-        var myKey, shortcut, parts, modifiers, key;
-        for ( var command of commands ) {
-            modifiers = key = '';
-            shortcut = vAPI.localStorage.getItem('shortcuts.' + command.id);
-            if ( shortcut === null ) {
-                vAPI.localStorage.setItem('shortcuts.' + command.id, '');
-            } else if ( (parts = /^((?:[a-z]+-){1,})?(\w)$/.exec(shortcut)) !== null ) {
-                modifiers = (parts[1] || '').slice(0, -1).replace(/-/g, ',');
-                key = parts[2] || '';
+        var myKey, shortcut, modifiers, key, keycode;
+        for (var command of commands) {
+            modifiers = key = [];
+            shortcut = vAPI.localStorage.getItem('shortcuts.' + command.name);
+            if (!shortcut) {
+                vAPI.localStorage.setItem('shortcuts.' + command.name, '');
+            } else {
+                var keys = shortcut.split("-");
+                modifiers.push(keys[0]);
+                if (keys.length == 3) {
+                    modifiers.push(keys[1]);
+                }
+                modifiers = modifiers.join(" ");
+                key = keys.pop();
+                if (key.length > 1) {
+                    keycode = key;
+                }
             }
             myKey = doc.createElement('key');
-            myKey.setAttribute('id', 'uBlock0Key-' + command.id);
-            if ( modifiers !== '' ) {
+            myKey.setAttribute('id', 'uBlock0Key-' + command.name);
+
+            if (modifiers.length > 0) {
                 myKey.setAttribute('modifiers', modifiers);
             }
-            myKey.setAttribute('key', key);
+            if (keycode) {
+                myKey.setAttribute('keycode', keycode);
+            } else {
+                myKey.setAttribute('key', key);
+            }
+
             // https://stackoverflow.com/a/16786770
             myKey.setAttribute('oncommand', ';');
             myKeyset.appendChild(myKey);
@@ -3421,7 +3467,10 @@ vAPI.commands = (function() {
         unregister: unregister,
         onCommand: {
             addListener: addListener
-        }
+        },
+        getAll: getAll,
+        update: update,
+        reset: reset
     };
 })();
 
