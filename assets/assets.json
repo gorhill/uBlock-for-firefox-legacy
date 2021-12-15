@@ -118,6 +118,7 @@
 		"content": "filters",
 		"group": "privacy",
 		"off": true,
+		"noConvert": false,
 		"title": "AdGuard Tracking Protection",
 		"contentURL": "https://filters.adtidy.org/extension/ublock/filters/3.txt",
 		"supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
@@ -170,6 +171,7 @@
 		"content": "filters",
 		"group": "social",
 		"off": true,
+		"noConvert": false,
 		"title": "AdGuard Social Media",
 		"contentURL": "https://filters.adtidy.org/extension/ublock/filters/4.txt",
 		"supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
@@ -188,6 +190,7 @@
 		"content": "filters",
 		"group": "social",
 		"off": true,
+		"noConvert": false,
 		"title": "Fanboy’s Annoyance",
 		"contentURL": "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
 		"supportURL": "https://forums.lanik.us/"
@@ -196,6 +199,7 @@
 		"content": "filters",
 		"group": "social",
 		"off": true,
+		"noConvert": false,
 		"title": "EasyList Cookie",
 		"contentURL": "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
 		"supportURL": "https://github.com/easylist/easylist/issues"
@@ -204,6 +208,7 @@
 		"content": "filters",
 		"group": "social",
 		"off": true,
+		"noConvert": false,
 		"title": "Fanboy’s Social",
 		"contentURL": [
 			"https://easylist.to/easylist/fanboy-social.txt",
