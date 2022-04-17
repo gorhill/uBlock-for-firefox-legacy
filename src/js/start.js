@@ -42,7 +42,8 @@ vAPI.app.onShutdown = function() {
     µb.permanentFirewall.reset();
     µb.sessionURLFiltering.reset();
     µb.permanentURLFiltering.reset();
-    µb.hnSwitches.reset();
+    µb.sessionSwitches.reset();
+    µb.permanentSwitches.reset();
 };
 
 /******************************************************************************/
@@ -179,7 +180,8 @@ var onUserSettingsReady = function(fetched) {
     µb.sessionFirewall.assign(µb.permanentFirewall);
     µb.permanentURLFiltering.fromString(fetched.urlFilteringString);
     µb.sessionURLFiltering.assign(µb.permanentURLFiltering);
-    µb.hnSwitches.fromString(fetched.hostnameSwitchesString);
+    µb.permanentSwitches.fromString(fetched.hostnameSwitchesString);
+    µb.sessionSwitches.assign(µb.permanentSwitches);
 
     // https://github.com/gorhill/uBlock/issues/1892
     // For first installation on a battery-powered device, disable generic
@@ -266,7 +268,8 @@ var onSelectedFilterListsLoaded = function() {
         ].join('\n'),
         'urlFilteringString': '',
         'hostnameSwitchesString': [
-            'no-large-media: behind-the-scene false'
+            'no-large-media: behind-the-scene false',
+            'no-scripting: behind-the-scene false'
         ].join('\n'),
         'lastRestoreFile': '',
         'lastRestoreTime': 0,
