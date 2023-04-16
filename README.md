@@ -1,4 +1,3 @@
-[![Build](https://travis-ci.org/gorhill/uBlock.svg?branch=master)](https://travis-ci.org/gorhill/uBlock)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/ublock/localized.svg)](https://crowdin.com/project/ublock)
 [![License](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/gorhill/uBlock/blob/master/LICENSE.txt)
 
@@ -6,7 +5,7 @@
 
 <h1 align="center">
 <sub>
-<img  src="https://raw.githubusercontent.com/gorhill/uBlock/master/doc/img/icon38@2x.png"
+<img  src="https://raw.githubusercontent.com/gorhill/uBlock-for-firefox-legacy/master/doc/img/icon38@2x.png"
       height="38"
       width="38">
 </sub>
@@ -18,7 +17,7 @@ uBlock Origin
 </sup>
 <br>
 <sup> <!-- Languages -->
-      <img src="https://raw.githubusercontent.com/gorhill/uBlock/master/doc/img/languageicon-36.png" width="18" height="18">
+      <img src="https://raw.githubusercontent.com/gorhill/uBlock-for-firefox-legacy/master/doc/img/languageicon-36.png" width="18" height="18">
       <sup>
             English,
             <a href="https://github.com/fang5566/uBlock/blob/master/README.md#ublock-origin">Chinese (中文)</a>,
@@ -43,7 +42,6 @@ uBlock Origin is **NOT** an "ad blocker": [it is a wide-spectrum blocker](https:
   * [Memory](#memory)
   * [CPU](#cpu)
   * [Blocking](#blocking)
-  * [Quick tests](#quick-tests)
 * [Installation](#installation)
   * [Chromium](#chromium)
   * [Firefox](#firefox--firefox-for-android)
@@ -97,15 +95,15 @@ Firefox<br>
 
 <p align="center">
 uBlock Origin is also easy on the CPU<br>
-<img src="https://raw.githubusercontent.com/gorhill/uBlock/master/doc/benchmarks/cpu-usage-overall-chart-20141226.png" /><br>
-<sup>Details of the benchmark available in <a href="https://github.com/gorhill/uBlock/blob/master/doc/benchmarks/cpu-usage-overall-20141226.ods">this LibreOffice spreadsheet</a>.</sup>
+<img src="https://raw.githubusercontent.com/gorhill/uBlock-for-firefox-legacy/master/doc/benchmarks/cpu-usage-overall-chart-20141226.png" /><br>
+<sup>Details of the benchmark available in <a href="https://github.com/gorhill/uBlock-for-firefox-legacy/blob/master/doc/benchmarks/cpu-usage-overall-20141226.ods">this LibreOffice spreadsheet</a>.</sup>
 </p>
 
 #### Blocking
 
 <p align="center">
 Being lean and efficient doesn't mean blocking less<br>
-<img src="https://raw.githubusercontent.com/gorhill/uBlock/master/doc/benchmarks/privex-201502-16.png" /><br>
+<img src="https://raw.githubusercontent.com/gorhill/uBlock-for-firefox-legacy/master/doc/benchmarks/privex-201502-16.png" /><br>
 <sup>For details of benchmark, see 
 <a href="https://github.com/gorhill/uBlock/wiki/uBlock-and-others%3A-Blocking-ads%2C-trackers%2C-malwares">uBlock₀ and others: Blocking ads, trackers, malwares</a>.
 </p>
